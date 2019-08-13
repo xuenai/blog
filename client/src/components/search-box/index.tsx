@@ -1,7 +1,6 @@
 import React from 'react';
 import injectSheet, {StyledComponentProps} from 'react-jss';
 
-
 const styles = (theme:any) => ({
   search: {
     color: theme.color
@@ -10,7 +9,7 @@ const styles = (theme:any) => ({
 
 const Search = injectSheet(styles)((props: StyledComponentProps) => {
   // let {classes} = props;
-  // console.log(classes)
+  console.log(props)
   let cls = props.classes as any
   return (
     <div className={cls.search}>
