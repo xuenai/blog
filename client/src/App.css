@@ -1,0 +1,16 @@
+body {
+  --bg: #fff;
+  --black: #24292e;
+  --color: #515a6e;
+  --primary: green;
+  --fontSizeSmall: 10;
+  --fontSizeBig: 14;
+  --fontSizeLarge: 16;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--color);
+}
+body.dark{
+  --color: green;
+  --bg: #ccc;
+}

@@ -8,14 +8,12 @@ const theme = {
   // 字体颜色
   titleColor: '#17233d',
   color: '#515a6e',
+  summaryColor: '#808695',
   borderColor: '#e8eaec',
   borderColorOutLine: '#dcdee2',
   // 字体
-  fontSizeSmall: 12,
-  fontSizeNormal: 14,
-  fontSizeLarge: 16,
-  // 间距
-  
+  // 媒体查询相关
+  xs: '480'
 }
 
 export default theme

@@ -9,7 +9,6 @@
 }
 
 html {
-  line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
@@ -19,9 +18,8 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #515a6e;
   line-height: 1.5;
-  background-color: #f5f7f9;
+  font-size:12px;
 }
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   margin: 0;
@@ -117,6 +115,11 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+}
+input,
+textarea{
+  border: none;
+  outline: none;
 }
 
 button,
@@ -229,4 +232,8 @@ template {
 
 input::-ms-clear, input::-ms-reveal {
   display: none;
+}
+
+ul,li, dl, dd, dt{
+  list-style:none;
 }
