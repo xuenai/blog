@@ -1,8 +1,9 @@
 body {
   --bg: #fff;
+  --bgBase: #f7f7f7;
   --black: #24292e;
   --color: #515a6e;
-  --primary: green;
+  --primary: #2980b9;
   --fontSizeSmall: 10;
   --fontSizeBig: 14;
   --fontSizeLarge: 16;

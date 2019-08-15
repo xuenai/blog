@@ -3,6 +3,7 @@ import injectSheet, { StyledComponentProps } from "react-jss";
 
 const styles = {
   "search-box": {
+    position: 'relative',
     alignSelf: "center",
     display: "flex",
     alignItems: "center",
@@ -38,7 +39,7 @@ const styles = {
     transitionDelay: ".1s",
     "& input": {
       position: 'relative',
-      zIndex: 1,
+      // zIndex: 1,
       opacity: 1,
       cursor: 'text',
     }
@@ -62,7 +63,7 @@ const styles = {
   // 搜索的那个 √
   "correct-icon": {
     position: "absolute",
-    right: -2,
+    right: 4,
     top: "50%",
     width: 16,
     height: 16,
@@ -83,26 +84,28 @@ const styles = {
     },
     "& span:first-child": {
       top: 2,
-      right: 0,
+      right: 1,
       width: 0,
       transform: "rotate(-45deg)",
-      transformOrigin: "center right"
+      transformOrigin: "center right",
+      transitionDelay: ".2s"
     },
     "& span:nth-child(2)": {
-      right: 10,
-      bottom: 2,
+      right: 13,
+      bottom: 0,
       width: 0,
       transformOrigin: "center right",
       transform: "rotate(45deg)"
     }
   },
   "correct-icon--open": {
+    zIndex: 1,
     "& span:first-child": {
-      width: 15,
+      width: 18,
       transitionDelay: ".1s"
     },
     "& span:nth-child(2)": {
-      width: 8,
+      width: 9,
       transitionDelay: ".35s"
     }
   }
@@ -128,15 +131,22 @@ class Search extends React.Component<StyledComponentProps, State> {
     let { isOpen } = this.state;
     if (!isOpen) {
       this.setState({
-        isOpen: true
+        isOpen: true,
+        iptFocus: true,
       });
       (this.textInput as any).current.focus();
     }
   }
   onBlurHandle () {
-    this.setState({
-      isOpen: false
-    })
+    setTimeout(() => {
+      this.setState({
+        isOpen: false
+      })
+    }, 200)
+  }
+  searchClickHandle (e: React.MouseEvent) {
+    this.searchHandle();
+    e.stopPropagation();
   }
   onKeyupHandle (e: React.KeyboardEvent) {
     if (e.keyCode === 13) {
@@ -154,6 +164,17 @@ class Search extends React.Component<StyledComponentProps, State> {
       <div
         className={cls["search-box"]}
       >
+        <div
+          className={
+            isOpen
+              ? `${cls["correct-icon"]} ${cls["correct-icon--open"]}`
+              : cls["correct-icon"]
+          }
+          onClick={this.searchClickHandle.bind(this)}
+        >
+          <span />
+          <span />
+        </div>
         <div
           className={
             isOpen ? `${cls.search} ${cls["search--open"]}` : cls.search
@@ -175,16 +196,6 @@ class Search extends React.Component<StyledComponentProps, State> {
                 : cls["search-btn"]
             }
           />
-          <div
-            className={
-              isOpen
-                ? `${cls["correct-icon"]} ${cls["correct-icon--open"]}`
-                : cls["correct-icon"]
-            }
-          >
-            <span />
-            <span />
-          </div>
         </div>
       </div>
     );
