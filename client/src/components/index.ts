@@ -4,7 +4,8 @@ import Nav from './nav'
 import Aside from './aside'
 import Item from './item'
 import List from './list'
-import Button from './botton'
+import Button from './botton/button'
+import ShapeOverlays from './shape-overlays'
 
 export {
   Search,
@@ -13,5 +14,6 @@ export {
   Item,
   List,
   Aside,
-  Button
+  Button,
+  ShapeOverlays
 }

@@ -3,7 +3,6 @@ import "./App.css";
 
 import {
   Header,
-  Item,
   Button
 } from "./components";
 
@@ -36,10 +35,11 @@ class App extends React.Component<object, State>{
     return (
       <div>
         <Header />
-        <Item />
-        <Item />
-        <Item />
-        <Button>123123</Button>
+        <Button>
+          <div>123123</div>
+        </Button>
+        <Button></Button>
+        <Button></Button>
         <button onClick={this.changeTheme.bind(this)}>更换主题</button>
       </div>
     )
