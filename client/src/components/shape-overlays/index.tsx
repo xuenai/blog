@@ -35,9 +35,9 @@ class ShapeOverlays extends React.Component<IProps, State>{
     this.state = {
       d: [],
       numPoints: 4,
-      duration: 800,
-      delayPerPath: 70,
-      delayPointsMax: 180,
+      duration: 400,
+      delayPerPath: 50,
+      delayPointsMax: 100,
       delayPointsArray: [],
       timeStart: 0,
       isOpened: false,
@@ -57,7 +57,6 @@ class ShapeOverlays extends React.Component<IProps, State>{
     setTimeout(() => {
       this.toggle();
     })
-    
   }
   toggle () {
     let { numPoints, delayPointsArray, delayPointsMax, isOpened} = this.state;
