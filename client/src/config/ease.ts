@@ -1,11 +1,14 @@
 const ease = {
   exponentialIn: (t:number) => {
+    // @ts-ignore
     return t == 0.0 ? t : Math.pow(2.0, 10.0 * (t - 1.0));
   },
   exponentialOut: (t:number) => {
+    // @ts-ignore
     return t == 1.0 ? t : 1.0 - Math.pow(2.0, -10.0 * t);
   },
   exponentialInOut: (t:number) => {
+    // @ts-ignore
     return t == 0.0 || t == 1.0
       ? t
       : t < 0.5

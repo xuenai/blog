@@ -47,6 +47,7 @@ const Item = injectSheet(styles)(({classes}) => {
   return (
     <div className={classes['list-item']}>
       <div className={classes['list-item-inner']}>
+        <div className={classes['list-item-img']}></div>
         <div className={classes['item-title']}>
           <p>这是一个标题</p>
         </div>

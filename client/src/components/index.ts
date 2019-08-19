@@ -6,6 +6,7 @@ import Item from './item'
 import List from './list'
 import Button from './botton/button'
 import ShapeOverlays from './shape-overlays'
+import HeEditor from './editor'
 
 export {
   Search,
@@ -15,5 +16,6 @@ export {
   List,
   Aside,
   Button,
-  ShapeOverlays
+  ShapeOverlays,
+  HeEditor
 }

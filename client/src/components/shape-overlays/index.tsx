@@ -90,7 +90,6 @@ class ShapeOverlays extends React.Component<IProps, State>{
   renderPath () {
     let {isOpened, timeStart, delayPerPath} = this.state;
     let {pathNum} = this.props;
-    let d:Array<string> = []
     if (isOpened) {
       (this.pathRef as any).current.setAttribute('d', this.updatePath(Date.now() - timeStart))
     } else {

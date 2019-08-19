@@ -3,7 +3,7 @@ import "./App.css";
 
 import {
   Header,
-  Button
+  HeEditor
 } from "./components";
 
 
@@ -35,12 +35,8 @@ class App extends React.Component<object, State>{
     return (
       <div>
         <Header />
-        <Button>
-          <div>123123</div>
-        </Button>
-        <Button></Button>
-        <Button></Button>
-        <button onClick={this.changeTheme.bind(this)}>更换主题</button>
+        <HeEditor></HeEditor>
+        {/* <button onClick={this.changeTheme.bind(this)}>更换主题</button> */}
       </div>
     )
   }
