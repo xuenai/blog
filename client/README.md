@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#博客客户端
 
-## Available Scripts
+项目采用[Create React App](https://github.com/facebook/create-react-app)
 
-In the project directory, you can run:
+**使用crlf格式，tab为2格空格**
+
+## 可用命令
+
+在项目中可以运行以下命令
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+在开发模式下打开应用<br>
+在浏览器中打开 [http://localhost:3000](http://localhost:3000)
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+以交互监视模式启动测试运行器，参阅[running tests](https://facebook.github.io/create-react-app/docs/running-tests) 了解更多
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+生产打包到`build`目录
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+参阅[deployment](https://facebook.github.io/create-react-app/docs/deployment) 了解更多.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 项目中用到的相关依赖
 
-### `npm run eject`
+脚手架[create-react-app](https://github.com/facebook/create-react-app)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+不可怕数据结构[immutable]()
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+路由[react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+路由代码分割[react-loadable](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)，为啥要使用代码分割，查看文章[code-splitting](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+状态管理[react-redux](https://github.com/reduxjs/react-redux),如果有兴趣可以去尝试另外一款状态管理工具[mobx](https://cn.mobx.js.org/)
 
-## Learn More
+redux中间件[redux-thunk](https://www.npmjs.com/package/redux-thunk)，`可以再action里面使用异步方法`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+类名可以使用对象的方式赋值,同时使用css modules [classnames](https://www.npmjs.com/package/classnames)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+热加载，不会刷新网页[react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+动画库 [react-motion](https://github.com/chenglou/react-motion)
