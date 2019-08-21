@@ -27,7 +27,7 @@
 
 脚手架[create-react-app](https://github.com/facebook/create-react-app)
 
-不可怕数据结构[immutable]()
+不可改变数据结构[immutable](https://www.npmjs.com/package/immutable)
 
 路由[react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
 
