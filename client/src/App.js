@@ -1,16 +1,16 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-import client from './graphql'
+import client from '@graphql'
 import './App.css';
 
-import Test from './pages/test'
-
+import {HeEditor} from '@components'
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <h2>My first Apollo app 🚀</h2>
-      <Test></Test>
+      <div style={{maxWidth: '640px', margin:'100px auto 0'}}>
+        <HeEditor></HeEditor>
+      </div>
     </ApolloProvider>
   );
 }

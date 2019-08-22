@@ -1,33 +1,58 @@
-.App {
-  text-align: center;
-}
+/* 引入字体图标 */
+@import '//at.alicdn.com/t/font_809308_vt26v6i63ue.css';
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/* 设置draft-js基础样式 */
+.public-DraftEditorPlaceholder-root{
+  top: 15px;
+  left: 15px;
+  font-size: 16px;
   pointer-events: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.DraftEditor-editorContainer{
+  box-sizing: border-box;
+  border: none;
+}
+.DraftEditor-root,
+.public-DraftEditor-content,
+.DraftEditor-editorContainer{
+  height: 100%;
+}
+.public-DraftEditor-content{
+  box-sizing: border-box;
+  padding: 15px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.App-link {
-  color: #61dafb;
+.public-DraftEditor-content > div{
+  padding-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.public-DraftEditor-content blockquote{
+  margin: 0 0 10px 0;
+  padding: 15px 20px;
+  background-color: #f1f2f3;
+  border-left: solid 5px #ccc;
+  color: #666;
+  font-style: italic;
+}
+.public-DraftEditor-content pre{
+  max-width: 100%;
+  max-height: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  overflow: auto;
+  background-color: #f1f2f3;
+  border-radius: 3px;
+  color: #666;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 16px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.public-DraftEditor-content pre pre{
+  margin: 0;
+  padding: 0;
 }
