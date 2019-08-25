@@ -4,6 +4,22 @@
 
 **使用crlf格式，tab为2格空格**
 
+## 关于z-index
+
+```
+--zspin           : 8;
+--zaffix          : 10;
+--zbackTop        : 10;
+--zselect         : 900;
+--zmodal          : 1000;
+--zdrawer         : 1000;
+--zmessage        : 1010;
+--znotification   : 1010;
+--ztooltip        : 1060;
+--zloadingbar     : 2000;
+--zfullscreen     : 2010;
+```
+
 ## 可用命令
 
 在项目中可以运行以下命令

@@ -86,7 +86,7 @@ class HeEditor extends React.Component {
     return (
       <div className={cls.editor}>
         <div className={cls.controlbar}>
-          <button className={`${cls['control-item']} ${cls.button}`} onClick={this._onBoldClick}>Bold</button>
+          <button data-title="Bold" className={`${cls['control-item']} ${cls.button}`} onClick={this._onBoldClick}>Bold</button>
           <div className={cls['separator-line']}></div>
           <button className={`${cls['control-item']} ${cls.button}`} onClick={this.logState}>log state</button>
 

@@ -1,6 +1,10 @@
 /* 引入字体图标 */
 @import '//at.alicdn.com/t/font_809308_vt26v6i63ue.css';
 
+:root{
+  --ztooltip: 1060;
+}
+
 /* 设置draft-js基础样式 */
 .public-DraftEditorPlaceholder-root{
   top: 15px;
@@ -55,4 +59,43 @@
 .public-DraftEditor-content pre pre{
   margin: 0;
   padding: 0;
+}
+
+
+[data-title] {
+  position: relative;
+}
+[data-title]::before,
+[data-title]::after{
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+  transition: opacity .3s, transform .3s;
+}
+[data-title]::before{
+  margin-top: 3px;
+  border: 5px solid transparent;
+  border-bottom-color: rgba(0,0,0, .7);
+  content: '';
+}
+[data-title]::after{
+  margin-top: 13px;
+  padding: 5px 8px;
+  background-color: rgba(0,0,0, .7);
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0, .2);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  content: attr(data-title);
+}
+[data-title]:hover::before,
+[data-title]:hover::after{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

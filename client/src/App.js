@@ -5,6 +5,8 @@ import './App.css';
 
 import {HeEditor} from '@components'
 
+const text = <span>Tooltip Text</span>;
+
 function App() {
   return (
     <ApolloProvider client={client}>
