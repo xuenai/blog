@@ -1,6 +1,6 @@
 #博客客户端
 
-项目采用[Create React App](https://github.com/facebook/create-react-app)
+项目采用[Create React App](https://github.com/facebook/create-react-app), 本来想用jss的，发现写起来不太顺手，就改成了使用module scss
 
 **使用crlf格式，tab为2格空格**
 
@@ -54,7 +54,5 @@
 redux中间件[redux-thunk](https://www.npmjs.com/package/redux-thunk)，`可以再action里面使用异步方法`
 
 类名可以使用对象的方式赋值,同时使用css modules [classnames](https://www.npmjs.com/package/classnames)
-
-热加载，不会刷新网页[react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
 动画库 [react-motion](https://github.com/chenglou/react-motion)

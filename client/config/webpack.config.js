@@ -293,6 +293,7 @@ module.exports = function(webpackEnv) {
         '@': path.join(__dirname, '../src'),
         '@components': path.join(__dirname, '../src/components'),
         '@config': path.join(__dirname, '../src/config'),
+        '@model': path.join(__dirname, '../src/model'),
         '@graphql': path.join(__dirname, '../src/graphql'),
         '@pages': path.join(__dirname, '../src/pages'),
         '@assets': path.join(__dirname, '../src/assets'),
