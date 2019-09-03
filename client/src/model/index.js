@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const notString = key => `"${key}" 必须是一个字符串`;
 const notObject = key => `"${key}" 必须是一个对象`;
 const notFunction = key => `"${key}" 必须是一个function`;
-const modelNotExist = key => `"${key}" model不存在`;
+const modelNotExist = key => `名为"${key}" 的model不存在`;
 const isObject = (data) => Object.prototype.toString.call(data) === '[object Object]';
 
 const models = {};
@@ -11,27 +11,36 @@ const setModule = (name, model) => {
   let initialState;
   let getActions;
 
-  if (typeof name !== 'string') {
-    throw new Error(notString('name'));
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof name !== 'string') {
+      throw new Error(notString('name'));
+    }
+    if (name in models) return;
+
+    if (!isObject(model)) {
+      throw new Error(notObject('model'));
+    }
+    ({ state: initialState, actions: getActions } = model);
+    if (!isObject(initialState)) {
+      throw new Error(notObject('state'));
+    }
+    if (typeof getActions !== 'function') {
+      throw new Error(notFunction('actions'));
+    }
+  } else {
+    if (name in models) return;
+    ({ state: initialState, actions: getActions } = model);
   }
-  if (!isObject(model)) {
-    throw new Error(notObject('model'));
-  }
-  if (!isObject(initialState)) {
-    throw new Error(notObject('state'));
-  }
-  if (typeof getActions !== 'function') {
-    throw new Error(notFunction('actions'));
-  }
-  if (name in models) return;
-  ({ state: initialState, actions: getActions } = model);
+
   const getModel = (modelName = name) => {
     const { state, actions } = models[modelName];
     return { ...state, ...actions };
   };
   const setState = (payload) => {
-    if (!isObject(payload)) {
-      throw new Error(notObject('payload'));
+    if (process.env.NODE_ENV !== 'production') {
+      if (!isObject(payload)) {
+        throw new Error(notObject('payload'));
+      }
     }
     const { state, setters } = models[name];
     const newState = { ...state, ...payload };
@@ -40,6 +49,7 @@ const setModule = (name, model) => {
       setter(newState);
     });
   };
+
   const actions = {};
   const setLoading = (actionName, showLoading) => {
     actions[actionName].loading = showLoading;
@@ -66,21 +76,23 @@ const setModule = (name, model) => {
   models[name] = { state: initialState, actions, setters: [] };
 }
 
-const getModule = (name) => {
-  // 对name进行测
-  if (typeof name !== 'string') {
-    throw new Error(notString('name'));
+const useModule = (name) => {
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof name !== 'string') {
+      throw new Error(notString('name'));
+    }
+    if (!(name in models)) {
+      throw new Error(modelNotExist(name));
+    }
   }
-  if (!(name in models)) {
-    throw new Error(modelNotExist(name));
-  }
+
   const [, setState] = useState();
   const { state, actions, setters } = models[name];
   useEffect(() => {
-    const len = setters.length;
+    const index = setters.length;
     setters.push(setState);
     return () => {
-      setters.splice(len, 1);
+      setters.splice(index, 1);
     };
   }, [setters]);
   return { ...state, ...actions };
@@ -88,5 +100,5 @@ const getModule = (name) => {
 
 export {
   setModule,
-  getModule
+  useModule
 }
