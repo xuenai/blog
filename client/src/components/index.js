@@ -1,5 +1,5 @@
-import HeEditor from './editor';
+import Header from './header/header'
 
 export {
-  HeEditor,
+  Header,
 }

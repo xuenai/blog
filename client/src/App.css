@@ -1,8 +1,18 @@
 /* 引入字体图标 */
 @import '//at.alicdn.com/t/font_809308_vt26v6i63ue.css';
 
-:root{
-  --ztooltip: 1060;
+body{
+  --bg: #fff;
+  --bgBase: #f4f7ff;
+  --black: #24292e;
+  --color: #515a6e;
+  --primary: #2980b9;
+  --fontSizeSmall: 10;
+  --fontSizeBig: 14;
+  --fontSizeLarge: 16;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--color);
 }
 
 /* 设置draft-js基础样式 */

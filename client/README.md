@@ -140,10 +140,4 @@ export default Counter;
 
 路由代码分割[react-loadable](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)，为啥要使用代码分割，查看文章[code-splitting](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
-状态管理[react-redux](https://github.com/reduxjs/react-redux),如果有兴趣可以去尝试另外一款状态管理工具[mobx](https://cn.mobx.js.org/)
-
-redux中间件[redux-thunk](https://www.npmjs.com/package/redux-thunk)，`可以再action里面使用异步方法`
-
-类名可以使用对象的方式赋值,同时使用css modules [classnames](https://www.npmjs.com/package/classnames)
-
 动画库 [react-motion](https://github.com/chenglou/react-motion)
