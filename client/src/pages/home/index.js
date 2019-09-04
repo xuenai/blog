@@ -1,9 +1,9 @@
 import React from "react";
 
-import {useModule} from '@model';
+import {useStore} from '@config';
 
 function Home() {
-  const { count, increment } = useModule('counter'); // Use other model
+  const { count, increment } = useStore('counter'); // Use other model
 
   return (
     <>

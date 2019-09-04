@@ -1,12 +1,12 @@
 const ease = {
   exponentialIn: (t) => {
-    return t == 0.0 ? t : Math.pow(2.0, 10.0 * (t - 1.0));
+    return t === 0 ? t : Math.pow(2.0, 10.0 * (t - 1.0));
   },
   exponentialOut: (t) => {
-    return t == 1.0 ? t : 1.0 - Math.pow(2.0, -10.0 * t);
+    return t === 1 ? t : 1.0 - Math.pow(2.0, -10.0 * t);
   },
   exponentialInOut: (t) => {
-    return t == 0.0 || t == 1.0
+    return t === 0 || t === 1
       ? t
       : t < 0.5
         ? +0.5 * Math.pow(2.0, (20.0 * t) - 10.0)

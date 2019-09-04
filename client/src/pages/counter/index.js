@@ -1,11 +1,8 @@
 import React from "react";
-import {useModule, setModule} from '@model';
-
-import model from './model';
-setModule("counter", model);
+import {useStore } from '@config';
 
 function Counter() {
-  const { count, increment, decrement, incrementAsync } = useModule('counter');
+  const { count, increment, decrement, incrementAsync } = useStore('counter');
   return (
     <>
       <h1>Counter</h1>

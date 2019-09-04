@@ -20,6 +20,97 @@
 --zfullscreen     : 2010;
 ```
 
+## 关于状态管理
+
+使用的是 [hooks](https://zh-hans.reactjs.org/docs/hooks-intro.html) 自己乱封装的类似vuex action风格的简易版， 只能在function component中使用；
+
+使用时需要在单独创建单独的model文件, 本项目中类似 src/store/modules中的文件：
+
+格式必须为下面这种格式：其中 model()获取当前的state; model(name) 获取名为name中的state; setState是改变当前state
+```
+{
+  name: string;
+  model: {
+    state: object;
+    actions: ({model, setState}) => object;
+  }
+}
+```
+示例代码：
+```
+export default {
+  name: 'counter',
+  model: {
+    state: {
+      count: 0
+    },
+    actions: ({ model, setState }) => ({
+      increment() {
+        const { count } = model();
+        setState({ count: count + 1 });
+      },
+      decrement() {
+        const { count } = model();
+        setState({ count: count - 1 });
+      },
+      async incrementAsync() {
+        const { increment } = model();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        increment();
+      }
+    })
+  }
+};
+```
+使用时可以使用 initStore 方法统一设置全局状态，如src/store/index.js中的那样
+
+```
+import counterModule from './modules/counterModule'
+import {initStore} from '@config'
+
+const store = () => {
+  // 多个参数直接正常穿进去就行
+  // initStore(counterModule, counterModule, counterModule)
+  initStore(counterModule)
+}
+export default store;
+```
+
+之后在src/index.js或者src/app.js中引用src/store/index.js中的store方法并执行,完成全局注册状态
+
+```
+import store from '@store';
+store();
+```
+在组件中使用的时候，*只能用在react function Component中*，使用方法如下：
+
+```
+import React from "react";
+import {useStore } from '@config';
+
+function Counter() {
+  const { count, increment, decrement, incrementAsync } = useStore('counter');
+  return (
+    <>
+      <h1>Counter</h1>
+      <p>
+        Count: <code>{count}</code>
+      </p>
+      <footer>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
+        <button onClick={incrementAsync}>
+          + Async{incrementAsync.loading && "..."}
+        </button>
+      </footer>
+    </>
+  );
+}
+
+export default Counter;
+
+```
+
 ## 可用命令
 
 在项目中可以运行以下命令
