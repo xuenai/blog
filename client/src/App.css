@@ -2,17 +2,27 @@
 @import '//at.alicdn.com/t/font_809308_vt26v6i63ue.css';
 
 body{
-  --bg: #fff;
-  --bgBase: #f4f7ff;
-  --black: #24292e;
-  --color: #515a6e;
-  --primary: #2980b9;
-  --fontSizeSmall: 10;
-  --fontSizeBig: 14;
-  --fontSizeLarge: 16;
+  --bg: #313b4e;
+  --color: #fff;
+  --primary: #5f656f;
+  --priamryActive: #6c7482;
+  --primaryLight: #77808f;
+  --titleColor: #fff;
+  --summaryColor: #afb3b8;
+  font-size:1em;
   min-height: 100vh;
   background: var(--bg);
   color: var(--color);
+}
+
+a{
+  color:var(--primary);
+}
+a:hover{
+  color: var(--priamryActive);
+}
+a:active{
+  color: var(--primaryLight)
 }
 
 /* 设置draft-js基础样式 */
