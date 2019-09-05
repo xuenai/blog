@@ -29,6 +29,7 @@ const Menu = () => {
         <span>Menu</span>
       </button>
       <ul className={styles['menu__nav']}>
+        <li className={styles.site}>justpeth.com</li>
         <li className={styles['menu__nav__item']}>
           <NavLink to="/" exact activeClassName="active">Home</NavLink>
         </li>

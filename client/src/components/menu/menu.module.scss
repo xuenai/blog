@@ -75,10 +75,11 @@
   }
   .menu__nav__item{
     margin: 0 0 2em 0;
+    padding:0 2em;
     transform: translate3d(-150px, 0, 0);
     transition: transform 0.6s;
     a{
-      display: block;
+      display: inline-block;
       text-decoration: none;
     }
     &:first-child{
@@ -120,7 +121,10 @@
 	  stroke-width: 5px;
   }
 }
-
+.site{
+  margin:2em 0;
+  font-size:18px;
+}
 @media screen and (max-width: 63em) {
 	.menu {
 		transform: translate3d(-170px, 0, 0);
