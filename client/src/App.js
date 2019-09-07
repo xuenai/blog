@@ -4,14 +4,15 @@ import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 import client from '@graphql'
 import './App.css';
 
-import {Menu} from '@components'
+import {Menu, Search} from '@components'
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Menu />
+          {/* <Menu /> */}
+          <Search></Search>
         </>
       </Router>
     </ApolloProvider>
