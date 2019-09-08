@@ -1,10 +1,12 @@
 import Header from './header/header'
 import Menu from './menu/menu';
 import Search from './search/search';
-import Spin from './spin/spin'
+import Spin from './spin/spin';
+import NotFound from './notFound/notFound'
 export {
   Header,
   Menu,
   Search,
-  Spin
+  Spin,
+  NotFound
 }

@@ -7,14 +7,16 @@ body{
   --primary: #5f656f;
   --priamryActive: #6c7482;
   --primaryLight: #77808f;
-  --titleColor: #fff;
+  --titleColor: #CDD4DE;
   --summaryColor: #afb3b8;
   font-size:1em;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: var(--bg);
-  color: var(--color);
+  color: var(--titleColor);
 }
-
+::selection {
+  background: #CDD4DE;
+}
 a{
   color:var(--primary);
 }
@@ -118,6 +120,16 @@ a:active{
 [data-title]:hover::after{
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+.main{
+  position: relative;
+  min-height:100vh;
+  transition: opacity 0.6s;
+}
+.main.main--disabled{
+  opacity: 0.1;
+	pointer-events: none;
 }
 
 

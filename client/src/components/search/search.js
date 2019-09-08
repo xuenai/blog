@@ -6,35 +6,16 @@ const Search = () => {
 
   return (
     <div className={styles.search}>
-      <svg className={styles['search-svg']} viewBox="0 0 142.358 24.582">
-      <path id="search-path" fill="none" d="M131.597,14.529c-1.487,1.487-3.542,2.407-5.811,2.407
-          c-4.539,0-8.218-3.679-8.218-8.218s3.679-8.218,8.218-8.218c4.539,0,8.218,3.679,8.218,8.218
-          C134.004,10.987,133.084,13.042,131.597,14.529c0,0,9.554,9.554,9.554,9.554H0"/>
+      <svg className={styles['search-svg']} viewBox="0 0 320 70"
+          data-init="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21"
+          data-mid="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5"
+          data-active="M27,3 L293,3 a27,27 0 0,1 0,54 L27,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5">
+        <path className={styles['search-svg__path']} d="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21" />
       </svg>
-      <label htmlFor="search" className={styles['search-label']}></label>
-      <input type="search" id="search" autocomplete="off" className={styles['input-search']}/>
+      <input type="text" className={styles['search-input']} />
+      <div className={styles['search-close']}></div>
     </div>
   )
 }
 
 export default Search;
-
-
-// var searchField = $('.search');
-// var searchInput = $("input[type='search']");
-
-// var checkSearch = function(){
-//     var contents = searchInput.val();
-//     if(contents.length !== 0){
-//        searchField.addClass('full');
-//     } else {
-//        searchField.removeClass('full');
-//     }
-// };
-
-// $("input[type='search']").focus(function(){
-//     searchField.addClass('isActive');
-//   }).blur(function(){
-//   	searchField.removeClass('isActive');
-//     checkSearch();
-// });
