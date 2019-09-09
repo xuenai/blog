@@ -19,8 +19,8 @@ function App() {
       <Router>
         <>
           <Menu />
-          {/* <Search></Search> */}
           <div className={mianCls}>
+            <Search></Search>
             <Route component={NotFound}></Route>
           </div>
         </>

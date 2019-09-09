@@ -4,8 +4,6 @@ import clsx from 'clsx';
 import { useStore } from '@config';
 import styles from './menu.module.scss';
 
-// const Snap = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`);
-// const mina = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`);
 const Menu = () => {
   const reset = 'M300-10c0,0,0,164,0,410c0,232,0,410,0,410';
   const {isAinimate, toggle, isOpen, morphOpen, morphClose} = useStore('menu');
