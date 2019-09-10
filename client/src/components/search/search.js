@@ -1,6 +1,5 @@
 import React, {useRef} from "react";
 import styles from './search.module.scss';
-// import { useStore } from '@config';
 
 const initD = 'M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21';
 const midD = 'M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5';
@@ -56,7 +55,6 @@ function onCloseHandle (boxRef, svgRef, iptRef, closeRef) {
 }
 
 const Search = () => {
-  // let {} = useStore('search');
   const searchRef = useRef(null);
   const svgRef = useRef(null);
   const iptRef = useRef(null);
