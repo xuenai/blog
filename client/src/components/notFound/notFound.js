@@ -9,7 +9,7 @@ const imgMoveFunction = (e, ref) => {
   let lMouseY = Math.max(-100, Math.min(100, document.documentElement.clientHeight / 2 - e.clientY));
   let lFollowX = (20 * lMouseX) / 100; 
   let lFollowY = (10 * lMouseY) / 100;
-  let translate = 'translate(' + lFollowX + 'px, ' + lFollowY + 'px) scale(1.1)';
+  let translate = 'translate(' + lFollowX + 'px, ' + lFollowY + 'px) scale(1.2)';
   ref.current.style.transform = translate;
 }
 
