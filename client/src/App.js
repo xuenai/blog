@@ -7,7 +7,8 @@ import { useStore } from '@config';
 import './App.css';
 
 import { Menu, NotFound } from '@components';
-import Login from '@pages/login/login'
+import Login from '@pages/login/login';
+import Register from '@pages/register/register';
 
 function App() {
   const { isOpen } = useStore('menu');
@@ -18,15 +19,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <Menu />
-          <div className={mianCls}>
-            <Switch>
-              <Route path="/login" component={Login}></Route>
-              <Route component={NotFound}></Route>
-            </Switch>
-          </div>
-        </>
+      <Menu />
+        <div className={mianCls}>
+          <Switch>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </div>
       </Router>
     </ApolloProvider>
   );

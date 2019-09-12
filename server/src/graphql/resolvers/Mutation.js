@@ -12,35 +12,35 @@ import { ValidationError } from '../../config/formatError'
 
 // 注册
 async function signup(root, args, { User }) {
-  const u = await User.findOne({ email: args.email })
+  const u = await User.findOne({ username: args.username })
   if (u) {
-    throw new ValidationError({
-      key: 'signup',
-      message: `注册失败, 原因: 该邮箱已被注册`
-    })
+    return {
+      code: 1,
+      msg: '注册失败, 原因: 该用户名已被注册'
+    }
   }
   const hashedPassword = await bcrypt.hash(args.password, 12)
   try {
-    const newUser = Object.assign(args, { password: hashedPassword })
+    const newUser = Object.assign(args, { password: hashedPassword , isAdmin: false})
     const response = await User.create(newUser)
     return {
-      ok: true
+      code: 0
     }
   } catch (error) {
-    throw new ValidationError({
-      key: 'signup',
-      message: `注册失败, 原因: ${error.message}`
-    })
+    return {
+      code: 1,
+      msg: `注册失败, 原因: ${error.message}`
+    }
   }
 }
 
 // 登录
-async function login(root, { email, password }, { User, ctx }) {
-  const user = await User.findOne({ email })
+async function login(root, { username, password }, { User, ctx }) {
+  const user = await User.findOne({ username })
   if (!user) {
     throw new ValidationError({
       key: 'login',
-      message: '登录错误: 该邮箱没有注册'
+      message: '登录错误: 该用户名没有注册'
     })
   }
 

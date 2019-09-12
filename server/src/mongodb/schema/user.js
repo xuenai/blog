@@ -4,7 +4,6 @@ import uuidV4 from 'uuid/v4';
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  email: String,
   username: {
     type: String,
     minlength: 2,
@@ -12,6 +11,9 @@ const UserSchema = new Schema({
   },
   password: {
     type: String
+  },
+  isAdmin: {
+    type: Boolean
   },
   createdAt: {
     type: Date
