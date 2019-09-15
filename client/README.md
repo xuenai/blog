@@ -140,4 +140,4 @@ export default Counter;
 
 路由代码分割[react-loadable](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)，为啥要使用代码分割，查看文章[code-splitting](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 
-动画库 [react-motion](https://github.com/chenglou/react-motion)
+动画库 [react-transition-group](https://reactcommunity.org/react-transition-group/)

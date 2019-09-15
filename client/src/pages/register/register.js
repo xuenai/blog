@@ -1,7 +1,8 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import styles from '../login/login.module.scss';
+import { Toast } from '@components';
 
 
 const REGITSET_MUTATUIION = gql`
@@ -15,9 +16,15 @@ const REGITSET_MUTATUIION = gql`
 
 const Register = () => {
   document.title = 'Sign Up';
-
-  const [signup, {loading, data}] = useMutation(REGITSET_MUTATUIION);
-  console.log(loading)
+  let handleLoading;
+  const [signup, { loading, data, error }] = useMutation(REGITSET_MUTATUIION);
+  if (loading) {
+    handleLoading = Toast.loading('加载中。。。')
+  }
+  if (error) {
+    Toast.error(error.message)
+  }
+  console.log(handleLoading)
   const $name = useRef();
   const $pwd = useRef();
   const $pwd1 = useRef();
@@ -36,13 +43,13 @@ const Register = () => {
             alert('请将信息补充完整')
           }
           if (pwd !== pwd1) {
-            
+
           }
-          signup({variables: {username: name, password: pwd}})
+          signup({ variables: { username: name, password: pwd } })
         }}>
-          <input type="text" placeholder="enter username" ref={$name}/>
-          <input type="password" autoComplete="on" ref={$pwd} placeholder="enter password"/>
-          <input type="password" autoComplete="on" ref={$pwd1} placeholder="enter repeat password"/>
+          <input type="text" placeholder="enter username" ref={$name} />
+          <input type="password" autoComplete="on" ref={$pwd} placeholder="enter password" />
+          <input type="password" autoComplete="on" ref={$pwd1} placeholder="enter repeat password" />
           <button type="submit">Sign Up</button>
         </form>
       </div>
