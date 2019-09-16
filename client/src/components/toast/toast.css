@@ -74,18 +74,3 @@
 .toast-notice.error>svg {
     color: #F74A53;
 }
-
-.toast-notice.loading>svg {
-    color: #1890FF;
-    animation: rotating 1s linear infinite;
-
-}
-
-@keyframes rotating {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}

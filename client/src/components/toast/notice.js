@@ -6,7 +6,6 @@ const icons = {
   success: 'icon-check-circle-fill',
   warning: 'icon-warning-circle-fill',
   error: 'icon-close-circle-fill',
-  loading: 'icon-loading'
 }
 
 const Notice = ({ type, content }) => {

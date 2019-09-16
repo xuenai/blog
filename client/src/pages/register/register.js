@@ -5,26 +5,28 @@ import styles from '../login/login.module.scss';
 import { Toast } from '@components';
 
 
-const REGITSET_MUTATUIION = gql`
-  mutation signup($username: String!, $password: String!){
-    signup(username: $username, password: $password) {
-      code,
-      msg
-    }
-  }
-`
-
+let handleLoading;
 const Register = () => {
   document.title = 'Sign Up';
-  let handleLoading;
+  const REGITSET_MUTATUIION = gql`
+    mutation signup($username: String!, $password: String!){
+      signup(username: $username, password: $password) {
+        code,
+        msg
+      }
+    }
+  `
   const [signup, { loading, data, error }] = useMutation(REGITSET_MUTATUIION);
   if (loading) {
-    handleLoading = Toast.loading('加载中。。。')
+    handleLoading = Toast.loading('注册中。。。')
+  }
+  if(!loading && handleLoading) {
+    setTimeout(handleLoading)
+    handleLoading = null;
   }
   if (error) {
     Toast.error(error.message)
   }
-  console.log(handleLoading)
   const $name = useRef();
   const $pwd = useRef();
   const $pwd1 = useRef();
