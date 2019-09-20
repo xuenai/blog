@@ -77,12 +77,12 @@ function setCookie(
   ctx.cookies.set('x-token', token, {
     httpOnly: true,
     expires: new Date(Date.now() + tokenTime),
-    'max-age': tokenTime
+    maxAge: tokenTime
   })
   ctx.cookies.set('x-refresh-token', refreshToken, {
     httpOnly: true,
     expires: new Date(Date.now() + refreshTokenTime),
-    'max-age': refreshTokenTime
+    maxAge: refreshTokenTime
   })
 }
 

@@ -38,25 +38,25 @@ async function signup(root, args, { User }) {
 async function login(root, { username, password }, { User, ctx }) {
   const user = await User.findOne({ username })
   if (!user) {
-    throw new ValidationError({
-      key: 'login',
-      message: '登录错误: 该用户名没有注册'
-    })
+    return {
+      code: 1,
+      msg: '该用户名没有注册'
+    }
   }
 
   const valid = await bcrypt.compare(password, user.password)
   if (!valid) {
-    throw new ValidationError({
-      key: 'login',
-      message: '错误的密码'
-    })
+    return {
+      code: 1,
+      msg: '密码不正确'
+    }
   }
 
   if (user.isDelete) {
-    throw new ValidationError({
-      key: 'login',
-      message: '登录错误: 该账号已被冻结'
-    })
+    return {
+      code: 1,
+      msg: '该账号已被冻结'
+    }
   }
 
   const [token, refreshToken] = await createTokens(
@@ -66,9 +66,8 @@ async function login(root, { username, password }, { User, ctx }) {
   )
 
   setCookie(ctx, token, refreshToken)
-
   return {
-    ok: true,
+    code: 0,
     isAdmin: user.isAdmin
   }
 }
@@ -78,7 +77,7 @@ async function logout(root, args, { ctx }) {
   setCookie(ctx, '', '', -1, -1)
 
   return {
-    ok: true
+    code: 0
   }
 }
 
@@ -100,6 +99,6 @@ async function createUser(root, args, context) {
 export default {
   createUser,
   signup,
-  // login,
+  login,
   // logout,
 }

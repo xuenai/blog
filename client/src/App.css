@@ -10,6 +10,7 @@ body{
   --primaryLight: #77808f;
   --titleColor: #CDD4DE;
   --summaryColor: #afb3b8;
+  --modalBg: rgba(0,0,0,.4);
   font-size:1em;
   /* min-height: 100vh; */
   background: var(--bg);
