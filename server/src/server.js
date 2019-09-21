@@ -4,10 +4,8 @@ import { ApolloServer } from 'apollo-server-koa';
 import database from './mongodb'
 import { resolvers, typeDefs } from './graphql'
 import * as mongo from './mongodb/schema'
-import formatError from './config/formatError'
 import buildDataloader from './config/dataloader'
-
-
+ 
 const context = async ({ ctx }) => {
   return { ...mongo, ctx, dataloaders: buildDataloader(mongo) }
 }
@@ -20,7 +18,7 @@ app.use(cors({
 let hpptServer = app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`),
 );
-const server = new ApolloServer({ typeDefs, resolvers, context, formatError });
+const server = new ApolloServer({ typeDefs, resolvers, context});
 server.applyMiddleware({ app });
 server.installSubscriptionHandlers(hpptServer);
 database();

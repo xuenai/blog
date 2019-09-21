@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { refreshTokens } from './auth'
 import { User } from '../mongodb/schema'
-import { ValidationError } from './formatError'
+// import { ValidationError } from './formatError'
 
 // token 密码
 const APP_SECRET = 'Koa-Apollo-GraphQL-Server'
@@ -43,7 +43,8 @@ async function getUser(ctx) {
   } else {
     errors = { key: 'login', message: '请先进行登录操作' }
   }
-  return { errors, user }
+  // return { errors, user }
+  return {user}
 }
 
 /**
@@ -54,7 +55,7 @@ async function getUser(ctx) {
 async function isLogin(ctx) {
   const { errors, user } = await getUser(ctx)
   if (errors !== undefined) {
-    throw new ValidationError(errors)
+    // throw new ValidationError(errors)
   }
   return user
 }

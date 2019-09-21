@@ -1,29 +1,35 @@
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import client from '@graphql';
 
+import { useStore } from '@config';
+import {ME_QUERY} from '@graphql'
 import './App.css';
 
-import { Menu, NotFound } from '@components';
+import { Menu, NotFound, SignOutBtn, LoginedRoute } from '@components';
 import Login from '@pages/login/login';
 import Register from '@pages/register/register';
-
+import newArtTicle from '@pages/newArticle/newArticle'
 
 function App() {
+  const { data } = useQuery(ME_QUERY);
+  const { isLogin, changeLoginStatus } = useStore('user');
+  if (data.me && data.me.code === 0 && !isLogin) {
+    changeLoginStatus(data.isAdmin, true);
+  }
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <Menu />
-        <div className="main">
-          <Switch>
-            <Route path="/login" component={Login}></Route>
-            <Route path="/register" component={Register}></Route>
-            <Route component={NotFound}></Route>
-          </Switch>
-        </div>
-      </Router>
-    </ApolloProvider>
+    <Router>
+      <Menu />
+      <SignOutBtn />
+      <div className="main">
+        <Switch>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
+          <LoginedRoute path="/new-art" component={newArtTicle}></LoginedRoute>
+          <Route component={NotFound}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

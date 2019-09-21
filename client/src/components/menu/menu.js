@@ -7,6 +7,7 @@ import styles from './menu.module.scss';
 const Menu = () => {
   const reset = 'M300-10c0,0,0,164,0,410c0,232,0,410,0,410';
   const {isAinimate, toggle, isOpen, morphOpen, morphClose} = useStore('menu');
+  const { isLogin } = useStore('user');
   const svgEl = useRef(null);
   let menuCls = clsx({
     [styles.menu]: true,
@@ -44,6 +45,11 @@ const Menu = () => {
           <li className={styles['menu__nav__item']}>
             <NavLink to="/About" activeClassName="active">About</NavLink>
           </li>
+          {
+            isLogin && <li className={styles['menu__nav__item']}>
+              <NavLink to="/new-art" activeClassName="active">new article</NavLink>
+            </li>
+          }
         </ul>
         <div className={styles.shape}>
           <svg width="100%" height="100%" viewBox="0 0 600 800" preserveAspectRatio="none" ref={svgEl}>

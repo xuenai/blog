@@ -6,18 +6,14 @@ import {
 } from '../../config/utils' 
 import { createTokens } from '../../config/auth'
 import { pubsub, NEW_ARTICLE, NEW_VOTE } from '../subscriptionName'
-import { ValidationError } from '../../config/formatError'
 
-
+import {ApolloError} from 'apollo-server-koa'
 
 // 注册
 async function signup(root, args, { User }) {
   const u = await User.findOne({ username: args.username })
   if (u) {
-    return {
-      code: 1,
-      msg: '注册失败, 原因: 该用户名已被注册'
-    }
+    throw new ApolloError(`用户名已被注册`, 'signup')
   }
   const hashedPassword = await bcrypt.hash(args.password, 12)
   try {
@@ -27,10 +23,7 @@ async function signup(root, args, { User }) {
       code: 0
     }
   } catch (error) {
-    return {
-      code: 1,
-      msg: `注册失败, 原因: ${error.message}`
-    }
+    throw new ApolloError(`${error.message}`, 'signup')
   }
 }
 
@@ -38,25 +31,16 @@ async function signup(root, args, { User }) {
 async function login(root, { username, password }, { User, ctx }) {
   const user = await User.findOne({ username })
   if (!user) {
-    return {
-      code: 1,
-      msg: '该用户名没有注册'
-    }
+    throw new ApolloError(`用户不存在`, 'login')
   }
 
   const valid = await bcrypt.compare(password, user.password)
   if (!valid) {
-    return {
-      code: 1,
-      msg: '密码不正确'
-    }
+    throw new ApolloError(`密码不正确`, 'login')
   }
 
   if (user.isDelete) {
-    return {
-      code: 1,
-      msg: '该账号已被冻结'
-    }
+    throw new ApolloError(`该用户已被冻结`, 'login')
   }
 
   const [token, refreshToken] = await createTokens(
@@ -75,7 +59,6 @@ async function login(root, { username, password }, { User, ctx }) {
 // 退出登录
 async function logout(root, args, { ctx }) {
   setCookie(ctx, '', '', -1, -1)
-
   return {
     code: 0
   }
@@ -87,10 +70,10 @@ async function createUser(root, args, context) {
   // const isAdmin = user.isAdmin
   const isAdmin = args.isAdmin
   if (!isAdmin) {
-    throw new ValidationError({
-      key: 'createUser',
-      message: '你不是管理员,无法创建新用户,请使用注册通道'
-    })
+    // throw new ValidationError({
+    //   key: 'createUser',
+    //   message: '你不是管理员,无法创建新用户,请使用注册通道'
+    // })
   }
   return signup(root, args, context)
 }
@@ -100,5 +83,5 @@ export default {
   createUser,
   signup,
   login,
-  // logout,
+  logout,
 }

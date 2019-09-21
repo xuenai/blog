@@ -1,44 +1,38 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
+import {LOGIN_MUTATUIION} from '@graphql';
+
+import { useStore } from '@config';
 import { Toast } from '@components';
 import styles from './login.module.scss';
 
 let handleLoading;
-const Login = () => {
+const Login = ({ history }) => {
+  const $name = useRef();
+  const $pwd = useRef();
   document.title = 'Sign in';
-
-  document.title = 'Sign Up';
-  const REGITSET_MUTATUIION = gql`
-    mutation login($username: String!, $password: String!){
-      login(username: $username, password: $password) {
-        code,
-        msg
-      }
-    }
-  `
-  const [login, { loading, data, error }] = useMutation(REGITSET_MUTATUIION);
+  const { isLogin, changeLoginStatus } = useStore('user');
+  const [login, { loading, data }] = useMutation(LOGIN_MUTATUIION);
   if (loading) {
+    handleLoading = null;
     handleLoading = Toast.loading('登录中。。。')
   }
-  if(!loading && handleLoading) {
+  if (!loading && handleLoading) {
     setTimeout(handleLoading)
     handleLoading = null;
   }
-  if (error) {
-    Toast.error(error.message)
-  }
   if (data) {
     if (data.login.code === 0) {
-      Toast.success(`登录成功`)
-    } else {
-      Toast.error(data.login.msg)
+      Toast.success(`登录成功`);
+      if (!isLogin) {
+        history.push('/')
+        setTimeout(() => {
+          changeLoginStatus(data.login, true);
+        })
+      }
     }
   }
-  const $name = useRef();
-  const $pwd = useRef();
-
   return (
     <div className={styles['login-box']}>
       <div className={styles.login}>
@@ -55,9 +49,9 @@ const Login = () => {
           }
           login({ variables: { username: name, password: pwd } })
         }}>
-          <input type="text" autoComplete="on" ref={$name} placeholder="enter username"/>
-          <input type="password" autoComplete="on" ref={$pwd} placeholder="enter password"/>
-          <button type="submit">sign in</button>
+          <input type="text" autoComplete="on" ref={$name} placeholder="enter username" />
+          <input type="password" autoComplete="on" ref={$pwd} placeholder="enter password" />
+          <button type="submit"><span data-title="点击登录">sign in</span></button>
         </form>
       </div>
     </div>
