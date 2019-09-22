@@ -2,13 +2,21 @@ import ApolloClient from 'apollo-boost';
 import { Toast } from '@components';
 export * from './queries';
 export * from './mutations'
+
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
   credentials: 'include',
   onError: res => {
-    let {errors} = res.response;
-    if (errors) {
-      errors.map(error => Toast.error(error.message))
+    let {networkError, response} = res
+    if (networkError) {
+      console.warn(networkError.message);
+      Toast.error(`网络连接出错`)
+    }
+    if (response) {
+      let {errors} = response;
+      if (errors) {
+        errors.map(error => Toast.error(error.message))
+      }
     }
   }
 });

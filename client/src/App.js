@@ -14,7 +14,7 @@ import newArtTicle from '@pages/newArticle/newArticle'
 function App() {
   const { data } = useQuery(ME_QUERY);
   const { isLogin, changeLoginStatus } = useStore('user');
-  if (data.me && data.me.code === 0 && !isLogin) {
+  if (data && data.me && data.me.code === 0 && !isLogin) {
     changeLoginStatus(data.isAdmin, true);
   }
   return (
