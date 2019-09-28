@@ -2,7 +2,10 @@
 * {
   box-sizing: border-box;
 }
-
+::selection {
+  background:$bg-gray-dark;
+  color: $text-white;
+}
 input,
 select,
 textarea,

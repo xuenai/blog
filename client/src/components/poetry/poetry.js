@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import * as jinrishici from 'jinrishici';
 
+import './poetry.scss';
+
 class Poetry extends Component{
   constructor (props) {
     super(props);
@@ -13,7 +15,7 @@ class Poetry extends Component{
     jinrishici.load(res => {
       if (res.status === 'success') {
         let {content, origin} = res.data;
-        let title = `——[${origin.dynasty}] ${origin.author} 《${origin.title}》`
+        let title = `——〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
         this.setState({
           content,
           title
@@ -24,9 +26,9 @@ class Poetry extends Component{
   render () {
     let {content, title} = this.state;
     return (
-      <div>
-        <p>{content}</p>
-        <p>{title}</p>
+      <div className="poetry">
+        <div>{content}</div>
+        <div>{title}</div>
       </div>
     )
   }
