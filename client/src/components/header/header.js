@@ -1,12 +1,20 @@
 import React from "react";
-import styles from './header.module.scss'
+import {Link} from 'react-router-dom';
+import './header.scss';
+
+import Poetry from '../poetry/poetry';
 
 const Header = () => {
 
   return (
-    <>
-      <div className={styles.header}>123123</div>
-    </>
+    <div className="header">
+      <div className="logo">
+        <Link to="/">
+          <span className="logo-text">Justpeth</span>
+        </Link>
+      </div>
+      <Poetry></Poetry>
+    </div>
   )
 }
 

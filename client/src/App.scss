@@ -1,33 +1,7 @@
 /* 引入字体图标 */
 @import '//at.alicdn.com/t/font_809308_ngxyrfucjga.css';
 
-body{
-  --bg: #313b4e;
-  --color: #fff;
-  --primary: #5f656f;
-  --priamryActive: #6c7482;
-  --primaryHover: #616774;
-  --primaryLight: #77808f;
-  --titleColor: #CDD4DE;
-  --summaryColor: #afb3b8;
-  --modalBg: rgba(0,0,0,.4);
-  font-size:1em;
-  /* min-height: 100vh; */
-  background: var(--bg);
-  color: var(--titleColor);
-}
-::selection {
-  background: #CDD4DE;
-}
-a{
-  color:var(--primary);
-}
-a:hover{
-  color: var(--priamryActive);
-}
-a:active{
-  color: var(--primaryLight)
-}
+@import './assets/styles/base/index.scss';
 
 /* 设置draft-js基础样式 */
 .public-DraftEditorPlaceholder-root{
@@ -128,11 +102,6 @@ a:active{
 .main{
   position: relative;
   min-height:100vh;
-  transition: opacity 0.6s;
-}
-.main.main--disabled{
-  opacity: 0.1;
-	pointer-events: none;
 }
 
 
