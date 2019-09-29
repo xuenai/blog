@@ -1,6 +1,8 @@
 .poetry{
-  color:$text-gray;
-  font-size:13px;
-  line-height:2;
+  padding: $spacer-3 $spacer-3 $spacer-4;
+  line-height: $lh-default;
+  color: $gray-light;
+  font-size: $font-size-small;
+  line-height: 2;
   text-align: center;
 }

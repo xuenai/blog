@@ -1,0 +1,14 @@
+.footer{
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  min-height:50px;
+  color: $gray-light;
+  line-height:1;
+  font-size: $font-size-small;
+  text-align: center;
+  &-inner{
+    padding: $spacer-3;
+  }
+}

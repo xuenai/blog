@@ -6,6 +6,8 @@ import client from '@graphql';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './index.scss';
+
 import store from '@store';
 store();
 

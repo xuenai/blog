@@ -15,7 +15,7 @@ class Poetry extends Component{
     jinrishici.load(res => {
       if (res.status === 'success') {
         let {content, origin} = res.data;
-        let title = `——〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
+        let title = `〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
         this.setState({
           content,
           title
@@ -28,7 +28,7 @@ class Poetry extends Component{
     return (
       <div className="poetry">
         <div>{content}</div>
-        <div>{title}</div>
+        <div>——{title}</div>
       </div>
     )
   }

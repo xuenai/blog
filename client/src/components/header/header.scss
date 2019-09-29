@@ -1,4 +1,39 @@
-.header{
-  @include maxWidth;
-  padding: 16px;
+.header {
+  &-line{
+    height: 3px;
+    background:$bg-gray-dark;
+  }
+  &-inner{
+    padding: 100px 0 70px;
+  }
+  .site-name{
+    text-align:center;
+    user-select: none;
+  }
+  .site-name-inner{
+    display: inline-block;
+    padding:0 $spacer-3;
+    font-size:$h3-size;
+    background: $bg-gray-dark;
+    color:$white;
+    font-family: "justpeth";
+    line-height: 36px;
+  }
+  .nav-links{
+    text-align: center;
+  }
+  .nav-link{
+    padding: 0 0 4px;
+    display: inline-block;
+    margin:0 $spacer-3;
+    color: $text-gray;
+    border-bottom: 1px solid transparent;
+    transition: all .3s ease-in;
+    font-size:13px;
+    cursor: pointer;
+    &:hover{
+      color: $text-gray-dark;
+      border-color:$text-gray-dark;
+    }
+  }
 }

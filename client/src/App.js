@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { useStore } from '@config';
 import {ME_QUERY} from '@graphql'
-import './App.scss';
 
-import { Header, NotFound, SignOutBtn, LoginedRoute} from '@components';
+
+import { Header, Footer, NotFound, SignOutBtn, LoginedRoute} from '@components';
 import Login from '@pages/login/login';
 import Register from '@pages/register/register';
 import newArtTicle from '@pages/newArticle/newArticle'
@@ -27,6 +27,7 @@ function App() {
           <LoginedRoute path="/new-art" component={newArtTicle}></LoginedRoute>
           <Route component={NotFound}></Route> */}
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
