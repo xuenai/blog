@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index:1;
   &-line{
     height: 3px;
     background:$bg-gray-dark;
@@ -28,10 +30,10 @@
     margin:0 $spacer-3;
     color: $text-gray;
     border-bottom: 1px solid transparent;
-    transition: all .3s ease-in;
     font-size:13px;
     cursor: pointer;
-    &:hover{
+    &:hover,
+    &.active{
       color: $text-gray-dark;
       border-color:$text-gray-dark;
     }

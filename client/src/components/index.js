@@ -7,6 +7,8 @@ import SignOutBtn from './signOut/signOut'
 import LoginedRoute from './loginedRoute/loginedRoute';
 import Poetry from './poetry/poetry';
 import Footer from './footer/footer';
+import List from './list/list';
+import ListItem from './list-item/list-item';
 
 export {
   Header,
@@ -17,5 +19,7 @@ export {
   SignOutBtn,
   LoginedRoute,
   Poetry,
-  Footer
+  Footer,
+  List,
+  ListItem
 }

@@ -31,7 +31,7 @@ body {
 a {
   color: $text-blue;
   text-decoration: none;
-
+  transition: all .3s ease-in;
   &:hover {
     text-decoration: none;
   }

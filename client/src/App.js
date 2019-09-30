@@ -7,9 +7,9 @@ import {ME_QUERY} from '@graphql'
 
 
 import { Header, Footer, NotFound, SignOutBtn, LoginedRoute} from '@components';
-import Login from '@pages/login/login';
-import Register from '@pages/register/register';
-import newArtTicle from '@pages/newArticle/newArticle'
+
+import {Home} from '@pages';
+
 
 function App() {
   const { data } = useQuery(ME_QUERY);
@@ -22,10 +22,9 @@ function App() {
       <div className="main">
         <Header></Header>
         <Switch>
-          {/* <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
-          <LoginedRoute path="/new-art" component={newArtTicle}></LoginedRoute>
-          <Route component={NotFound}></Route> */}
+          <Route component={Home}></Route>
+          {/* <LoginedRoute path="/new-art" component={newArtTicle}></LoginedRoute> */}
+          <Route component={NotFound}></Route>
         </Switch>
         <Footer />
       </div>

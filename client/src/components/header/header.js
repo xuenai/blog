@@ -17,11 +17,11 @@ const Header = () => {
         </div>
         <Poetry></Poetry>
         <div className="nav-links">
-          <NavLink to="/archive" className="nav-link">
+          <NavLink to="/archive" className="nav-link" activeClassName="active">
             <div className="iconfont icon-archive"></div>
             <div>Archive</div>
           </NavLink>
-          <NavLink to="/tag" className="nav-link">
+          <NavLink to="/tag" className="nav-link" activeClassName="active">
             <div className="iconfont icon-tag"></div>
             <div>Tags</div>
           </NavLink>

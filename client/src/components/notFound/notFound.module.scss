@@ -1,8 +1,11 @@
 .not-found{
-  position: relative;
+  position: absolute;
+  left: 0;
+  top:0;
+  width:100%;
   height:100vh;
-  padding-top: 118px;
-  color:var(--color);
+  padding-top: 400px;
+  color: $text-white;
   text-align: center;
   user-select: none;
   overflow: hidden;
