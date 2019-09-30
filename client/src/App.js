@@ -8,7 +8,7 @@ import {ME_QUERY} from '@graphql'
 
 import { Header, Footer, NotFound, SignOutBtn, LoginedRoute} from '@components';
 
-import {Home, Detail, Tags} from '@pages';
+import {Home, Detail, Tags, Archive} from '@pages';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
           <Route path="/" exact component={Home}></Route>
           <Route path="/detail/:id" component={Detail}></Route>
           <Route path="/tags" component={Tags}></Route>
+          <Route path='/archive' component={Archive}></Route>
           {/* <LoginedRoute path="/new-art" component={newArtTicle}></LoginedRoute> */}
           <Route component={NotFound}></Route>
         </Switch>
