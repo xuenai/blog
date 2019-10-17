@@ -134,8 +134,6 @@ export default Counter;
 
 脚手架[create-react-app](https://github.com/facebook/create-react-app)
 
-不可改变数据结构[immutable](https://www.npmjs.com/package/immutable)
-
 路由[react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
 
 路由代码分割[react-loadable](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)，为啥要使用代码分割，查看文章[code-splitting](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)

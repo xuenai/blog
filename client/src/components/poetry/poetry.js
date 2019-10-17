@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import * as jinrishici from 'jinrishici';
+import { CSSTransition } from 'react-transition-group';
 
 import './poetry.scss';
 
@@ -9,6 +10,7 @@ class Poetry extends Component{
     this.state = {
       content: '',
       title: '',
+      inProp: false,
     }
   }
   componentDidMount () {
@@ -18,17 +20,22 @@ class Poetry extends Component{
         let title = `〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
         this.setState({
           content,
-          title
+          title,
+          inProp: true
         })
       }
     })
   }
   render () {
-    let {content, title} = this.state;
+    let {content, title, inProp} = this.state;
     return (
       <div className="poetry">
-        <div>{content}</div>
-        <div>——{title}</div>
+        <CSSTransition in={inProp} timeout={300} classNames="fade" key="poetry">
+          <div>
+            <div>{content}</div>
+            <div>{inProp && `——${title}`}</div>
+          </div>
+        </CSSTransition>
       </div>
     )
   }
