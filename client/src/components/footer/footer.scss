@@ -4,12 +4,15 @@
   bottom:0;
   z-index:1;
   width:100%;
-  min-height:50px;
+  min-height:98px;
   color: $gray-light;
   line-height:1;
   font-size: $font-size-small;
   text-align: center;
   &-inner{
     padding: $spacer-3;
+  }
+  p{
+    min-height: 12px;
   }
 }

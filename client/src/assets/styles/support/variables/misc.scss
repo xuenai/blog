@@ -6,7 +6,7 @@ $border-width: 1px !default;
 $border-color: $border-gray !default;
 $border-style: solid !default;
 $border: $border-width $border-color $border-style !default;
-$border-radius: 3px !default;
+$border-radius: 4px !default;
 
 // Custom explore grid border
 $exploregrid-item-border-radius: 4px;
@@ -36,5 +36,5 @@ $max_tab_size: 12;
 
 // Button and form variables
 $form-control-shadow: inset 0 1px 2px rgba($black, 0.075);
-$btn-input-focus-shadow: 0 0 0 0.2em rgba($blue, 0.3);
+$btn-input-focus-shadow: 0 0 0 2px rgba($blue, 0.2);
 $btn-active-shadow: inset 0 0.15em 0.3em $black-fade-15;

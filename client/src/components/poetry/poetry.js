@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import * as jinrishici from 'jinrishici';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
+
 
 import './poetry.scss';
 
@@ -18,11 +20,18 @@ class Poetry extends Component{
       if (res.status === 'success') {
         let {content, origin} = res.data;
         let title = `〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
-        this.setState({
-          content,
-          title,
-          inProp: true
-        })
+        setTimeout(() => {
+          this.setState({
+            content,
+            title,
+            inProp: true
+          })
+          setTimeout(() => {
+            if (this.props.onEntered) {
+              this.props.onEntered()
+            }
+          }, 300)
+        }, 300)
       }
     })
   }
@@ -30,7 +39,7 @@ class Poetry extends Component{
     let {content, title, inProp} = this.state;
     return (
       <div className="poetry">
-        <CSSTransition in={inProp} timeout={300} classNames="fade" key="poetry">
+        <CSSTransition in={inProp} timeout={300} classNames="fade" unmountOnExit>
           <div>
             <div>{content}</div>
             <div>{inProp && `——${title}`}</div>
@@ -39,6 +48,10 @@ class Poetry extends Component{
       </div>
     )
   }
+}
+
+Poetry.propTypes = {
+  onEntered: PropTypes.func,
 }
 
 export default Poetry;

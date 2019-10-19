@@ -1,0 +1,29 @@
+.button{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height:32px;
+  white-space: nowrap;
+  padding: 0 $spacer-3;
+  border: $border;
+  border-radius: $border-radius;
+  user-select: none;
+  -webkit-appearance: none;
+  outline: none;
+  text-align: center;
+  @include btn-solid($gray-900, $gray-000, $gray-100);
+  // @include btn-inverse($gray-900, $gray-000, #eff3f6);
+  &.button-primary{
+    @include btn-inverse($gray-900, $gray-000, $gray-100);
+  }
+  & + .button{
+    margin-left: $spacer-3;
+  }
+  &-large{
+    height: 40px;
+  }
+  &-small{
+    height:24px;
+    padding: 0 $spacer-2;
+  }
+}

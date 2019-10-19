@@ -11,6 +11,7 @@
   .site-name{
     text-align:center;
     user-select: none;
+    font-size: 0;
   }
   .site-name-inner{
     display: inline-block;
@@ -19,7 +20,14 @@
     background: $bg-gray-dark;
     color:$white;
     font-family: "justpeth";
+    width:72px;
+    height:36px;
+  }
+  .site-name-text{
     line-height: 36px;
+  }
+  .nav-links-wrapper{
+    height:48px;
   }
   .nav-links{
     text-align: center;

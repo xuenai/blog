@@ -1,11 +1,18 @@
-import Home from './home/home';
-import Detail from './detail/detail';
-import Tags from './tags/tags';
-import Archive from './archive/archive';
+import Home from './home';
+import Detail from './detail';
+import Tags from './tags';
+import Archive from './archive';
+import NewArticle from './newArticle';
+
+import Login from './login';
+import Register from './register';
 
 export {
   Home,
   Detail,
   Tags,
-  Archive
+  Archive,
+  NewArticle,
+  Login,
+  Register
 }

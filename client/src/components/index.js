@@ -9,6 +9,8 @@ import Poetry from './poetry';
 import Footer from './footer';
 import List from './list';
 import ListItem from './list-item';
+import Input from './input';
+import Button from './button';
 
 export {
   Header,
@@ -21,5 +23,7 @@ export {
   Poetry,
   Footer,
   List,
-  ListItem
+  ListItem,
+  Input,
+  Button
 }

@@ -100,14 +100,26 @@
   position: relative;
   min-height:100vh;
   overflow:hidden;
+  &-content{
+    @include maxWidth;
+    padding-bottom: 200px;
+  }
+  hr {
+    height: 2px;
+    border: none;
+    background-color: #ddd;
+    background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
+  }
 }
 
-.fade-enter {
+.fade-enter,
+.fade-appear{
   opacity: 0.01;
-  transform: translateY(20px);
+  transform: translateY(-20px);
 }
 
-.fade-enter-active {
+.fade-enter-active,
+.fade-appear-active {
   opacity: 1;
   transform: translateY(0);
   transition: all 300ms ease-out;

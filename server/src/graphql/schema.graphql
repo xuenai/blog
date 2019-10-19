@@ -10,6 +10,22 @@ type User {
   isDelete: Boolean!
   password: String!
 }
+# 文章字段
+type Article {
+  id: ID!
+  title: String!
+  summary: String!
+  content: String!
+  createdAt: String!
+  user: User
+  votes: [Vote!]!
+}
+type Vote {
+  id: ID!
+  createdAt: String!
+  user: User!
+  article: Article!
+}
 # code的值可以为0/1,0时证明没有错误，1时有错误 isAdmin是否是管理员
 type UserResponse {
   code: Int!
@@ -33,4 +49,5 @@ type Mutation {
   login(username: String!, password: String!): UserResponse!
   # 退出登录
   logout: UserResponse!
+  addArticle(title: String!,summary: String!, content: String!): Article!
 }

@@ -4,7 +4,7 @@ import {List} from '@components';
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className="main-content">
       <List></List>
     </div>
   )
