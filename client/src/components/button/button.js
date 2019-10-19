@@ -20,7 +20,7 @@ class Button extends Component {
       'button-small': size === 'small'
     })
     return (
-      <button className={className} disabled={disabled}>{children}</button>
+      <button className={`${classNames} ${className}`} disabled={disabled}>{children}</button>
     )
   }
 }
