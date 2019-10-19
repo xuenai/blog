@@ -8,7 +8,7 @@ class Button extends Component {
   static defaultProps = {
     className: '',
     size: 'normal',
-    desabled: false,
+    disabled: false,
     children: 'Button',
     handleClick: () => null
   }
@@ -28,7 +28,7 @@ class Button extends Component {
 Button.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(['large', 'small', 'normal']),
-  desabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   handleClick: PropTypes.func
 }
 
