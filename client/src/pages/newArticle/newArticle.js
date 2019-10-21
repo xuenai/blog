@@ -8,7 +8,7 @@ import './newArticle.scss';
 import { Input, Button } from '@components';
 import { ADD_ARTICLE } from '@graphql'
 
-const NewArticle = ({ history }) => {
+const NewArticle = () => {
   const [editorState, setEditorState] = useState('');
   let [outputHTML, setOutputHTML] = useState('<p></p>');
   return (

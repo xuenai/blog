@@ -1,3 +1,5 @@
+import Dashboard from './dashboard';
+import Blog from './blog';
 import Home from './home';
 import Detail from './detail';
 import Tags from './tags';
@@ -14,5 +16,7 @@ export {
   Archive,
   NewArticle,
   Login,
-  Register
+  Register,
+  Dashboard,
+  Blog
 }

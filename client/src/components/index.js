@@ -10,6 +10,7 @@ import List from './list';
 import ListItem from './list-item';
 import Input from './input';
 import Button from './button';
+import DashboardHeader from './dashboardHeader';
 
 export {
   Header,
@@ -23,5 +24,6 @@ export {
   List,
   ListItem,
   Input,
-  Button
+  Button,
+  DashboardHeader
 }

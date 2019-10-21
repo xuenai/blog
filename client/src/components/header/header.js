@@ -6,14 +6,14 @@ import './header.scss';
 import Poetry from '../poetry/poetry';
 
 
-const Header = () => {
+const Header = ({url}) => {
   let [poetryStatus, setPoetryStatus] = useState(false);
   return (
     <div className="header">
       <div className="header-line"></div>
       <div className="header-inner">
         <div className="site-name">
-          <Link to="/">
+          <Link to={`${url}`}>
             <div className="site-name-inner">
               <CSSTransition in={true} timeout={300} classNames="fade" appear>
                 <div className="site-name-text">H。</div>
@@ -25,11 +25,11 @@ const Header = () => {
         <div className="nav-links-wrapper">
           <CSSTransition in={poetryStatus} timeout={300} classNames="fade" unmountOnExit>
             <div className="nav-links">
-              <NavLink to="/archive" className="nav-link" activeClassName="active">
+              <NavLink to={`${url}/archive`} className="nav-link" activeClassName="active">
                 <div className="iconfont icon-archive"></div>
                 <div>Archive</div>
               </NavLink>
-              <NavLink to="/tags" className="nav-link" activeClassName="active">
+              <NavLink to={`${url}/tags`} className="nav-link" activeClassName="active">
                 <div className="iconfont icon-tag"></div>
                 <div>Tags</div>
               </NavLink>
