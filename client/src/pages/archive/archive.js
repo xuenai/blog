@@ -2,7 +2,7 @@ import React from 'react';
 
 import './archive.scss';
 
-const Archive = ()=> {
+const Archive = () => {
 
   return (
     <div className="archive">

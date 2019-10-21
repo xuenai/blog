@@ -1,18 +1,18 @@
-.footer{
+.footer {
   position: absolute;
-  left:0;
-  bottom:0;
-  z-index:1;
-  width:100%;
-  min-height:98px;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 98px;
   color: $gray-light;
-  line-height:1;
+  line-height: 1;
   font-size: $font-size-small;
   text-align: center;
-  &-inner{
+  &-inner {
     padding: $spacer-3;
   }
-  p{
+  p {
     min-height: 12px;
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import {useStore } from '@config';
+import { useStore } from '@config';
 
 function Counter() {
   const { count, increment, decrement, incrementAsync } = useStore('counter');

@@ -1,14 +1,14 @@
 // stylelint-disable selector-max-type
 @font-face {
-  font-family: 'justpeth';
-  src: url("../../fonts/justpeth.woff") format('woff');
+  font-family: "justpeth";
+  src: url("../../fonts/justpeth.woff") format("woff");
 }
 
 * {
   box-sizing: border-box;
 }
 ::selection {
-  background:$bg-gray-dark;
+  background: $bg-gray-dark;
   color: $text-white;
 }
 input,
@@ -31,7 +31,7 @@ body {
 a {
   color: $text-blue;
   text-decoration: none;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
   &:hover {
     text-decoration: none;
   }
@@ -83,10 +83,14 @@ button {
 }
 
 details {
-  summary { cursor: pointer; }
+  summary {
+    cursor: pointer;
+  }
 
   &:not([open]) {
     // Set details content hidden by default for browsers that don't do this
-    > *:not(summary) { display: none !important; }
+    > *:not(summary) {
+      display: none !important;
+    }
   }
 }

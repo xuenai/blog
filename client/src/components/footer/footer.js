@@ -3,13 +3,14 @@ import React from 'react';
 import './footer.scss';
 
 class Footer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       hitokoto: ''
     }
   }
-  componentDidMount () {
+  componentDidMount() {
+    // 获取一言
     fetch('https://v1.hitokoto.cn/')
       .then(res => res.json())
       .then(res => {
@@ -19,8 +20,8 @@ class Footer extends React.Component {
       })
       .catch(error => console.log('error', error))
   }
-  render () {
-    let {hitokoto} = this.state;
+  render() {
+    let { hitokoto } = this.state;
     if (!hitokoto) {
       hitokoto = ' '
     }

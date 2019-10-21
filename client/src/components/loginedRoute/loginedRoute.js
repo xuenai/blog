@@ -1,8 +1,8 @@
 import React from "react";
-import {Route, Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { useStore } from '@config';
 
-function LoginedRoute ({ component: Component, ...rest }) {
+function LoginedRoute({ component: Component, ...rest }) {
   const { isLogin } = useStore('user');
   return (
     <Route
@@ -11,13 +11,13 @@ function LoginedRoute ({ component: Component, ...rest }) {
         isLogin ? (
           <Component {...props} />
         ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
-        )
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location }
+              }}
+            />
+          )
       }
     />
   );

@@ -33,7 +33,8 @@ $lh-condensed: 1.25 !default;
 $lh-default: 1.5 !default;
 
 // Font stacks
-$body-font: 'Zilla Slab', "Source Han Serif SC", "Noto Serif CJK SC", "Source Han Serif CN", "Noto Serif SC", sans-serif !default;
+$body-font: "Zilla Slab", "Source Han Serif SC", "Noto Serif CJK SC",
+  "Source Han Serif CN", "Noto Serif SC", sans-serif !default;
 
 // Monospace font stack
 $mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !default;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {List} from '@components';
+import { List } from '@components';
 
 const Home = () => {
   return (

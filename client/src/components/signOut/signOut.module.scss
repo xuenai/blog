@@ -1,22 +1,22 @@
-.signout{
-  position:fixed;
-  z-index:1;
-  right:20px;
-  top:20px;
-  button{
-    font-size:18px;
+.signout {
+  position: fixed;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+  button {
+    font-size: 18px;
     font-weight: 700;
-    border:none;
+    border: none;
     outline: none;
     background: transparent;
-    margin-left:12px;
+    margin-left: 12px;
     cursor: pointer;
-    color:var(--primary);
-    &:hover{
-      color:var(--primaryHover);
+    color: var(--primary);
+    &:hover {
+      color: var(--primaryHover);
     }
-    &:active{
-      color:var(--priamryActive);
+    &:active {
+      color: var(--priamryActive);
     }
   }
 }

@@ -1,15 +1,15 @@
-.list-item{
+.list-item {
   text-align: center;
-  &-title{
+  &-title {
     margin-bottom: $spacer-1;
   }
-  &-link{
+  &-link {
     position: relative;
     display: inline-block;
     vertical-align: top;
     color: $text-gray;
-    line-height:2;
-    &::before{
+    line-height: 2;
+    &::before {
       content: "";
       position: absolute;
       width: 100%;
@@ -23,7 +23,7 @@
       transition-timing-function: ease-in-out;
       transition-delay: 0s;
     }
-    &:hover{
+    &:hover {
       color: $text-gray-dark;
       &::before {
         visibility: visible;
@@ -31,25 +31,25 @@
       }
     }
   }
-  &-meta{
+  &-meta {
     margin-bottom: $spacer-4;
     font-size: $font-size-small;
     color: $text-gray-light;
-    height:24px;
-    line-height:24px;
+    height: 24px;
+    line-height: 24px;
     .iconfont {
-      font-size:$font-size-small;
+      font-size: $font-size-small;
       margin-right: $spacer-2;
     }
-    &-line{
-      margin:0 $spacer-2;
+    &-line {
+      margin: 0 $spacer-2;
     }
   }
-  &-summary{
-    line-height:2;
+  &-summary {
+    line-height: 2;
   }
-  &::after{
-    content:"";
+  &::after {
+    content: "";
     display: block;
     margin: 80px auto 60px;
     width: 8%;

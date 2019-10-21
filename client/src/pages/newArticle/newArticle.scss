@@ -1,15 +1,13 @@
-
-.article{
+.article {
   > h4 {
     margin-bottom: $spacer-2;
   }
-  .article-input{
+  .article-input {
     margin-bottom: $spacer-3;
   }
-  .editor-wrapper{
+  .editor-wrapper {
     margin-bottom: 30px;
     border: $border;
     border-radius: $border-radius;
-    
   }
 }

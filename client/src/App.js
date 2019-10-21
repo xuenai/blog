@@ -3,12 +3,12 @@ import { useQuery } from '@apollo/react-hooks';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { useStore } from '@config';
-import {ME_QUERY} from '@graphql'
+import { ME_QUERY } from '@graphql'
 
 
-import { Header, Footer, NotFound, SignOutBtn, LoginedRoute} from '@components';
+import { Header, Footer, NotFound, SignOutBtn, LoginedRoute } from '@components';
 
-import {Home, Detail, Tags, Archive, NewArticle, Login, Register} from '@pages';
+import { Home, Detail, Tags, Archive, NewArticle, Login, Register } from '@pages';
 
 
 function App() {

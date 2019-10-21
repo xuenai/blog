@@ -1,5 +1,4 @@
 import Header from './header'
-import Search from './search/search';
 import Spin from './spin';
 import NotFound from './notFound';
 import Toast from './toast';
@@ -14,7 +13,6 @@ import Button from './button';
 
 export {
   Header,
-  Search,
   Spin,
   NotFound,
   Toast,

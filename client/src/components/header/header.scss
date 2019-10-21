@@ -1,50 +1,50 @@
 .header {
   position: relative;
-  z-index:1;
-  &-line{
+  z-index: 1;
+  &-line {
     height: 3px;
-    background:$bg-gray-dark;
+    background: $bg-gray-dark;
   }
-  &-inner{
+  &-inner {
     padding: 100px 0 70px;
   }
-  .site-name{
-    text-align:center;
+  .site-name {
+    text-align: center;
     user-select: none;
     font-size: 0;
   }
-  .site-name-inner{
+  .site-name-inner {
     display: inline-block;
-    padding:0 $spacer-3;
-    font-size:$h3-size;
+    padding: 0 $spacer-3;
+    font-size: $h3-size;
     background: $bg-gray-dark;
-    color:$white;
+    color: $white;
     font-family: "justpeth";
-    width:72px;
-    height:36px;
+    width: 72px;
+    height: 36px;
   }
-  .site-name-text{
+  .site-name-text {
     line-height: 36px;
   }
-  .nav-links-wrapper{
-    height:48px;
+  .nav-links-wrapper {
+    height: 48px;
   }
-  .nav-links{
+  .nav-links {
     text-align: center;
-    height:48px;
+    height: 48px;
   }
-  .nav-link{
+  .nav-link {
     padding: 0 0 4px;
     display: inline-block;
-    margin:0 $spacer-3;
+    margin: 0 $spacer-3;
     color: $text-gray;
     border-bottom: 1px solid transparent;
-    font-size:13px;
+    font-size: 13px;
     cursor: pointer;
     &:hover,
-    &.active{
+    &.active {
       color: $text-gray-dark;
-      border-color:$text-gray-dark;
+      border-color: $text-gray-dark;
     }
   }
 }

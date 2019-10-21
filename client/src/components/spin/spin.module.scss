@@ -1,9 +1,9 @@
-.spin{
-  display:inline-block;
-  font-size:0;
+.spin {
+  display: inline-block;
+  font-size: 0;
   overflow: hidden;
-  .spinner{
-    width:100%;
+  .spinner {
+    width: 100%;
     height: 100%;
     animation: rotator 1.4s linear infinite;
     vertical-align: top;
@@ -12,32 +12,46 @@
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
     transform-origin: center;
-    animation:
-      dash 1.4s ease-in-out infinite,
-      colors 5.6s ease-in-out infinite;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
   }
 }
 
 @keyframes rotator {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(270deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
 }
 @keyframes colors {
-	0% { stroke: #4285F4; }
-	25% { stroke: #DE3E35; }
-	50% { stroke: #F7C223; }
-	75% { stroke: #1B9A59; }
-  100% { stroke: #4285F4; }
+  0% {
+    stroke: #4285f4;
+  }
+  25% {
+    stroke: #de3e35;
+  }
+  50% {
+    stroke: #f7c223;
+  }
+  75% {
+    stroke: #1b9a59;
+  }
+  100% {
+    stroke: #4285f4;
+  }
 }
 
 @keyframes dash {
-  0% { stroke-dashoffset: 187; }
+  0% {
+    stroke-dashoffset: 187;
+  }
   50% {
     stroke-dashoffset: 46.25;
-    transform:rotate(135deg);
+    transform: rotate(135deg);
   }
   100% {
     stroke-dashoffset: 187;
-    transform:rotate(450deg);
+    transform: rotate(450deg);
   }
 }

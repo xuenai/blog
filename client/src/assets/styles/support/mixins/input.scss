@@ -1,11 +1,12 @@
-@mixin input () {
+@mixin input() {
   padding: $spacer-1 $spacer-2;
   font-size: $body-font-size;
   border: $border;
   border-radius: $border-radius;
-  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+  transition: border 0.2s ease-in-out, background 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   color: $text-gray;
-  &:focus{
+  &:focus {
     outline: 0;
     box-shadow: $btn-input-focus-shadow;
   }

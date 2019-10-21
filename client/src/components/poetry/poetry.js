@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as jinrishici from 'jinrishici';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 
 import './poetry.scss';
 
-class Poetry extends Component{
-  constructor (props) {
+class Poetry extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       content: '',
@@ -15,10 +15,10 @@ class Poetry extends Component{
       inProp: false,
     }
   }
-  componentDidMount () {
+  componentDidMount() {
     jinrishici.load(res => {
       if (res.status === 'success') {
-        let {content, origin} = res.data;
+        let { content, origin } = res.data;
         let title = `〔${origin.dynasty}〕 ${origin.author} 《${origin.title}》`
         setTimeout(() => {
           this.setState({
@@ -35,8 +35,8 @@ class Poetry extends Component{
       }
     })
   }
-  render () {
-    let {content, title, inProp} = this.state;
+  render() {
+    let { content, title, inProp } = this.state;
     return (
       <div className="poetry">
         <CSSTransition in={inProp} timeout={300} classNames="fade" unmountOnExit>

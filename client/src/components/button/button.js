@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import './button.scss';
 
-class Button extends Component {
-  static defaultProps = {
-    className: '',
-    size: 'normal',
-    disabled: false,
-    children: 'Button',
-    handleClick: () => null
-  }
-  render() {
-    let { className, size, children, disabled } = this.props;
-    let classNames = clsx({
-      button: true,
-      'button-large': size === 'large',
-      'button-small': size === 'small'
-    })
-    return (
-      <button className={`${classNames} ${className}`} disabled={disabled}>{children}</button>
-    )
-  }
+const Button = ({ className, size, children, disabled }) => {
+  let classNames = clsx({
+    button: true,
+    'button-large': size === 'large',
+    'button-small': size === 'small'
+  })
+  return (
+    <button className={`${classNames} ${className}`} disabled={disabled}>{children}</button>
+  )
+}
+
+Button.defaultProps = {
+  className: '',
+  size: 'normal',
+  disabled: false,
+  children: 'Button',
+  handleClick: () => null
 }
 
 Button.propTypes = {
