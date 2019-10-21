@@ -4,14 +4,14 @@ import clsx from 'clsx';
 
 import './button.scss';
 
-const Button = ({ className, size, children, disabled }) => {
+const Button = ({ className, size, children, disabled, type }) => {
   let classNames = clsx({
     button: true,
     'button-large': size === 'large',
     'button-small': size === 'small'
   })
   return (
-    <button className={`${classNames} ${className}`} disabled={disabled}>{children}</button>
+    <button className={`${classNames} ${className}`} disabled={disabled} type={type}>{children}</button>
   )
 }
 
@@ -20,6 +20,7 @@ Button.defaultProps = {
   size: 'normal',
   disabled: false,
   children: 'Button',
+  type: 'button',
   handleClick: () => null
 }
 
@@ -27,6 +28,7 @@ Button.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(['large', 'small', 'normal']),
   disabled: PropTypes.bool,
+  type: PropTypes.oneOf(['button', 'submit']),
   handleClick: PropTypes.func
 }
 

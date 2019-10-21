@@ -1,0 +1,21 @@
+.d-login{
+  position: fixed;
+  left:0;
+  top:0;
+  z-index:100;
+  width: 100%;
+  height: 100%;
+  padding: 10% 0;
+  background: $bg-white;
+  .mb-16{
+    margin-bottom:$spacer-3;
+  }
+  &-container{
+    @include maxWidth;
+    text-align: center;
+    > h2 {
+      margin-bottom: $spacer-3;
+      color:$text-gray;
+    }
+  }
+}

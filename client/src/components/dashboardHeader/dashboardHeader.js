@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './dashboardHeader.scss';
 
-const DashboardHeader = () => {
+const DashboardHeader = ({url}) => {
   return (
     <div className="d-header">
       <div className="d-header-item">
-        <Link to="/" className="d-header-link" activeClassName="active"><i className="iconfont icon-archive"></i><span>Archives</span></Link>
-        <Link to="/" className="d-header-link" activeClassName="active"><i className="iconfont icon-tag"></i><span>Tags</span></Link>
-        <Link to="/" className="d-header-link" activeClassName="active"><i className="iconfont icon-new"></i><span>New Archive</span></Link>
+        <NavLink to={`${url}/archives`} className="d-header-link" activeclassname="active"><i className="iconfont icon-archive"></i><span>Archives</span></NavLink>
+        <NavLink to={`${url}/tags`} className="d-header-link" activeclassname="active"><i className="iconfont icon-tag"></i><span>Tags</span></NavLink>
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import Detail from './detail';
 import Tags from './tags';
 import Archive from './archive';
 import NewArticle from './newArticle';
+import DashboardLogin from './dashboardLogin';
 
 import Login from './login';
 import Register from './register';
@@ -18,5 +19,6 @@ export {
   Login,
   Register,
   Dashboard,
-  Blog
+  Blog,
+  DashboardLogin
 }
