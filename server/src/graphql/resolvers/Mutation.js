@@ -86,7 +86,7 @@ async function addArticle(root, data, { Article, ctx }) {
   const response = await Article.create(newArticle)
   // 发送订阅 NEW_ARTICLE
   // pubsub.publish(NEW_ARTICLE, { newArticle: response })
-  return response
+  return {code: 0}
 }
 
 export default {

@@ -24,16 +24,16 @@ const NewArticle = () => {
     setTimeout(handleLoading)
     handleLoading = null;
   }
-  // if (data && data.login.code === 0 && !isLogin) {
-  //   Toast.success('新增文章成功')
-  // }
+  if (data && data.addArticle.code === 0) {
+    Toast.success('新增文章成功')
+  }
   return (
     <div className="main-content">
       <div className="article">
         <form onSubmit={event => {
             event.preventDefault();
             event.persist()
-            if (!title || !summary || !outputHTML) {
+            if (!title || !summary || outputHTML === '<p></p>') {
               Toast.error('请将信息补充完整！');
               return false;
             }

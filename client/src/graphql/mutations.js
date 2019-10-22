@@ -26,10 +26,7 @@ export const LOGOUT_MOTATION = gql`
 export const ADD_ARTICLE = gql`
   mutation addArticle($title: String!,$summary: String!, $content: String!) {
     addArticle(title: $title, summary: $summary, content: $content) {
-      title
-      summary
-      content
-      createdAt
+      code
     }
   }
 `

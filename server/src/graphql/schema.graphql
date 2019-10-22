@@ -49,5 +49,5 @@ type Mutation {
   login(username: String!, password: String!): UserResponse!
   # 退出登录
   logout: UserResponse!
-  addArticle(title: String!,summary: String!, content: String!): Article!
+  addArticle(title: String!,summary: String!, content: String!): UserResponse!
 }
