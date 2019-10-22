@@ -15,7 +15,9 @@ const client = new ApolloClient({
     if (response) {
       let {errors} = response;
       if (errors) {
-        errors.map(error => Toast.error(error.message))
+        errors.map(error => {
+          Toast.error(error.message)
+        })
       }
     }
   }

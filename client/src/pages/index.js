@@ -6,9 +6,9 @@ import Tags from './tags';
 import Archive from './archive';
 import NewArticle from './newArticle';
 import DashboardLogin from './dashboardLogin';
-
-import Login from './login';
-import Register from './register';
+import DashboardArchives from './dashboardArchives';
+import DashboardTags from './dashboardTags';
+import DashboardRegister from './dashboardRegister';
 
 export {
   Home,
@@ -16,9 +16,10 @@ export {
   Tags,
   Archive,
   NewArticle,
-  Login,
-  Register,
   Dashboard,
   Blog,
-  DashboardLogin
+  DashboardLogin,
+  DashboardArchives,
+  DashboardTags,
+  DashboardRegister
 }
