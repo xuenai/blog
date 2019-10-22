@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/react-hooks';
 import './dashboard.scss';
 
 import { DashboardHeader, LoginedRoute, NotFound } from '@components';
-import {DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister} from '@pages';
+import {DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle} from '@pages';
 import { useStore } from '@config';
 import { ME_QUERY } from '@graphql'
 
@@ -29,6 +29,7 @@ const Dashboard = () => {
         </Route>
         <LoginedRoute path={`${path}/archives`} component={DashboardArchives}></LoginedRoute>
         <LoginedRoute path={`${path}/tags`} component={DashboardTags}></LoginedRoute>
+        <LoginedRoute path={`${path}/new`} component={NewArticle}></LoginedRoute>
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -30,7 +30,6 @@ export const ADD_ARTICLE = gql`
       summary
       content
       createdAt
-      user
     }
   }
 `

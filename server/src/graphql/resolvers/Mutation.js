@@ -81,6 +81,7 @@ async function createUser(root, args, context) {
 // 新增文章
 async function addArticle(root, data, { Article, ctx }) {
   const user = await isLogin(ctx)
+  console.log(user)
   const newArticle = Object.assign({ userId: user._id }, data)
   const response = await Article.create(newArticle)
   // 发送订阅 NEW_ARTICLE

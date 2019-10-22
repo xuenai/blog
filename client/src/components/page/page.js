@@ -143,3 +143,6 @@ Page.propTypes = {
 }
 
 export default Page;
+
+// 分页器用法
+// <Page current={current} total={10} onChange={e => setCurrent(e)}></Page>

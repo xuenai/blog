@@ -1,3 +1,14 @@
 .archives{
   @include maxWidth();
+  padding-top: $spacer-3;
+  .new-btn{
+    display: inline-block;
+    margin-bottom: $spacer-3;
+    .iconfont{
+      margin-right: $spacer-1;
+    }
+  }
+  .totalCount{
+    text-align: center;
+  }
 }
