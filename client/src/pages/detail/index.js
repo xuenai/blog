@@ -1,3 +1,3 @@
-import ArticleDetail from './detail';
+import Detail from './detail';
 
-export default ArticleDetail;
+export default Detail;

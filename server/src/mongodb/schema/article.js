@@ -9,8 +9,7 @@ const ArticleSchema = new Schema({
     minlength: 2
   },
   summary: {
-    type: String,
-    minlength: 2
+    type: String
   },
   content: {
     type: String,

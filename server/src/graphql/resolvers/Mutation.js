@@ -81,12 +81,18 @@ async function createUser(root, args, context) {
 // 新增文章
 async function addArticle(root, data, { Article, ctx }) {
   const user = await isLogin(ctx)
-  console.log(user)
-  const newArticle = Object.assign({ userId: user._id }, data)
-  const response = await Article.create(newArticle)
-  // 发送订阅 NEW_ARTICLE
-  // pubsub.publish(NEW_ARTICLE, { newArticle: response })
-  return {code: 0}
+  if (!user) {
+    throw new ApolloError(`用户不存在`, 'addArticle')
+  }
+  if (user.isAdmin) {
+    const newArticle = Object.assign({ userId: user._id }, data)
+    const response = await Article.create(newArticle)
+    // 发送订阅 NEW_ARTICLE
+    // pubsub.publish(NEW_ARTICLE, { newArticle: response })
+    return {code: 0}
+  } else {
+    throw new ApolloError(`用户不是管理员，无法发表文章`, 'addArticle')
+  }
 }
 
 export default {

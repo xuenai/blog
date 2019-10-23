@@ -10,16 +10,27 @@ type User {
   isDelete: Boolean!
   password: String!
 }
-# 文章字段
+# 日志
 type Article {
   id: ID!
   title: String!
   summary: String!
   content: String!
   createdAt: String!
-  user: User
+  userId: ID!
   votes: [Vote!]!
 }
+
+type Articles {
+  articles: [Article!]
+  # 总数
+  total: Int!
+  # 当前页
+  current: Int!
+  # 总页数
+  totalPage: Int!
+}
+
 type Vote {
   id: ID!
   createdAt: String!
@@ -34,7 +45,12 @@ type UserResponse {
 type Query {
   # 查询所有用户
   users: [User!]!
+  # 检测用户是否登录
   me: UserResponse!
+  # 获取自己的日志列表
+  ownArticles(page: Int, pageSize: Int, filter: String): Articles!
+  # 获取自己的日志详情
+  ownArticleDetail(id: ID): Article
 }
 type Mutation {
   # 管理员创建用户

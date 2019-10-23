@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import './page.scss';
-import { end } from 'worker-farm';
 
 // 上一页 1 ... 三个按扭展示
 const getPagesPre = ({ current, total, disabled, space, onChange }) => {

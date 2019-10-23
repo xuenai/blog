@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import {Redirect} from 'react-router-dom';
+import {Redirect, useLocation} from 'react-router-dom';
 import './dashboardLogin.scss';
 
 import {Input, Button} from '@components';
@@ -10,6 +10,8 @@ import { useStore } from '@config';
 
 let handleLoading;
 const DashboardLogin = () => {
+  let locaition = useLocation();
+  let from = locaition.state.from.pathname;
   let [username, setUsername] = useState('');
   let [pwd, setPwd] = useState('');
   let { isLogin, changeLoginStatus } = useStore('user');
@@ -24,10 +26,10 @@ const DashboardLogin = () => {
   }
   if (data && data.login.code === 0 && !isLogin) {
     changeLoginStatus(data.login, true);
-    Toast.success('登录成功')
+    Toast.success('登录成功');
   }
   return (
-    isLogin ? <Redirect to='/dashboard'></Redirect> :
+    isLogin ? <Redirect to={from}></Redirect> :
       <div className="d-login">
         <div className="d-login-container">
           <h2>Sign in</h2>
