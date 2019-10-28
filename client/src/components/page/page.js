@@ -115,8 +115,9 @@ const getPages = ({ current, total, disabled, space, onChange }) => {
 // 分页器组件
 const Page = ({ current, total, disabled, hideOnSinglePage, space, onChange }) => {
   let pages = getPages({ current, total, disabled, space, onChange })
+  let pageIsHide = (hideOnSinglePage && total === 1) || (total === 0)
   return (
-    hideOnSinglePage && total === 1 ? null :
+    pageIsHide ? null :
       <ul className="pagination">
         { pages}
       </ul>

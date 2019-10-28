@@ -17,13 +17,22 @@ const Detail = () => {
     return <Spin size={16}></Spin>
   }
   if (data && data.ownArticleDetail) {
-    setTimeout(() => { Prism.highlightAll() }, 300)
+    setTimeout(() => { Prism.highlightAll() })
   }
   return (
-    <div className="article-detail">
-      <h1>{data.ownArticleDetail.title}</h1>
-      <p>data.ownArticleDetail.summary</p>
-      <div dangerouslySetInnerHTML={{ __html: data.ownArticleDetail.content }}></div>
+    data.ownArticleDetail && <div className="article-detail">
+      <h2 className="article-detail-title">{data.ownArticleDetail.title}</h2>
+      {
+        data.ownArticleDetail.summary && <p className="article-detail-summary">{data.ownArticleDetail.summary}</p>
+      }
+      <div className="article-detail-meta">
+        <span className="iconfont icon-riqi"></span>
+        <time>{data.ownArticleDetail.formatDate}</time>
+        <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
+        <span className="iconfont icon-biaoqian"></span>
+        <span>Javascript</span>
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: data.ownArticleDetail.content }} className="article-detial-content"></div>
     </div>
   )
 }

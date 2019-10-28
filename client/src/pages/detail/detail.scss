@@ -1,3 +1,36 @@
 .article-detail {
   @include maxWidth;
+  padding-top: 80px;
+  min-height: calc(100vh - 56px);
+  color:$text-gray;
+  background:$bg-white;
+  box-sizing: border-box;
+  &-title{
+    margin-bottom: $spacer-1;
+    text-align: center;
+    font-weight: $font-weight-normal;
+  }
+  &-summary{
+    padding-top: $spacer-4;
+    color:$text-gray-light;
+    text-align: center;
+  }
+  &-meta{
+    height: 24px;
+    margin-bottom: 60px;
+    font-size: $font-size-small;
+    color: $gray-400;
+    text-align: center;
+    line-height: 24px;
+    .iconfont {
+      font-size: $font-size-small;
+      margin-right: $spacer-2;
+    }
+    &-line {
+      margin: 0 $spacer-2;
+    }
+  }
+  img{
+    max-width: 100%;
+  }
 }

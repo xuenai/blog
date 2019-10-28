@@ -18,7 +18,7 @@ export const OWN_ARTICLE_LIST = gql`
         id
         title
         content
-        createdAt
+        formatDate
       }
       total
       current
@@ -34,7 +34,7 @@ export const OWN_ARTICLE_DETAIL = gql`
       title
       summary
       content
-      createdAt
+      formatDate
     }
   }
 `;

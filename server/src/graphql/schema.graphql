@@ -19,6 +19,8 @@ type Article {
   createdAt: String!
   userId: ID!
   votes: [Vote!]!
+  # 格式化后的时间
+  formatDate: String!
 }
 
 type Articles {

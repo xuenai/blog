@@ -20,15 +20,15 @@ const NewArticle = ({ history }) => {
   let [title, setTitle] = useState('');
   let [summary, setSummary] = useState('');
   const [addArticle, { loading, data }] = useMutation(ADD_ARTICLE);
-  const controls = [
-    'undo', 'redo', 'separator',
-    'font-size', 'line-height', 'letter-spacing', 'separator',
-    'text-color', 'bold', 'italic', 'underline', 'strike-through', 'separator',
-    'remove-styles', 'separator', 'text-indent', 'text-align', 'separator',
-    'headings', 'list-ul', 'list-ol', 'blockquote', 'code', 'separator',
-    'link', 'separator', 'hr', 'separator', 'separator',
-    'clear', 'fullscreen'
-  ];
+  // const controls = [
+  //   'undo', 'redo', 'separator',
+  //   'font-size', 'line-height', 'letter-spacing', 'separator',
+  //   'text-color', 'bold', 'italic', 'underline', 'strike-through', 'separator',
+  //   'remove-styles', 'separator', 'text-indent', 'text-align', 'separator',
+  //   'headings', 'list-ul', 'list-ol', 'blockquote', 'code', 'separator',
+  //   'link', 'separator', 'hr', 'separator', 'separator',
+  //   'clear', 'fullscreen'
+  // ];
   if (loading) {
     handleLoading = null;
     handleLoading = Toast.loading('发布中。。。')
@@ -60,7 +60,7 @@ const NewArticle = ({ history }) => {
           <h4>文章内容：</h4>
           <div className="editor-wrapper">
             <BraftEditor
-              controls={controls}
+              // controls={controls}
               value={editorState}
               onChange={e => { setEditorState(e); setOutputHTML(e.toHTML()) }}
             />

@@ -1,4 +1,4 @@
-import { ApolloError } from 'apollo-server-koa'
+import { ApolloError } from 'apollo-server-koa';
 import { getUser, isLogin } from '../../config/utils'
 
 /**
@@ -75,7 +75,8 @@ async function ownArticleDetail(root, { id }, { Article, ctx }) {
   if (user) {
     let articles = await Article.find({_id: id, userId: user._id});
     if (articles) {
-      return articles[0];
+      let article = articles[0];
+      return article;
     } else {
       throw new ApolloError(`未能查询到该日志`, 'ownArticleDetail');
     }
