@@ -79,13 +79,19 @@ async function createUser(root, args, context) {
 }
 
 // 新增文章
-async function addArticle(root, data, { Article, ctx }) {
+async function addArticle(root, {title, summary, content, tags}, { Article, ctx, Tag }) {
   const user = await isLogin(ctx)
   if (!user) {
     throw new ApolloError(`用户不存在`, 'addArticle')
   }
   if (user.isAdmin) {
-    const newArticle = Object.assign({ userId: user._id }, data)
+    // 查找标签 看是否存在相同的标签
+    const oldTags = await Tag.find({name: tags});
+    if (!oldTags.length) {
+      // 新建标签
+      Tag.create({name: tags});
+    }
+    const newArticle = Object.assign({ userId: user._id }, {title, summary, content, tags})
     const response = await Article.create(newArticle)
     // 发送订阅 NEW_ARTICLE
     // pubsub.publish(NEW_ARTICLE, { newArticle: response })

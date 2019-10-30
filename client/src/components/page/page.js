@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import './page.scss';
 
 // 上一页 1 ... 三个按扭展示
-const getPagesPre = ({ current, total, disabled, space, onChange }) => {
+const getPagesPre = ({ current, disabled, space, onChange }) => {
   let halfSpace = parseInt(space / 2);
   let pre = [];
   // 添加 < 按钮

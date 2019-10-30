@@ -12,20 +12,35 @@ export const ME_QUERY = gql`
 
 // 获取后台自己的文章列表
 export const OWN_ARTICLE_LIST = gql`
-  query ownArticles($page: Int, $pageSize: Int, $filter: String) {
-    ownArticles(page: $page, pageSize: $pageSize, filter: $filter) {
+  {
+    ownArticles {
       articles {
         id
         title
-        content
         formatDate
+        updatedAt
+        tags
       }
       total
-      current
-      totalPage
     }
   }
 `;
+// export const OWN_ARTICLE_LIST = gql`
+//   query ownArticles($page: Int, $pageSize: Int, $filter: String) {
+//     ownArticles(page: $page, pageSize: $pageSize, filter: $filter) {
+//       articles {
+//         id
+//         title
+//         content
+//         formatDate
+//         tags
+//       }
+//       total
+//       current
+//       totalPage
+//     }
+//   }
+// `;
 
 // 获取自己的文章详情
 export const OWN_ARTICLE_DETAIL = gql`
@@ -35,6 +50,7 @@ export const OWN_ARTICLE_DETAIL = gql`
       summary
       content
       formatDate
+      tags
     }
   }
 `;

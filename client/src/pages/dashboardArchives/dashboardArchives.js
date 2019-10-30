@@ -1,20 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 
 import './dashboardArchives.scss';
 
-import {Page, Button, Spin, DashboardArticleList} from '@components';
+import { Button, Spin, DashboardArticleList} from '@components';
 import { OWN_ARTICLE_LIST } from '@graphql'
 
 const DashboardArchives = () => {
-  let [current, setCurrent] = useState(1);
-  let pageSize = 3;
-
-  const {loading, data, refetch} = useQuery(OWN_ARTICLE_LIST, {
-    variables: {page: current, pageSize, filter: ''}
-  });
-
+  const {loading, data } = useQuery(OWN_ARTICLE_LIST);
   if (loading) {
     return <Spin size={16}></Spin>
   }
@@ -25,7 +19,7 @@ const DashboardArchives = () => {
       </Link>
       <p className="totalCount">目前共计{data.ownArticles.total}篇日志</p>
       <DashboardArticleList list={data.ownArticles.articles}></DashboardArticleList>
-      <Page current={data.ownArticles.current} total={data.ownArticles.totalPage} onChange={e => {setCurrent(e); refetch();}}></Page>
+      {/* <Page current={data.ownArticles.current} total={data.ownArticles.totalPage} onChange={e => {setCurrent(e); refetch();}}></Page> */}
     </div>
   )
 };

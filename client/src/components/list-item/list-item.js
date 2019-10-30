@@ -3,20 +3,29 @@ import { Link } from 'react-router-dom';
 
 import './list-item.scss';
 
-const ListItem = () => {
+const ListItem = ({ path, data }) => {
+  let { title, formatDate, summary, tags } = data;
   return (
     <div className="list-item">
       <h3 className="list-item-title">
-        <Link className="list-item-link" to="/detail/2">今日诗词——诗词实时智能推荐</Link>
+        <Link className="list-item-link" to={path}>{title}</Link>
       </h3>
       <div className="list-item-meta">
         <span className="iconfont icon-riqi"></span>
-        <time>2019-9-12</time>
-        <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
-        <span className="iconfont icon-biaoqian"></span>
-        <span>Javascript</span>
+        <time>{formatDate}</time>
+        {
+          tags && (
+            <span>
+              <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
+              <span className="iconfont icon-biaoqian"></span>
+              <span>{tags}</span>
+            </span>
+          )
+        }
       </div>
-      <p className="list-item-summary">一个可以根据当前情景智能推荐古诗词的一言 API，很有意思。</p>
+      {
+        summary && <p className="list-item-summary">{summary}</p>
+      }
     </div>
   )
 };

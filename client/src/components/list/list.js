@@ -3,10 +3,12 @@ import './list.scss';
 
 import ListItem from '../list-item/list-item';
 
-const List = () => {
+const List = ({list, path}) => {
   return (
     <div className="list">
-      <ListItem></ListItem>
+      {
+        list.map(item => <ListItem path={`/dashboard/detail/${item.id}`} data={item}></ListItem>)
+      }
     </div>
   )
 };

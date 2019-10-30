@@ -8,22 +8,14 @@ import {LOGIN_MUTATUIION} from '@graphql';
 import { Toast } from '@components';
 import { useStore } from '@config';
 
-let handleLoading;
 const DashboardLogin = () => {
   let locaition = useLocation();
   let from = locaition.state.from.pathname;
   let [username, setUsername] = useState('');
   let [pwd, setPwd] = useState('');
   let { isLogin, changeLoginStatus } = useStore('user');
-  const [login, { loading, data }] = useMutation(LOGIN_MUTATUIION);
-  if (loading) {
-    handleLoading = null;
-    handleLoading = Toast.loading('登录中。。。')
-  }
-  if (!loading && handleLoading) {
-    setTimeout(handleLoading)
-    handleLoading = null;
-  }
+  const [login, { data }] = useMutation(LOGIN_MUTATUIION);
+  
   if (data && data.login.code === 0 && !isLogin) {
     changeLoginStatus(data.login, true);
     Toast.success('登录成功');

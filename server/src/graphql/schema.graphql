@@ -17,10 +17,12 @@ type Article {
   summary: String!
   content: String!
   createdAt: String!
+  updatedAt: String!
   userId: ID!
   votes: [Vote!]!
   # 格式化后的时间
   formatDate: String!
+  tags: String!
 }
 
 type Articles {
@@ -50,7 +52,7 @@ type Query {
   # 检测用户是否登录
   me: UserResponse!
   # 获取自己的日志列表
-  ownArticles(page: Int, pageSize: Int, filter: String): Articles!
+  ownArticles: Articles!
   # 获取自己的日志详情
   ownArticleDetail(id: ID): Article
 }
@@ -67,5 +69,5 @@ type Mutation {
   login(username: String!, password: String!): UserResponse!
   # 退出登录
   logout: UserResponse!
-  addArticle(title: String!,summary: String!, content: String!): UserResponse!
+  addArticle(title: String!,summary: String!, content: String!, tags: String!): UserResponse!
 }

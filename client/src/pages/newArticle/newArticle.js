@@ -19,16 +19,8 @@ const NewArticle = ({ history }) => {
   let [outputHTML, setOutputHTML] = useState('<p></p>');
   let [title, setTitle] = useState('');
   let [summary, setSummary] = useState('');
+  let [tags, setTags] = useState('');
   const [addArticle, { loading, data }] = useMutation(ADD_ARTICLE);
-  // const controls = [
-  //   'undo', 'redo', 'separator',
-  //   'font-size', 'line-height', 'letter-spacing', 'separator',
-  //   'text-color', 'bold', 'italic', 'underline', 'strike-through', 'separator',
-  //   'remove-styles', 'separator', 'text-indent', 'text-align', 'separator',
-  //   'headings', 'list-ul', 'list-ol', 'blockquote', 'code', 'separator',
-  //   'link', 'separator', 'hr', 'separator', 'separator',
-  //   'clear', 'fullscreen'
-  // ];
   if (loading) {
     handleLoading = null;
     handleLoading = Toast.loading('发布中。。。')
@@ -51,13 +43,15 @@ const NewArticle = ({ history }) => {
             Toast.error('标题和内容不能为空！');
             return false;
           }
-          addArticle({ variables: { title, summary, content: outputHTML } })
+          addArticle({ variables: { title, summary, content: outputHTML ,tags} })
         }}>
-          <h4>文章标题：</h4>
+          <h4>标题</h4>
           <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>
-          <h4>文章简介：</h4>
-          <Input className="article-input" placeholder="请输入简介" onChange={e => setSummary(e)}></Input>
-          <h4>文章内容：</h4>
+          <h4>概要</h4>
+          <Input className="article-input" placeholder="请输入概要" onChange={e => setSummary(e)}></Input>
+          <h4>标签</h4>
+          <Input className="article-input" placeholder="每篇日志只能有一个标签" onChange={e => setTags(e)}></Input>
+          <h4>正文</h4>
           <div className="editor-wrapper">
             <BraftEditor
               // controls={controls}
