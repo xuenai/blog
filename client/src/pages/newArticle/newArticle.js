@@ -34,35 +34,33 @@ const NewArticle = ({ history }) => {
     history.go(-1);
   }
   return (
-    <div className="main-content">
-      <div className="article">
-        <form onSubmit={event => {
-          event.preventDefault();
-          event.persist()
-          if (!title || outputHTML === '<p></p>') {
-            Toast.error('标题和内容不能为空！');
-            return false;
-          }
-          addArticle({ variables: { title, summary, content: outputHTML ,tags} })
-        }}>
-          <h4>标题</h4>
-          <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>
-          <h4>概要</h4>
-          <Input className="article-input" placeholder="请输入概要" onChange={e => setSummary(e)}></Input>
-          <h4>标签</h4>
-          <Input className="article-input" placeholder="每篇日志只能有一个标签" onChange={e => setTags(e)}></Input>
-          <h4>正文</h4>
-          <div className="editor-wrapper">
-            <BraftEditor
-              // controls={controls}
-              value={editorState}
-              onChange={e => { setEditorState(e); setOutputHTML(e.toHTML()) }}
-            />
-          </div>
-          <Button type="submit">保存</Button>
-          <Button onClick={() => history.go(-1)}>返回</Button>
-        </form>
-      </div>
+    <div className="article">
+      <form onSubmit={event => {
+        event.preventDefault();
+        event.persist()
+        if (!title || outputHTML === '<p></p>') {
+          Toast.error('标题和内容不能为空！');
+          return false;
+        }
+        addArticle({ variables: { title, summary, content: outputHTML, tags } })
+      }}>
+        <h4>标题</h4>
+        <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>
+        <h4>概要</h4>
+        <Input className="article-input" placeholder="请输入概要" onChange={e => setSummary(e)}></Input>
+        <h4>标签</h4>
+        <Input className="article-input" placeholder="每篇日志只能有一个标签" onChange={e => setTags(e)}></Input>
+        <h4>正文</h4>
+        <div className="editor-wrapper">
+          <BraftEditor
+            // controls={controls}
+            value={editorState}
+            onChange={e => { setEditorState(e); setOutputHTML(e.toHTML()) }}
+          />
+        </div>
+        <Button type="submit">保存</Button>
+        <Button onClick={() => history.go(-1)}>返回</Button>
+      </form>
     </div>
   )
 }

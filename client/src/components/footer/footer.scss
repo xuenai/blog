@@ -15,4 +15,10 @@
   p {
     min-height: 12px;
   }
+  &-link{
+    color:$gray-light;
+    &:hover{
+      color:$text-gray;
+    }
+  }
 }

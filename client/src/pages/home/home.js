@@ -5,7 +5,7 @@ import { List } from '@components';
 const Home = () => {
   return (
     <div className="main-content">
-      <List></List>
+      {/* <List></List> */}
     </div>
   )
 }

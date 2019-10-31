@@ -12,7 +12,8 @@ import Input from './input';
 import Button from './button';
 import DashboardHeader from './dashboardHeader';
 import Page from './page';
-import DashboardArticleList from './dashboardArticleList';
+import ArchiveList from './archiveList';
+import Checkbox from './checkbox';
 
 export {
   Header,
@@ -29,5 +30,6 @@ export {
   Button,
   DashboardHeader,
   Page,
-  DashboardArticleList
+  ArchiveList,
+  Checkbox
 }

@@ -16,7 +16,7 @@ Input.defalutProps = {
   type: 'text',
   disabled: false,
   placeholder: '',
-  onChange: function () {}
+  onChange () {}
 }
 
 Input.propTypes = {

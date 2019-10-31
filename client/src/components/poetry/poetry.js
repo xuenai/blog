@@ -49,6 +49,9 @@ class Poetry extends Component {
     )
   }
 }
+Poetry.defaultProps = {
+  onEntered() { }
+}
 
 Poetry.propTypes = {
   onEntered: PropTypes.func,

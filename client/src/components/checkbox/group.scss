@@ -1,0 +1,18 @@
+.h-checkbox-group-wrapper{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $text-gray-light;
+  font-size: $body-font-size;
+  font-variant: tabular-nums;
+  line-height: $body-line-height;
+  list-style: none;
+  font-feature-settings: "tnum";
+  display: inline-block;
+  line-height: unset;
+  cursor: pointer;
+}
+.h-checkbox-group-item{
+  display: inline-block;
+  margin-right: $spacer-2;
+}

@@ -29,7 +29,7 @@ class Footer extends React.Component {
       <div className="footer">
         <div className="footer-inner">
           <p className="copyright">Copyright© 2019 By justpeth</p>
-          <p>蜀ICP备19027770号</p>
+          <p><a className="footer-link" href="http://www.beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">蜀ICP备19027770号-1</a></p>
           <p>{hitokoto}</p>
         </div>
       </div>

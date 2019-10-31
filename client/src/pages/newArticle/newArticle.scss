@@ -1,5 +1,8 @@
 .article {
+  @include maxWidth;
   padding-top: $spacer-5;
+  padding-bottom: $spacer-5;
+  box-shadow: 0 0 16px rgba(0,0,0,0.12);
   h4 {
     margin-bottom: $spacer-2;
   }

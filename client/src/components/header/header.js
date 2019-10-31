@@ -29,14 +29,14 @@ const Header = ({url}) => {
                 <div className="iconfont icon-archive"></div>
                 <div>Archive</div>
               </NavLink>
-              <NavLink to={`${url}/tags`} className="nav-link" activeClassName="active">
+              {/* <NavLink to={`${url}/tags`} className="nav-link" activeClassName="active">
                 <div className="iconfont icon-tag"></div>
                 <div>Tags</div>
               </NavLink>
               <div className="nav-link">
                 <div className="iconfont icon-search"></div>
                 <div>Search</div>
-              </div>
+              </div> */}
             </div>
           </CSSTransition>
         </div>

@@ -88,7 +88,7 @@ const getPages = ({ current, total, disabled, space, onChange }) => {
   end = start + space - 1;
   // 结束位置大于总数了，则以总数-1为结束位置重新计算起始位置
   // 计算时要考虑当前总数是不是小于需要展示的页码数目
-  if (end >= total ) {
+  if (end >= total) {
     end = total - 1;
     start = total - space > 1 ? total - space : 2;
   }
@@ -119,7 +119,7 @@ const Page = ({ current, total, disabled, hideOnSinglePage, space, onChange }) =
   return (
     pageIsHide ? null :
       <ul className="pagination">
-        { pages}
+        {pages}
       </ul>
   )
 };
@@ -130,7 +130,7 @@ Page.defaultProps = {
   space: 3,
   disabled: false,
   hideOnSinglePage: false,
-  onChange: function (currPage) { console.log(`new page is ${currPage}`) }
+  onChange() { }
 };
 
 Page.propTypes = {

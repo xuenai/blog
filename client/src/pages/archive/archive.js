@@ -6,8 +6,7 @@ const Archive = () => {
 
   return (
     <div className="archive">
-      <p>目前共计13篇日志</p>
-      archive
+      <p>目前共计0篇日志</p>
     </div>
   )
 }
