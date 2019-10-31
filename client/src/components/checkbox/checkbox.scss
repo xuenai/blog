@@ -35,8 +35,8 @@
   }
   &.h-checkbox-checked {
     .h-checkbox-inner {
-      background-color: #1890ff;
-      border-color: #1890ff;
+      background-color: $bg-gray-dark;
+      border-color: $bg-gray-dark;
       &::after{
         transform: rotate(45deg) scale(1) translate(-50%, -50%);
         opacity: 1;
@@ -83,7 +83,7 @@
   &::after{
     box-sizing: border-box;
     position: absolute;
-    top: 50%;
+    top: 48%;
     left: 23%;
     display: table;
     width: 5px;

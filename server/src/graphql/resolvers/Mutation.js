@@ -97,14 +97,38 @@ async function addArticle(root, {title, summary, content, tags}, { Article, ctx,
     // pubsub.publish(NEW_ARTICLE, { newArticle: response })
     return {code: 0}
   } else {
-    throw new ApolloError(`用户不是管理员，无法发表文章`, 'addArticle')
+    throw new ApolloError(`用户不是管理员，无法发表日志`, 'addArticle')
   }
 }
 
+/**
+ * 新增标签
+ */
+async function addTag(root, {name}, {Tag, ctx}) {
+  const user = await isLogin(ctx)
+  if (!user) {
+    throw new ApolloError(`用户不存在`, 'addTag')
+  }
+  if (user.isAdmin) {
+    // 查找标签 看是否存在相同的标签
+    const oldTags = await Tag.find({name});
+    if (!oldTags.length) {
+      // 新建标签
+      Tag.create({name: tags});
+      return {code: 0}
+    }
+    throw new ApolloError(`标签已存在`, 'addTag')
+    // 发送订阅 NEW_ARTICLE
+    // pubsub.publish(NEW_ARTICLE, { newArticle: response })
+  } else {
+    throw new ApolloError(`用户不是管理员，无法新增标签`, 'addTag')
+  }
+}
 export default {
   createUser,
   signup,
   login,
   logout,
-  addArticle
+  addArticle,
+  addTag
 }

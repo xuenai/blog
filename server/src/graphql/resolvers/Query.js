@@ -82,6 +82,9 @@ async function ownArticles(root, args, { Article, ctx }) {
 //   }
 // }
 
+/**
+ * ownArticleDetail 获取文章详情
+ */
 async function ownArticleDetail(root, { id }, { Article, ctx }) {
   const { user } = await getUser(ctx);
   if (user) {
@@ -97,4 +100,16 @@ async function ownArticleDetail(root, { id }, { Article, ctx }) {
   }
 }
 
-export default { users, me, ownArticles, ownArticleDetail }
+/**
+ * tags 获取标签列表
+ */
+async function tags (root, data, {Tag}) {
+  const tagsRes = await Tag.find();
+  const total = await Tag.find().countDocuments();
+  return {
+    tags: tagsRes,
+    total
+  }
+}
+
+export default { users, me, ownArticles, ownArticleDetail, tags }

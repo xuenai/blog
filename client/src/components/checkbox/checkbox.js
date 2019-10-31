@@ -8,7 +8,7 @@ const Checkbox = ({ className, children, disabled, checked, onChange }) => {
 
   let [isChecked, setIsChecked] = useState(checked);
 
-  let wrapperCls = clsx(className, { 'h-checkbox-wrapper': true })
+  let wrapperCls = clsx({ 'h-checkbox-wrapper': true }, className)
 
   let checkboxCls = clsx({
     'h-checkbox': true,

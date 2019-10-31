@@ -1,30 +1,38 @@
-# id用户id
-# username用户名
-# isAdmin是否是管理员
-# isDelete账号是否冻结
-# password账号密码
+# 用户
 type User {
+  # id用户id
   id: ID!
+  # username用户名
   username: String!
+  # isAdmin是否是管理员
   isAdmin: Boolean!
+  # isDelete账号是否冻结
   isDelete: Boolean!
+  # password账号密码
   password: String!
 }
 # 日志
 type Article {
   id: ID!
+  # 标题
   title: String!
+  # 概要
   summary: String!
+  # 内容
   content: String!
+  # 创建时间
   createdAt: String!
+  # 更新时间
   updatedAt: String!
+  # 用户id
   userId: ID!
-  votes: [Vote!]!
   # 格式化后的时间
   formatDate: String!
+  # 标签
   tags: String!
 }
 
+# 日志列表
 type Articles {
   articles: [Article!]
   # 总数
@@ -35,17 +43,27 @@ type Articles {
   totalPage: Int!
 }
 
-type Vote {
-  id: ID!
-  createdAt: String!
-  user: User!
-  article: Article!
-}
 # code的值可以为0/1,0时证明没有错误，1时有错误 isAdmin是否是管理员
 type UserResponse {
   code: Int!
   isAdmin: Boolean
 }
+
+# 标签
+type Tag {
+  id: ID!
+  name: String!
+}
+
+# 标签列表
+type Tags {
+  # 标签列表
+  tags: [Tag!]!,
+  # 总数
+  total: Int!
+}
+
+# 所有的查询接口
 type Query {
   # 查询所有用户
   users: [User!]!
@@ -55,7 +73,11 @@ type Query {
   ownArticles: Articles!
   # 获取自己的日志详情
   ownArticleDetail(id: ID): Article
+  # 获取标签
+  tags: Tags!
 }
+
+# 所有的涉及到增删改的接口
 type Mutation {
   # 管理员创建用户
   createUser(
@@ -69,5 +91,8 @@ type Mutation {
   login(username: String!, password: String!): UserResponse!
   # 退出登录
   logout: UserResponse!
+  # 新增日志
   addArticle(title: String!,summary: String!, content: String!, tags: String!): UserResponse!
+  # 新增标签
+  addTag(name: String!): UserResponse!
 }

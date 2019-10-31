@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import './newArticle.scss';
 
-import { Input, Button, Toast } from '@components';
+import { Input, Button, Toast, Checkbox } from '@components';
 import { ADD_ARTICLE } from '@graphql';
 
 // 设置代码高亮
@@ -49,7 +49,7 @@ const NewArticle = ({ history }) => {
         <h4>概要</h4>
         <Input className="article-input" placeholder="请输入概要" onChange={e => setSummary(e)}></Input>
         <h4>标签</h4>
-        <Input className="article-input" placeholder="每篇日志只能有一个标签" onChange={e => setTags(e)}></Input>
+        <div className="article-input"><Checkbox>sdf</Checkbox></div>
         <h4>正文</h4>
         <div className="editor-wrapper">
           <BraftEditor

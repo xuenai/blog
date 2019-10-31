@@ -14,6 +14,7 @@ import DashboardHeader from './dashboardHeader';
 import Page from './page';
 import ArchiveList from './archiveList';
 import Checkbox from './checkbox';
+import Empty from './empty';
 
 export {
   Header,
@@ -31,5 +32,6 @@ export {
   DashboardHeader,
   Page,
   ArchiveList,
-  Checkbox
+  Checkbox,
+  Empty
 }
