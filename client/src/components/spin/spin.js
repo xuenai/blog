@@ -1,14 +1,28 @@
 import React from 'react';
-import styles from './spin.module.scss'
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const Spin = ({ size = 60 }) => {
+import './spin.scss';
+
+import Icon from '../icon';
+
+const Spin = ({ size, className }) => {
+  let classString = clsx('spin', className)
   return (
-    <div className={styles.spin} style={{ width: size, height: size }}>
-      <svg className={styles.spinner} viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        <circle className={styles.circle} fill="none" strokeWidth="4" strokeLinecap="round" cx="33" cy="33" r="30"></circle>
-      </svg>
+    <div className={classString}>
+      <Icon type="loading" size={size}></Icon>
     </div>
   )
+};
+
+Spin.defaultProps = {
+  size: 30,
+  className: '',
+}
+
+Spin.propTypes = {
+  size: PropTypes.number,
+  className: PropTypes.string
 }
 
 export default Spin;

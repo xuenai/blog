@@ -1,7 +1,6 @@
 import Header from './header'
 import Spin from './spin';
 import NotFound from './notFound';
-import Toast from './toast';
 import SignOutBtn from './signOut/signOut'
 import LoginedRoute from './loginedRoute';
 import Poetry from './poetry';
@@ -15,12 +14,13 @@ import Page from './page';
 import ArchiveList from './archiveList';
 import Checkbox from './checkbox';
 import Empty from './empty';
+import Message from './message';
+import Tooltip from './tooltip';
 
 export {
   Header,
   Spin,
   NotFound,
-  Toast,
   SignOutBtn,
   LoginedRoute,
   Poetry,
@@ -33,5 +33,7 @@ export {
   Page,
   ArchiveList,
   Checkbox,
-  Empty
+  Empty,
+  Message,
+  Tooltip
 }

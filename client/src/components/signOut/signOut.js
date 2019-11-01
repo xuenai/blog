@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
-import { Toast } from '@components';
+import { Message } from '@components';
 import { LOGOUT_MOTATION } from '@graphql';
 import { useStore } from '@config';
 import styles from './signOut.module.scss';
@@ -11,7 +11,7 @@ const SignOutBtn = () => {
   const [logout, { data }] = useMutation(LOGOUT_MOTATION);
   if (isLogin && data && data.logout && data.logout.code === 0) {
     changeLoginStatus(false, false)
-    Toast.success('退出登录成功')
+    Message.success('退出登录成功')
   }
   return isLogin ? (
     <div className={styles.signout}>

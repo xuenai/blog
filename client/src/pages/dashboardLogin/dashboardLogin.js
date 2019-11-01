@@ -5,7 +5,7 @@ import './dashboardLogin.scss';
 
 import {Input, Button} from '@components';
 import {LOGIN_MUTATUIION} from '@graphql';
-import { Toast } from '@components';
+import { Message } from '@components';
 import { useStore } from '@config';
 
 const DashboardLogin = () => {
@@ -18,7 +18,7 @@ const DashboardLogin = () => {
   
   if (data && data.login.code === 0 && !isLogin) {
     changeLoginStatus(data.login, true);
-    Toast.success('登录成功');
+    Message.success('登录成功');
   }
   return (
     isLogin ? <Redirect to={from}></Redirect> :
@@ -29,7 +29,7 @@ const DashboardLogin = () => {
             event.preventDefault();
             event.persist()
             if (!username || !pwd) {
-              Toast.error('请将信息补充完整！');
+              Message.error('请将信息补充完整！');
               return false;
             }
             login({ variables: { username, password: pwd } })

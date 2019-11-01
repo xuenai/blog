@@ -1,18 +1,36 @@
-.spin {
+.h-icon {
   display: inline-block;
-  font-size: 0;
-  overflow: hidden;
-  .spinner {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  &-info {
+    color: #1890ff;
+  }
+  
+  &-success {
+    color: #52c41a;
+  }
+  
+  &-warning {
+    color: #faad14;
+  }
+  
+  &-error {
+    color: #f74a53;
+  }
+
+  &-loading {
     width: 100%;
     height: 100%;
-    animation: rotator 1.4s linear infinite;
-    vertical-align: top;
-  }
-  .circle {
-    stroke-dasharray: 187;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+    &-inner{
+      animation: rotator 1.4s linear infinite;
+    }
+    &-circle {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+    }
   }
 }
 

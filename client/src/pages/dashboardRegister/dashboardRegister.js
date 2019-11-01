@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import '../dashboardLogin/dashboardLogin.scss';
 
-import {Input, Button, Toast} from '@components';
+import {Input, Button, Message} from '@components';
 import {REGISTER_MUTATUIION} from '@graphql';
 
 let handleLoading;
@@ -14,14 +14,14 @@ const DashboardRegister = () => {
   let [repeatPwd, setRepeatPwd] = useState('');
   const [signup, { loading, data}] = useMutation(REGISTER_MUTATUIION);
   if (loading) {
-    handleLoading = Toast.loading('注册中。。。')
+    handleLoading = Message.loading('注册中。。。')
   }
   if(!loading && handleLoading) {
     setTimeout(handleLoading)
     handleLoading = null;
   }
   if (data && data.signup.code === 0) {
-    Toast.success(`注册成功`);
+    Message.success(`注册成功`);
   }
   return (
     data && data.signup.code === 0 ? <Redirect to='/dashboard/login'></Redirect> :
@@ -32,11 +32,11 @@ const DashboardRegister = () => {
           event.preventDefault();
           event.persist()
           if (!username || !pwd || !repeatPwd) {
-            Toast.error('请将信息补充完整');
+            Message.error('请将信息补充完整');
             return false;
           }
           if (pwd !== repeatPwd) {
-            Toast.error('两次密码不相等');
+            Message.error('两次密码不相等');
             return false;
           }
           signup({ variables: { username, password: pwd } })

@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import './newArticle.scss';
 
-import { Input, Button, Toast, Checkbox } from '@components';
+import { Input, Button, Message, Checkbox } from '@components';
 import { ADD_ARTICLE } from '@graphql';
 
 // 设置代码高亮
@@ -23,14 +23,14 @@ const NewArticle = ({ history }) => {
   const [addArticle, { loading, data }] = useMutation(ADD_ARTICLE);
   if (loading) {
     handleLoading = null;
-    handleLoading = Toast.loading('发布中。。。')
+    handleLoading = Message.loading('发布中。。。')
   }
   if (!loading && handleLoading) {
     setTimeout(handleLoading)
     handleLoading = null;
   }
   if (data && data.addArticle.code === 0) {
-    Toast.success('新增文章成功');
+    Message.success('新增文章成功');
     history.go(-1);
   }
   return (
@@ -39,7 +39,7 @@ const NewArticle = ({ history }) => {
         event.preventDefault();
         event.persist()
         if (!title || outputHTML === '<p></p>') {
-          Toast.error('标题和内容不能为空！');
+          Message.error('标题和内容不能为空！');
           return false;
         }
         addArticle({ variables: { title, summary, content: outputHTML, tags } })

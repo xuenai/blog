@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import { Toast } from '@components';
+import { Message } from '@components';
 export * from './queries';
 export * from './mutations'
 
@@ -10,12 +10,12 @@ const client = new ApolloClient({
     let {networkError, response} = res
     if (networkError) {
       console.warn(networkError.message);
-      Toast.error(`网络连接出错`)
+      Message.error(`网络连接出错`)
     }
     if (response) {
       let {errors} = response;
       if (errors) {
-        errors.map(error => Toast.error(error.message))
+        errors.map(error => Message.error(error.message))
       }
     }
   }
