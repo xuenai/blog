@@ -1,14 +1,25 @@
-import React, { forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
 import RcTooltip from 'rc-tooltip';
 import PropTypes from 'prop-types';
 
 import './tooltip.scss';
 
 
-const Tooltip = forwardRef(({ children, trigger, ...rest }, ref) => {
+const Tooltip = forwardRef((props, ref) => {
+  let { title, children, trigger, onVisibleChange, ...rest } = props;
+
+  /**
+   * 弹窗显隐状态变更
+   * @param {boolean} e 弹窗显隐状态
+   */
+  function onVisibleChangeHandle(e) {
+    if (onVisibleChange) {
+      onVisibleChange(e);
+    }
+  }
   let newTrigger = [trigger];
   return (
-    <RcTooltip ref={ref} trigger={newTrigger} {...rest}>
+    <RcTooltip overlay={title} onVisibleChange={onVisibleChangeHandle} ref={ref} trigger={newTrigger} {...rest}>
       {children}
     </RcTooltip>
   )
@@ -27,10 +38,6 @@ Tooltip.defaultProps = {
   placement: 'left',
   // 隐藏时销毁
   destroyTooltipOnHide: false,
-  // 显示隐藏触发
-  onVisibleChange() { },
-  // 显示隐藏完成后触发
-  afterVisibleChange() { },
   // 卡牌类名
   overlayClassName: '',
   prefixCls: 'h-tooltip',

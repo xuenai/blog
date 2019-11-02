@@ -28,6 +28,8 @@ Popover.defaultProps = {
   trigger: 'click',
   mouseEnterDelay: 0.1,
   mouseLeaveDelay: 0.1,
+  title: '',
+  content: '',
 }
 
 Popover.propTypes = {
@@ -37,6 +39,8 @@ Popover.propTypes = {
   trigger: PropTypes.oneOf(['click', 'hover', 'focus']),
   mouseEnterDelay: PropTypes.number,
   mouseLeaveDelay: PropTypes.number,
+  title: PropTypes.string,
+  content: PropTypes.any,
 }
 
 export default Popover;

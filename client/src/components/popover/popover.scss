@@ -73,12 +73,11 @@
     color: $popover-color;
     font-size: $body-font-size;
 
-    // > .@{iconfont-css-prefix} {
-    //   position: absolute;
-    //   top: 8px; // 4px for padding-top, 4px for vertical middle;
-    //   color: @warning-color;
-    //   font-size: @font-size-base;
-    // }
+    > .h-icon {
+      position: absolute;
+      top: 8px; // 4px for padding-top, 4px for vertical middle;
+      font-size: $body-font-size;
+    }
     &-title {
       padding-left: $body-font-size + 8px;
     }
