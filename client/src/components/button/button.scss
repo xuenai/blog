@@ -12,16 +12,20 @@
   outline: none;
   text-align: center;
   @include btn-solid($gray-900, $gray-000, $gray-100);
+
   // @include btn-inverse($gray-900, $gray-000, #eff3f6);
   &.button-primary {
     @include btn-inverse($gray-900, $gray-000, $gray-100);
   }
-  & + .button {
+
+  &+.button {
     margin-left: $spacer-3;
   }
+
   &-large {
     height: 40px;
   }
+
   &-small {
     height: 24px;
     padding: 0 $spacer-2;

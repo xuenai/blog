@@ -16,6 +16,8 @@ import Checkbox from './checkbox';
 import Empty from './empty';
 import Message from './message';
 import Tooltip from './tooltip';
+import Popover from './popover';
+import Popconfirm from './popconfirm'
 
 export {
   Header,
@@ -35,5 +37,7 @@ export {
   Checkbox,
   Empty,
   Message,
-  Tooltip
+  Tooltip,
+  Popover,
+  Popconfirm,
 }

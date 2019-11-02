@@ -4,7 +4,9 @@
   background-color: $bg2;
   background-image: linear-gradient(-180deg, $bg 0%, $bg2 90%);
   transition: all 0.2s ease-in-out;
-  @if $bg == $gray-000 {
+
+  @if $bg==$gray-000 {
+
     &:focus,
     &.focus {
       box-shadow: $btn-input-focus-shadow;
@@ -12,11 +14,9 @@
 
     &:hover {
       background-color: darken($bg2, 3%);
-      background-image: linear-gradient(
-        -180deg,
-        darken($bg, 3%) 0%,
-        darken($bg2, 3%) 90%
-      );
+      background-image: linear-gradient(-180deg,
+          darken($bg, 3%) 0%,
+          darken($bg2, 3%) 90%);
       background-position: 0 -$em-spacer-5;
       border-color: rgba($black, 0.35);
     }
@@ -24,10 +24,8 @@
     &:active {
       background-color: darken(desaturate($bg, 10%), 6%);
       background-image: none;
-      border-color: rgba(
-        $black,
-        0.35
-      ); // repeat to avoid shift on click-drag off of button
+      border-color: rgba($black,
+          0.35); // repeat to avoid shift on click-drag off of button
       box-shadow: $btn-active-shadow;
     }
 
@@ -39,18 +37,18 @@
       border-color: transparentize($black, 0.8); // back to default .btn
       box-shadow: none;
     }
-  } @else {
+  }
+
+  @else {
     &:focus {
       box-shadow: 0 0 0 2px rgba($bg, 0.4);
     }
 
     &:hover {
       background-color: darken($bg2, 2%);
-      background-image: linear-gradient(
-        -180deg,
-        darken($bg, 2%) 0%,
-        darken($bg2, 2%) 90%
-      );
+      background-image: linear-gradient(-180deg,
+          darken($bg, 2%) 0%,
+          darken($bg2, 2%) 90%);
       background-position: 0 -$em-spacer-5;
       border-color: $black-fade-50;
     }
@@ -67,10 +65,8 @@
       color: rgba($color, 0.75);
       background-color: mix($bg2, $white, 50%);
       background-image: none;
-      border-color: transparentize(
-        $black,
-        0.8
-      ); // repeat .btn default to avoid shift on click-drag off of button
+      border-color: transparentize($black,
+          0.8); // repeat .btn default to avoid shift on click-drag off of button
       box-shadow: none;
     }
   }
@@ -89,11 +85,9 @@
   &:hover {
     color: $text-white;
     background-color: $color;
-    background-image: linear-gradient(
-      -180deg,
-      lighten($color, 10%) 0%,
-      $color 90%
-    );
+    background-image: linear-gradient(-180deg,
+        lighten($color, 10%) 0%,
+        $color 90%);
     border-color: $black-fade-50;
   }
 

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import {Redirect, useLocation} from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 import './dashboardLogin.scss';
 
-import {Input, Button} from '@components';
-import {LOGIN_MUTATUIION} from '@graphql';
+import { Input, Button } from '@components';
+import { LOGIN_MUTATUIION } from '@graphql';
 import { Message } from '@components';
 import { useStore } from '@config';
 
@@ -15,7 +15,7 @@ const DashboardLogin = () => {
   let [pwd, setPwd] = useState('');
   let { isLogin, changeLoginStatus } = useStore('user');
   const [login, { data }] = useMutation(LOGIN_MUTATUIION);
-  
+
   if (data && data.login.code === 0 && !isLogin) {
     changeLoginStatus(data.login, true);
     Message.success('登录成功');
@@ -34,8 +34,8 @@ const DashboardLogin = () => {
             }
             login({ variables: { username, password: pwd } })
           }}>
-            <Input placeholder="Your username" className="mb-16" onChange={e => setUsername(e)}/>
-            <Input placeholder="Your password" type="password" className="mb-16" onChange={e => setPwd(e)}/>
+            <Input placeholder="Your username" className="mb-16" onChange={e => setUsername(e)} />
+            <Input placeholder="Your password" type="password" className="mb-16" onChange={e => setPwd(e)} />
             <Button className="mb-16" type="submit">Login</Button>
           </form>
         </div>

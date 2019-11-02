@@ -6,10 +6,12 @@
   transition: border 0.2s ease-in-out, background 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
   color: $text-gray;
+
   &:focus {
     outline: 0;
     box-shadow: $btn-input-focus-shadow;
   }
+
   &:disabled {
     background-color: $gray-100;
     opacity: 1;

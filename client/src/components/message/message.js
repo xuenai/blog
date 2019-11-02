@@ -60,7 +60,7 @@ function notice(args) {
           <div
             className={`${prefixCls}-custom-content${
               args.type ? ` ${prefixCls}-${args.type}` : ''
-            }`}
+              }`}
           >
             {iconNode}
             <span className={`${prefixCls}-custom-content-text`}>{args.content}</span>
@@ -82,7 +82,7 @@ function notice(args) {
 }
 
 function isArgsProps(content) {
-  return typeof content === 'object' && !! content.content;
+  return typeof content === 'object' && !!content.content;
 }
 
 const api = {

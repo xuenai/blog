@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import './dashboardTags.scss';
 
-import {Button, Empty} from '@components';
+import { Button, Empty } from '@components';
 
 const DashboardTags = () => {
   return (

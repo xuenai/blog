@@ -12,9 +12,9 @@ import './index.scss';
 import store from '@store';
 store();
 
-Prism.hooks.add('before-highlight', function(env) {
-  env.element.innerHTML = env.element.innerHTML.replace(/<br\s*\/?>/g,'\n');
-  env.code = env.element.textContent.replace(/^(?:\r?\n|\r)/,'');
+Prism.hooks.add('before-highlight', function (env) {
+  env.element.innerHTML = env.element.innerHTML.replace(/<br\s*\/?>/g, '\n');
+  env.code = env.element.textContent.replace(/^(?:\r?\n|\r)/, '');
 });
 
 ReactDOM.render(<ApolloProvider client={client}><App /></ApolloProvider>, document.getElementById('root'));

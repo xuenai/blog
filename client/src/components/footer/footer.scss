@@ -9,16 +9,20 @@
   line-height: 1;
   font-size: $font-size-small;
   text-align: center;
+
   &-inner {
     padding: $spacer-3;
   }
+
   p {
     min-height: 12px;
   }
-  &-link{
-    color:$gray-light;
-    &:hover{
-      color:$text-gray;
+
+  &-link {
+    color: $gray-light;
+
+    &:hover {
+      color: $text-gray;
     }
   }
 }

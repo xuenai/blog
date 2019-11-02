@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './dashboardHeader.scss';
 
-const DashboardHeader = ({url}) => {
+const DashboardHeader = ({ url }) => {
   return (
     <div className="d-header">
       <div className="d-header-item">

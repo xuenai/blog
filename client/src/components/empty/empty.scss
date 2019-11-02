@@ -1,17 +1,19 @@
-.empty{
+.empty {
   margin: $spacer-5 0;
   color: $gray-400;
   text-align: center;
-  &-image{
-    height: 40px;
-    margin-bottom:$spacer-2;
 
-    svg{
+  &-image {
+    height: 40px;
+    margin-bottom: $spacer-2;
+
+    svg {
       height: 100%;
       margin: auto;
     }
   }
-  &-description{
-    margin:0;
+
+  &-description {
+    margin: 0;
   }
 }

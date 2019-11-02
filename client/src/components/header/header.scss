@@ -1,18 +1,22 @@
 .header {
   position: relative;
   z-index: 1;
+
   &-line {
     height: 3px;
     background: $bg-gray-dark;
   }
+
   &-inner {
     padding: 100px 0 70px;
   }
+
   .site-name {
     text-align: center;
     user-select: none;
     font-size: 0;
   }
+
   .site-name-inner {
     display: inline-block;
     padding: 0 $spacer-3;
@@ -23,16 +27,20 @@
     width: 72px;
     height: 36px;
   }
+
   .site-name-text {
     line-height: 36px;
   }
+
   .nav-links-wrapper {
     height: 48px;
   }
+
   .nav-links {
     text-align: center;
     height: 48px;
   }
+
   .nav-link {
     padding: 0 0 4px;
     display: inline-block;
@@ -41,6 +49,7 @@
     border-bottom: 1px solid transparent;
     font-size: 13px;
     cursor: pointer;
+
     &:hover,
     &.active {
       color: $text-gray-dark;

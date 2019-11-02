@@ -21,13 +21,13 @@ const Icon = ({ type, className, size }) => {
   return (
     type === 'loading'
       ? <span className={classString} style={{ width: size, height: size }}>
-          <svg className='h-icon-loading-inner' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-            <circle className='h-icon-loading-circle' fill="none" strokeWidth="4" strokeLinecap="round" cx="33" cy="33" r="30"></circle>
-          </svg>
-        </span> :
-        <svg viewBox="0 0 1024 1024" className={classString} style={{ fontSize: size }}>
-          {path}
+        <svg className='h-icon-loading-inner' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle className='h-icon-loading-circle' fill="none" strokeWidth="4" strokeLinecap="round" cx="33" cy="33" r="30"></circle>
         </svg>
+      </span> :
+      <svg viewBox="0 0 1024 1024" className={classString} style={{ fontSize: size }}>
+        {path}
+      </svg>
   )
 };
 

@@ -33,11 +33,17 @@ $lh-condensed: 1.25 !default;
 $lh-default: 1.5 !default;
 
 // Font stacks
-$body-font: "Zilla Slab", "Source Han Serif SC",
-  "Source Han Serif CN", sans-serif !default;
+$body-font: "Zilla Slab",
+"Source Han Serif SC",
+"Source Han Serif CN",
+sans-serif !default;
 
 // Monospace font stack
-$mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !default;
+$mono-font: "SFMono-Regular",
+Consolas,
+"Liberation Mono",
+Menlo,
+monospace !default;
 
 // The base body size
 $body-font-size: 14px !default;

@@ -127,8 +127,7 @@ $gray: $gray-500 !default;
 
 // -------- Color gradient maps --------
 
-$grays: (
-  0: $gray-000,
+$grays: (0: $gray-000,
   1: $gray-100,
   2: $gray-200,
   3: $gray-300,
@@ -137,11 +136,9 @@ $grays: (
   6: $gray-600,
   7: $gray-700,
   8: $gray-800,
-  9: $gray-900
-) !default;
+  9: $gray-900) !default;
 
-$blues: (
-  0: $blue-000,
+$blues: (0: $blue-000,
   1: $blue-100,
   2: $blue-200,
   3: $blue-300,
@@ -150,11 +147,9 @@ $blues: (
   6: $blue-600,
   7: $blue-700,
   8: $blue-800,
-  9: $blue-900
-) !default;
+  9: $blue-900) !default;
 
-$greens: (
-  0: $green-000,
+$greens: (0: $green-000,
   1: $green-100,
   2: $green-200,
   3: $green-300,
@@ -163,11 +158,9 @@ $greens: (
   6: $green-600,
   7: $green-700,
   8: $green-800,
-  9: $green-900
-) !default;
+  9: $green-900) !default;
 
-$yellows: (
-  0: $yellow-000,
+$yellows: (0: $yellow-000,
   1: $yellow-100,
   2: $yellow-200,
   3: $yellow-300,
@@ -176,11 +169,9 @@ $yellows: (
   6: $yellow-600,
   7: $yellow-700,
   8: $yellow-800,
-  9: $yellow-900
-) !default;
+  9: $yellow-900) !default;
 
-$oranges: (
-  0: $orange-000,
+$oranges: (0: $orange-000,
   1: $orange-100,
   2: $orange-200,
   3: $orange-300,
@@ -189,11 +180,9 @@ $oranges: (
   6: $orange-600,
   7: $orange-700,
   8: $orange-800,
-  9: $orange-900
-) !default;
+  9: $orange-900) !default;
 
-$reds: (
-  0: $red-000,
+$reds: (0: $red-000,
   1: $red-100,
   2: $red-200,
   3: $red-300,
@@ -202,11 +191,9 @@ $reds: (
   6: $red-600,
   7: $red-700,
   8: $red-800,
-  9: $red-900
-) !default;
+  9: $red-900) !default;
 
-$purples: (
-  0: $purple-000,
+$purples: (0: $purple-000,
   1: $purple-100,
   2: $purple-200,
   3: $purple-300,
@@ -215,11 +202,9 @@ $purples: (
   6: $purple-600,
   7: $purple-700,
   8: $purple-800,
-  9: $purple-900
-) !default;
+  9: $purple-900) !default;
 
-$pinks: (
-  0: $pink-000,
+$pinks: (0: $pink-000,
   1: $pink-100,
   2: $pink-200,
   3: $pink-300,
@@ -228,16 +213,13 @@ $pinks: (
   6: $pink-600,
   7: $pink-700,
   8: $pink-800,
-  9: $pink-900
-) !default;
+  9: $pink-900) !default;
 
-$hue-maps: (
-  "gray": $grays,
+$hue-maps: ("gray": $grays,
   "blue": $blues,
   "green": $greens,
   "yellow": $yellows,
   "orange": $oranges,
   "red": $reds,
   "purple": $purples,
-  "pink": $pinks
-) !default;
+  "pink": $pinks) !default;

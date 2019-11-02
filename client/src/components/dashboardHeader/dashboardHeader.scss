@@ -1,24 +1,27 @@
-.d-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  left:0;
-  z-index:1;
-  height:56px;
-  padding:$spacer-3;
-  font-size:$body-font-size;
+.d-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 56px;
+  padding: $spacer-3;
+  font-size: $body-font-size;
   background: $bg-gray-dark;
-  color:$text-white;
-  &-link{
+  color: $text-white;
+
+  &-link {
     margin-right: $spacer-4;
-    color:$text-white;
+    color: $text-white;
+
     &:hover,
     &:focus,
-    &.active{
-      color: hsla(0,0%,100%,.7);
+    &.active {
+      color: hsla(0, 0%, 100%, .7);
     }
-    .iconfont{
-      margin-right:$spacer-2;
+
+    .iconfont {
+      margin-right: $spacer-2;
     }
   }
 }

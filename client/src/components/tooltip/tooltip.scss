@@ -77,8 +77,9 @@
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
     bottom: $tooltip-distance - $tooltip-arrow-rotate-width;
+
     &::before {
-      box-shadow: $tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0,0,0,0.07);
+      box-shadow: $tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
       transform: translateY(-$tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -102,7 +103,7 @@
     left: $tooltip-distance - $tooltip-arrow-rotate-width;
 
     &::before {
-      box-shadow: -$tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0,0,0,0.07);
+      box-shadow: -$tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
       transform: translateX($tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -126,7 +127,7 @@
     right: $tooltip-distance - $tooltip-arrow-rotate-width;
 
     &::before {
-      box-shadow: $tooltip-arrow-shadow-width -$tooltip-arrow-shadow-width 7px rgba(0,0,0,0.07);
+      box-shadow: $tooltip-arrow-shadow-width -$tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
       transform: translateX(-$tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -150,7 +151,7 @@
     top: $tooltip-distance - $tooltip-arrow-rotate-width;
 
     &::before {
-      box-shadow: -$tooltip-arrow-shadow-width -$tooltip-arrow-shadow-width 7px rgba(0,0,0,0.07);
+      box-shadow: -$tooltip-arrow-shadow-width -$tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
       transform: translateY($tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -166,5 +167,67 @@
 
   &-placement-bottomRight &-arrow {
     right: $tooltip-arrow-offset-horizontal;
+  }
+}
+
+
+.zoom-big-fast-enter,
+.zoom-big-fast-appear {
+  animation-duration: .1s;
+  animation-fill-mode: both;
+
+  animation-play-state: paused;
+}
+
+.zoom-big-fast-leave {
+  animation-duration: .1s;
+  animation-fill-mode: both;
+
+  animation-play-state: paused;
+}
+
+.zoom-big-fast-enter.zoom-big-fast-enter-active,
+.zoom-big-fast-appear.zoom-big-fast-appear-active {
+  animation-name: zoomBigIn;
+  animation-play-state: running;
+}
+
+.zoom-big-fast-leave.zoom-big-fast-leave-active {
+  animation-name: zoomBigOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+
+.zoom-big-fast-enter,
+.zoom-big-fast-appear {
+  transform: scale(0); // need this by yiminghe
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.zoom-big-fast-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+@keyframes zoomBigIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomBigOut {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
   }
 }

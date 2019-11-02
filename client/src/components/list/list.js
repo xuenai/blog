@@ -3,7 +3,7 @@ import './list.scss';
 
 import ListItem from '../list-item/list-item';
 
-const List = ({list, path}) => {
+const List = ({ list, path }) => {
   return (
     <div className="list">
       {

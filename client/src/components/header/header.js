@@ -6,7 +6,7 @@ import './header.scss';
 import Poetry from '../poetry/poetry';
 
 
-const Header = ({url}) => {
+const Header = ({ url }) => {
   let [poetryStatus, setPoetryStatus] = useState(false);
   return (
     <div className="header">

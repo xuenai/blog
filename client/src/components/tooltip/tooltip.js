@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import RcTooltip from 'rc-tooltip';
 import PropTypes from 'prop-types';
 
 import './tooltip.scss';
 
 
-const prefixCls = 'h-tooltip';
-
-const Tooltip = ({children, ...rest}) => {
+const Tooltip = forwardRef(({ children, trigger, ...rest }, ref) => {
+  let newTrigger = [trigger];
   return (
-    <RcTooltip prefixCls={prefixCls} {...rest}>
+    <RcTooltip ref={ref} trigger={newTrigger} {...rest}>
       {children}
     </RcTooltip>
   )
-};
+});
 
 Tooltip.defaultProps = {
   // 鼠标移入后延迟多久触发 单位 秒
@@ -21,7 +20,7 @@ Tooltip.defaultProps = {
   // 鼠标移入后延迟多久触发 单位 秒
   mouseLeaveDelay: 0,
   // 触发方式 'hover','click','focus'
-  trigger: ['hover'],
+  trigger: 'hover',
   // tooltip展示的内容
   overlay: 'tooltip',
   // tooltip位置
@@ -29,19 +28,21 @@ Tooltip.defaultProps = {
   // 隐藏时销毁
   destroyTooltipOnHide: false,
   // 显示隐藏触发
-  onVisibleChange(){},
+  onVisibleChange() { },
   // 显示隐藏完成后触发
-  afterVisibleChange(){},
+  afterVisibleChange() { },
   // 卡牌类名
   overlayClassName: '',
+  prefixCls: 'h-tooltip',
+  transitionName: 'zoom-big-fast',
 }
 
 Tooltip.propTypes = {
   mouseEnterDelay: PropTypes.number,
   mouseLeaveDelay: PropTypes.number,
-  trigger: PropTypes.arrayOf(PropTypes.string),
+  trigger: PropTypes.oneOf(['click', 'hover', 'focus']),
   overlay: PropTypes.any,
-  placement: PropTypes.oneOf(['left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
+  placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
   destroyTooltipOnHide: PropTypes.bool,
   // 用于手动控制浮层显隐
   visible: PropTypes.bool,
@@ -50,6 +51,8 @@ Tooltip.propTypes = {
   overlayClassName: PropTypes.string,
   // 默认是否显隐
   defaultVisible: PropTypes.bool,
+  prefixCls: PropTypes.string,
+  transitionName: PropTypes.string,
 }
 
 export default Tooltip;

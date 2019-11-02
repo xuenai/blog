@@ -22,27 +22,23 @@ $spacer-5: $spacer * 4 !default; // 32px
 $spacer-6: $spacer * 5 !default; // 40px
 
 // The list of spacer values
-$spacers: (
-  $spacer-0,
+$spacers: ($spacer-0,
   $spacer-1,
   $spacer-2,
   $spacer-3,
   $spacer-4,
   $spacer-5,
-  $spacer-6
-) !default;
+  $spacer-6) !default;
 
 // And the map of spacers, for easier looping:
 // @each $scale, $length in $spacer-map { ... }
-$spacer-map: (
-  0: $spacer-0,
+$spacer-map: (0: $spacer-0,
   1: $spacer-1,
   2: $spacer-2,
   3: $spacer-3,
   4: $spacer-4,
   5: $spacer-5,
-  6: $spacer-6
-) !default;
+  6: $spacer-6) !default;
 
 // Em spacer variables
 $em-spacer-1: 0.0625em !default; // 1/16
@@ -74,12 +70,10 @@ $container-lg: $width-lg !default;
 $container-xl: $width-xl !default;
 
 // Breakpoints in the form (name: length)
-$breakpoints: (
-  sm: $width-sm,
+$breakpoints: (sm: $width-sm,
   md: $width-md,
   lg: $width-lg,
-  xl: $width-xl
-) !default;
+  xl: $width-xl) !default;
 
 // This map in the form (breakpoint: variant) is used to iterate over
 // breakpoints and create both responsive and non-responsive classes in one
@@ -92,8 +86,7 @@ $breakpoints: (
 //   }
 // }
 // ```
-$responsive-variants: (
-  "": "",
+$responsive-variants: ("": "",
   sm: "-sm",
   md: "-md",
   lg: "-lg",
@@ -102,4 +95,3 @@ $responsive-variants: (
 
 // responive utility position values
 $responsive-positions: (static, relative, absolute, fixed) !default;
-

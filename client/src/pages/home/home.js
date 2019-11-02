@@ -1,7 +1,13 @@
 import React from 'react';
 
-import { List, Empty , Message, Button, Spin, Tooltip} from '@components';
+import { List, Empty, Message, Button, Tooltip, Popover, Input } from '@components';
 
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
 
 const Home = () => {
   return (
@@ -9,10 +15,14 @@ const Home = () => {
       {/* <List></List> */}
       <Empty></Empty>
       <Button onClick={() => Message.error('This is a normal message')}></Button>
-      <Spin></Spin>
-      <Tooltip placement="top" overlay={<span>tooltip</span>}>
+      <Tooltip trigger="click" placement="top" overlay={<span>tooltip</span>}>
         <a href="#">hover</a>
       </Tooltip>
+      <div>
+        <Popover content={content} title="Title">
+          <Button>14</Button>
+        </Popover>
+      </div>
     </div>
   )
 }

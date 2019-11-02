@@ -2,7 +2,7 @@ import React from 'react';
 
 import './archive.scss';
 
-import {Empty} from '@components';
+import { Empty } from '@components';
 
 const Archive = () => {
 

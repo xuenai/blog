@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import './button.scss';
 
-const Button = ({ className, size, children, disabled, type, onClick }) => {
+const Button = forwardRef(({ className, size, children, disabled, type, onClick }, ref) => {
   let classNames = clsx({
     button: true,
     'button-large': size === 'large',
     'button-small': size === 'small'
   })
   return (
-    <button className={`${classNames} ${className}`} disabled={disabled} type={type} onClick={() => onClick && onClick()}>{children}</button>
+    <button ref={ref} className={`${classNames} ${className}`} disabled={disabled} type={type} onClick={() => onClick && onClick()}>{children}</button>
   )
-}
+});
 
 Button.defaultProps = {
   className: '',
@@ -21,7 +21,7 @@ Button.defaultProps = {
   disabled: false,
   children: 'Button',
   type: 'button',
-  onClick () {}
+  onClick() { }
 }
 
 Button.propTypes = {
