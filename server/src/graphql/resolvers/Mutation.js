@@ -114,7 +114,7 @@ async function addTag(root, {name}, {Tag, ctx}) {
     const oldTags = await Tag.find({name});
     if (!oldTags.length) {
       // 新建标签
-      Tag.create({name: tags});
+      Tag.create({name});
       return {code: 0}
     }
     throw new ApolloError(`标签已存在`, 'addTag')

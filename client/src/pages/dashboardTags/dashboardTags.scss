@@ -3,11 +3,9 @@
   min-height: calc(100vh - 56px);
   padding-top: $spacer-3;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
-
+  overflow: hidden;
   .new-btn {
-    display: inline-block;
     margin-bottom: $spacer-3;
-
     .iconfont {
       margin-right: $spacer-1;
     }

@@ -65,6 +65,9 @@
   &-inner-content {
     padding: 12px $spacer-3;
     color: $popover-color;
+    &-content{
+      padding-bottom: $spacer-3;
+    }
   }
 
   &-message {

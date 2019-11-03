@@ -4,14 +4,21 @@ import clsx from 'clsx';
 
 import './button.scss';
 
-const Button = forwardRef(({ className, size, children, disabled, type, onClick }, ref) => {
+import Icon from '../icon'
+
+const prefixCls = 'h-button'
+
+const Button = forwardRef(({ className, loading, size, children, disabled, type, onClick }, ref) => {
   let classNames = clsx({
-    button: true,
-    'button-large': size === 'large',
-    'button-small': size === 'small'
+    [`${prefixCls}`]: true,
+    [`${prefixCls}-button-large`]: size === 'large',
+    [`${prefixCls}-button-small`]: size === 'small'
   })
   return (
-    <button ref={ref} className={`${classNames} ${className}`} disabled={disabled} type={type} onClick={() => onClick && onClick()}>{children}</button>
+    <button ref={ref} className={`${classNames} ${className}`} disabled={loading || disabled} type={type} onClick={() => onClick && onClick()}>
+      {loading && <Icon className={`${prefixCls}-loading`} type="loading"></Icon>}
+      {children}
+    </button>
   )
 });
 
@@ -21,6 +28,7 @@ Button.defaultProps = {
   disabled: false,
   children: 'Button',
   type: 'button',
+  loading: false,
   onClick() { }
 }
 
@@ -29,7 +37,8 @@ Button.propTypes = {
   size: PropTypes.oneOf(['large', 'small', 'normal']),
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(['button', 'submit']),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  loading: PropTypes.bool,
 }
 
 export default Button;

@@ -10,7 +10,7 @@ const database = () => {
   })
   mongoose.connection.on('disconnected', () => {
     mongoose.connect(config.dbPath, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
     })
   })
   mongoose.connection.on('error', err => {

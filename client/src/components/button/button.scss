@@ -1,7 +1,7 @@
-.button {
+.h-button {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
   height: 32px;
   white-space: nowrap;
   padding: 0 $spacer-3;
@@ -12,12 +12,7 @@
   outline: none;
   text-align: center;
   @include btn-solid($gray-900, $gray-000, $gray-100);
-
-  // @include btn-inverse($gray-900, $gray-000, #eff3f6);
-  &.button-primary {
-    @include btn-inverse($gray-900, $gray-000, $gray-100);
-  }
-
+  
   &+.button {
     margin-left: $spacer-3;
   }
@@ -29,5 +24,9 @@
   &-small {
     height: 24px;
     padding: 0 $spacer-2;
+  }
+
+  &-loading{
+    margin-right: $spacer-2;
   }
 }

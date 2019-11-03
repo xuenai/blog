@@ -11,7 +11,7 @@ const transitionName = 'zoom-big';
 const prefixCls = 'h-popover';
 
 const Popconfirm = forwardRef((props, ref) => {
-  let { title, okText, cancelText, icon, onCancel, onConfirm, visible, disabled, onVisibleChange, ...rest } = props;
+  let { title, okText, content, cancelText, icon, onCancel, onConfirm, visible, disabled, onVisibleChange, ...rest } = props;
   const [newVisible, setNewVisible] = useState(!!visible);
   /**
    * 点击取消
@@ -55,6 +55,9 @@ const Popconfirm = forwardRef((props, ref) => {
           <Icon type={icon} size={14}></Icon>
           <div className={`${prefixCls}-message-title`}>{title}</div>
         </div>
+        {
+          content && <div className={`${prefixCls}-inner-content-content`}>{content}</div>
+        }
         <div className={`${prefixCls}-buttons`}>
           <Button onClick={onCancelHandle} size="small">
             {cancelText}
@@ -67,7 +70,7 @@ const Popconfirm = forwardRef((props, ref) => {
     </div>
   );
   return (
-    <Tooltip visible={newVisible} onVisibleChange={onVisibleChangeHandle} prefixCls={prefixCls} ref={ref} transitionName={transitionName} {...rest} overlay={overlay}></Tooltip>
+    <Tooltip visible={!('visible' in props) ? newVisible : props.visible} onVisibleChange={onVisibleChangeHandle} prefixCls={prefixCls} ref={ref} transitionName={transitionName} {...rest} overlay={overlay}></Tooltip>
   )
 });
 
@@ -82,11 +85,14 @@ Popconfirm.defaultProps = {
   onCancel() { },
   disabled: false,
   destroyTooltipOnHide: true,
+  content: '',
 }
 
 Popconfirm.propTypes = {
   // 需要展示的标题
   title: PropTypes.string,
+  // 弹窗文本内容
+  content: PropTypes.any,
   // 弹窗位置
   placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
   // 取消按钮文字
