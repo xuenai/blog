@@ -13,11 +13,10 @@ const DashboardTags = () => {
   if (loading) {
     return <Loading title="标签查询中..."></Loading>
   }
-  let {tags, total} = data.tags;
-  
+  let {tags} = data.tags;
+
   if (data && addedTag) {
     tags.push(addedTag.newTag.tag);
-    total = addedTag.newTag.total
   }
 
   return (
@@ -26,7 +25,7 @@ const DashboardTags = () => {
         <AddTagButton></AddTagButton>
       </div>
       {
-        total > 0 && <p className="totalCount">目前共计{total}个标签</p>
+        tags.length > 0 && <p className="totalCount">目前共计{tags.length}个标签</p>
       }
       <TagList data={tags}></TagList>
     </div>
