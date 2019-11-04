@@ -1,7 +1,8 @@
 import ApolloClient from 'apollo-boost';
 import { Message } from '@components';
 export * from './queries';
-export * from './mutations'
+export * from './mutations';
+export * from './subscription';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',

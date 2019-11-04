@@ -19,7 +19,7 @@ const Home = () => {
       </Tooltip>
       <div>
         <Popover content={content} title="Title">
-          <Button loading>14</Button>
+          <Button>14</Button>
         </Popover>
       </div>
       <div>

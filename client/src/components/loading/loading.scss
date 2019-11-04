@@ -1,0 +1,11 @@
+.h-loading{
+  padding: $spacer-6 0;
+  text-align: center;
+
+  .spin{
+    padding-bottom: $spacer-3;
+  }
+  &-title{
+    color:$gray-300;
+  }
+}

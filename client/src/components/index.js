@@ -17,7 +17,10 @@ import Empty from './empty';
 import Message from './message';
 import Tooltip from './tooltip';
 import Popover from './popover';
-import Popconfirm from './popconfirm'
+import Popconfirm from './popconfirm';
+import TagList from './tagList';
+import Tag from './tag';
+import Loading from './loading';
 
 export {
   Header,
@@ -40,4 +43,7 @@ export {
   Tooltip,
   Popover,
   Popconfirm,
+  TagList,
+  Tag,
+  Loading
 }

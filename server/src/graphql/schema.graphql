@@ -96,3 +96,8 @@ type Mutation {
   # 新增标签
   addTag(name: String!): UserResponse!
 }
+
+type Subscription {
+  newArticle: Article
+  newTag: Tag
+}

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import './input.scss';
 
 
-const Input = forwardRef(({value, type, className, disabled, placeholder, onChange, ...rest }, ref) => {
+const Input = forwardRef(({type, className, disabled, placeholder, onChange, ...rest }, ref) => {
   return (
     <div className={`input-wrapper ${className}`}>
-      <input value={value} ref={ref} className="input" type={type} disabled={disabled} placeholder={placeholder} onChange={onChange && (e => onChange(e.currentTarget.value))} {...rest}/>
+      <input ref={ref} className="input" type={type} disabled={disabled} placeholder={placeholder} onChange={onChange && (e => onChange(e.currentTarget.value))} {...rest}/>
     </div>
   )
 })

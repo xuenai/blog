@@ -54,3 +54,15 @@ export const OWN_ARTICLE_DETAIL = gql`
     }
   }
 `;
+
+export const TAGS_QUERY = gql`
+  {
+    tags {
+      tags {
+        name
+        id
+      }
+      total
+    }
+  }
+`;

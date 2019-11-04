@@ -3,9 +3,9 @@ import {
   APP_SECRET,
   isLogin,
   setCookie
-} from '../../config/utils' 
+} from '../../config/utils';
 import { createTokens } from '../../config/auth'
-import { pubsub, NEW_ARTICLE, NEW_VOTE } from '../subscriptionName'
+import { pubsub, NEW_ARTICLE, NEW_TAG } from '../subscription'
 
 import {ApolloError} from 'apollo-server-koa'
 
@@ -94,7 +94,7 @@ async function addArticle(root, {title, summary, content, tags}, { Article, ctx,
     const newArticle = Object.assign({ userId: user._id }, {title, summary, content, tags})
     const response = await Article.create(newArticle)
     // 发送订阅 NEW_ARTICLE
-    // pubsub.publish(NEW_ARTICLE, { newArticle: response })
+    pubsub.publish(NEW_ARTICLE, { newArticle: response })
     return {code: 0}
   } else {
     throw new ApolloError(`用户不是管理员，无法发表日志`, 'addArticle')
@@ -114,12 +114,11 @@ async function addTag(root, {name}, {Tag, ctx}) {
     const oldTags = await Tag.find({name});
     if (!oldTags.length) {
       // 新建标签
-      Tag.create({name});
+      const res = Tag.create({name});
+      pubsub.publish(NEW_TAG, { newTag: res })
       return {code: 0}
     }
     throw new ApolloError(`标签已存在`, 'addTag')
-    // 发送订阅 NEW_ARTICLE
-    // pubsub.publish(NEW_ARTICLE, { newArticle: response })
   } else {
     throw new ApolloError(`用户不是管理员，无法新增标签`, 'addTag')
   }

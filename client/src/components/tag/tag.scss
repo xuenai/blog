@@ -1,0 +1,15 @@
+.h-tag{
+  display: inline-flex;
+  align-items: center;
+  padding: $spacer-1 $spacer-3;
+  font-size:$body-font-size;
+  border:$border;
+  border-radius: $border-radius;
+
+  .iconfont {
+    margin-left: $spacer-2;
+    color:$text-gray-light;
+    font-size:$body-font-size;
+    cursor: pointer;
+  }
+}

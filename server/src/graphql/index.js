@@ -3,15 +3,15 @@ import path from 'path'
 import { gql } from 'apollo-server-koa'
 
 import User from "./resolvers/User";
-import Mutation from './resolvers/Mutation'
-import Query from './resolvers/Query'
-
-// import typeDefs from './typeDefs'
+import Mutation from './resolvers/Mutation';
+import Query from './resolvers/Query';
+import Subscription from './resolvers/Subscription'
 
 const resolvers = {
   Mutation,
   User,
-  Query
+  Query,
+  Subscription
 }
 
 const schema = fs.readFileSync(
