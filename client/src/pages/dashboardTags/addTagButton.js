@@ -10,9 +10,7 @@ const AddTagButton = () => {
 
   const [addTag, { data }] = useMutation(ADD_TAG);
   if (data && ref) {
-    setTimeout(() => {
-      Message.success('新增标签成功')
-    }, 200)
+    setTimeout(() => Message.success({content: '新增标签成功！', key: 'add_tag'}))
   }
   return (
     <Popconfirm destroyTooltipOnHide title="新增标签" content={<Input ref={ref} autoFocus placeholeder="enter tag name"></Input>} placement="bottom" onConfirm={() => {

@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import RcTooltip from 'rc-tooltip';
 import PropTypes from 'prop-types';
 

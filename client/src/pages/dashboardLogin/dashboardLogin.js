@@ -18,7 +18,7 @@ const DashboardLogin = () => {
 
   if (data && data.login.code === 0 && !isLogin) {
     changeLoginStatus(data.login, true);
-    Message.success('登录成功');
+    setTimeout(() => Message.success('登录成功'));
   }
   return (
     isLogin ? <Redirect to={from}></Redirect> :

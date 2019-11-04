@@ -62,6 +62,13 @@ type Tags {
   # 总数
   total: Int!
 }
+# 新增标签时 订阅返回的数据
+type NewTag {
+  # 新的标签
+  tag: Tag!
+  # 新的总条数
+  total: Int!
+}
 
 # 所有的查询接口
 type Query {
@@ -99,5 +106,5 @@ type Mutation {
 
 type Subscription {
   newArticle: Article
-  newTag: Tag
+  newTag: NewTag
 }

@@ -1,21 +1,25 @@
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import {useQuery} from '@apollo/react-hooks';
+import React from 'react';
+import {useQuery, useSubscription} from '@apollo/react-hooks';
 
 import './dashboardTags.scss';
 
-import { Empty, TagList, Loading} from '@components';
+import { TagList, Loading} from '@components';
 import AddTagButton from './addTagButton';
-import {TAGS_QUERY} from '@graphql'
-
+import {TAGS_QUERY, TAG_ADD_SUBSCRIPTION} from '@graphql'
 
 const DashboardTags = () => {
   const { loading, data } = useQuery(TAGS_QUERY);
-
+  const {data: addedTag} = useSubscription(TAG_ADD_SUBSCRIPTION);
   if (loading) {
     return <Loading title="标签查询中..."></Loading>
   }
   let {tags, total} = data.tags;
+  
+  if (data && addedTag) {
+    tags.push(addedTag.newTag.tag);
+    total = addedTag.newTag.total
+  }
+
   return (
     <div className="d-tags">
       <div>
