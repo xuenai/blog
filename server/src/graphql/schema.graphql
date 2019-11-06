@@ -55,21 +55,6 @@ type Tag {
   name: String!
 }
 
-# 标签列表
-type Tags {
-  # 标签列表
-  tags: [Tag!]!,
-  # 总数
-  total: Int!
-}
-# 新增标签时 订阅返回的数据
-type NewTag {
-  # 新的标签
-  tag: Tag!
-  # 新的总条数
-  total: Int!
-}
-
 # 所有的查询接口
 type Query {
   # 查询所有用户
@@ -77,11 +62,11 @@ type Query {
   # 检测用户是否登录
   me: UserResponse!
   # 获取自己的日志列表
-  ownArticles: Articles!
+  ownArticles: [Article!]!
   # 获取自己的日志详情
   ownArticleDetail(id: ID): Article
   # 获取标签
-  tags: Tags!
+  tags: [Tag!]!
 }
 
 # 所有的涉及到增删改的接口
@@ -99,12 +84,18 @@ type Mutation {
   # 退出登录
   logout: UserResponse!
   # 新增日志
-  addArticle(title: String!,summary: String!, content: String!, tags: String!): UserResponse!
+  addArticle(title: String!,summary: String!, content: String!, tags: String!): Article!
   # 新增标签
-  addTag(name: String!): UserResponse!
+  addTag(name: String!): Tag!
+  # 编辑标签
+  editTag(name: String!, id: ID!): Tag!
+  # 删除标签
+  deleteTag(id: ID!): Tag!
 }
 
 type Subscription {
   newArticle: Article
-  newTag: NewTag
+  newTag: Tag
+  editedTag: Tag
+  deletedTag: Tag
 }

@@ -1,11 +1,12 @@
 .h-tag{
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
   padding: $spacer-1 $spacer-3;
   font-size:$body-font-size;
   border:$border;
   border-radius: $border-radius;
-
+  word-break: break-all;
   .iconfont {
     margin-left: $spacer-2;
     color:$text-gray-light;

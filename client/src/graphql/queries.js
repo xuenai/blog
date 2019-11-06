@@ -14,14 +14,11 @@ export const ME_QUERY = gql`
 export const OWN_ARTICLE_LIST = gql`
   {
     ownArticles {
-      articles {
-        id
-        title
-        formatDate
-        updatedAt
-        tags
-      }
-      total
+      id
+      title
+      formatDate
+      updatedAt
+      tags
     }
   }
 `;
@@ -58,11 +55,17 @@ export const OWN_ARTICLE_DETAIL = gql`
 export const TAGS_QUERY = gql`
   {
     tags {
-      tags {
-        name
-        id
-      }
-      total
+      name
+      id
+    }
+  }
+`;
+
+export const NEW_ARTICLE_TAGS_QUERY = gql`
+  {
+    tags {
+      label: name
+      value: id
     }
   }
 `;

@@ -6,7 +6,7 @@ import Prism from 'prismjs';
 
 import './detail.scss';
 import { OWN_ARTICLE_DETAIL } from '@graphql';
-import { Spin } from '@components';
+import { Loading } from '@components';
 
 const Detail = () => {
   let { id } = useParams();
@@ -14,7 +14,7 @@ const Detail = () => {
     variables: { id }
   });
   if (loading) {
-    return <Spin size={16}></Spin>
+    return <Loading title="日志查询中..."></Loading>
   }
   if (data && data.ownArticleDetail) {
     setTimeout(() => { Prism.highlightAll() })

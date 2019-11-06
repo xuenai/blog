@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { List, Empty, Message, Button, Tooltip, Popover, Popconfirm, Input} from '@components';
+import { List, Empty, Message, Button, Tooltip, Popover, Popconfirm, Input, Checkbox} from '@components';
 
 const content = (
   <div>
@@ -26,6 +26,9 @@ const Home = () => {
       <Popconfirm title="Are you sure delete this tag?" content={content} onCancel={e =>console.log('cancel')} onConfirm={e =>console.log('onConfirm')} >
         <span>popconfirm</span>
       </Popconfirm>
+      </div>
+      <div>
+        <Checkbox>多选框</Checkbox>
       </div>
     </div>
   )

@@ -6,27 +6,30 @@ import './tag.scss';
 import EditBtn from './tagEditButton';
 import DeleteBtn from './tagDeleteButton';
 
-const Tag = ({ children, editable, deletable, onClick, id, name }) => {
+const Tag = ({ children, editable, deletable, onClick, id, name, onChange }) => {
   return (
     <span className='h-tag' onClick={onClick}>
       {children ? children : 'tag'}
       {
-        editable && <EditBtn name={name} id={id}></EditBtn>
+        editable && <EditBtn onChange={onChange} name={name} id={id}></EditBtn>
       }
       {
-        deletable && <DeleteBtn name={name} id={id}></DeleteBtn>
+        deletable && <DeleteBtn onChange={onChange} name={name} id={id}></DeleteBtn>
       }
     </span>
   )
 };
 
 Tag.defaultProps = {
+  // 是否可以编辑
   editable: false,
+  // 是否可以删除
   deletable: false,
   color: '',
   onClick() { },
   id: '',
   name: '',
+  onChange() { },
 };
 
 Tag.propTypes = {
@@ -36,6 +39,7 @@ Tag.propTypes = {
   onClick: PropTypes.func,
   id: PropTypes.string,
   name: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default Tag;

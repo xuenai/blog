@@ -5,27 +5,26 @@ import './tagList.scss';
 import Tag from '../tag';
 import Empty from '../empty';
 
-const TagList = ({data}) => {
-  console.log(data)
+const TagList = ({ data, onChange }) => {
   return (
     <div className="tag-list">
-      {/* <Tag editable deletable className="tag-item">标签1</Tag> */}
       {
         data.length ?
-          data.map(tag => <Tag editable deletable className="tag-item" id={tag.id} name={tag.name}  key={tag.id}>{tag.name}</Tag>) :
+          data.map(tag => <Tag editable deletable className="tag-item" onChange={onChange} id={tag.id} name={tag.name} key={tag.id}>{tag.name}</Tag>) :
           <Empty description="标签空空的..."></Empty>
       }
     </div>
-    
   )
 };
 
 TagList.defaultProps = {
   data: [],
+  onChange() { }
 }
 
 TagList.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.array,
+  onChange: PropTypes.func
 }
 
 export default TagList;

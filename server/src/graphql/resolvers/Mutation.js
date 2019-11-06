@@ -5,7 +5,7 @@ import {
   setCookie
 } from '../../config/utils';
 import { createTokens } from '../../config/auth'
-import { pubsub, NEW_ARTICLE, NEW_TAG } from '../subscription'
+import { pubsub, NEW_ARTICLE, NEW_TAG, EDITED_TAG, DELETED_TAG, } from '../subscription'
 
 import {ApolloError} from 'apollo-server-koa'
 
@@ -86,16 +86,15 @@ async function addArticle(root, {title, summary, content, tags}, { Article, ctx,
   }
   if (user.isAdmin) {
     // 查找标签 看是否存在相同的标签
-    const oldTags = await Tag.find({name: tags});
-    if (!oldTags.length) {
-      // 新建标签
-      Tag.create({name: tags});
-    }
+    // const oldTags = await Tag.find({name: tags});
+    // if (!oldTags.length) {
+    //   Tag.create({name: tags});
+    // }
     const newArticle = Object.assign({ userId: user._id }, {title, summary, content, tags})
     const response = await Article.create(newArticle)
     // 发送订阅 NEW_ARTICLE
     pubsub.publish(NEW_ARTICLE, { newArticle: response })
-    return {code: 0}
+    return response
   } else {
     throw new ApolloError(`用户不是管理员，无法发表日志`, 'addArticle')
   }
@@ -115,20 +114,66 @@ async function addTag(root, {name}, {Tag, ctx}) {
     if (!oldTags.length) {
       // 新建标签
       const res = await Tag.create({name});
-      const total = await Tag.find().countDocuments();
-      pubsub.publish(NEW_TAG, { newTag: {tag: res, total} });
-      return {code: 0}
+      pubsub.publish(NEW_TAG, {newTag: res});
+      return res;
     }
     throw new ApolloError(`标签已存在`, 'addTag')
   } else {
     throw new ApolloError(`用户不是管理员，无法新增标签`, 'addTag')
   }
 }
+
+/**
+ * 编辑标签
+ */
+async function editTag(root, {name, id}, {Tag, ctx}) {
+  const user = await isLogin(ctx)
+  if (!user) {
+    throw new ApolloError(`用户不存在`, 'editTag')
+  }
+  if (user.isAdmin) {
+    // 查找标签 看是否存在相同的标签
+    const oldTag= await Tag.findOne({_id: id});
+    if (oldTag) {
+      // 更改标签名字
+      const res = await Tag.update({_id: id}, {name})
+      return {name, id};
+    }
+    throw new ApolloError(`标签不存在`, 'editTag')
+  } else {
+    throw new ApolloError(`用户不是管理员，无法编辑标签`, 'editTag')
+  }
+}
+
+/**
+ * 删除标签
+ */
+async function deleteTag (root, {id}, {Tag, ctx}) {
+  const user = await isLogin(ctx)
+  if (!user) {
+    throw new ApolloError(`用户不存在`, 'deleteTag')
+  }
+  if (user.isAdmin) {
+    // 查找标签 看是否存在相同的标签
+    const oldTag = await Tag.findOne({_id: id});
+    if (oldTag) {
+      // 更改标签名字
+      await Tag.deleteOne({_id: id});
+      return oldTag;
+    }
+    throw new ApolloError(`标签不存在`, 'deleteTag')
+  } else {
+    throw new ApolloError(`用户不是管理员，无法删除标签`, 'deleteTag')
+  }
+}
+
 export default {
   createUser,
   signup,
   login,
   logout,
   addArticle,
-  addTag
+  addTag,
+  editTag,
+  deleteTag
 }

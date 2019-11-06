@@ -32,15 +32,41 @@ export const LOGOUT_MOTATION = gql`
 export const ADD_ARTICLE = gql`
   mutation addArticle($title: String!,$summary: String!, $content: String!, $tags: String!) {
     addArticle(title: $title, summary: $summary, content: $content, tags: $tags) {
-      code
+      id
+      title
+      formatDate
+      updatedAt
+      tags
     }
   }
 `;
 
+// 新增标签
 export const ADD_TAG = gql`
   mutation addTag($name: String!) {
     addTag(name: $name) {
-      code
+      id
+      name
+    }
+  }
+`;
+
+// 编辑标签
+export const EDIT_TAG = gql`
+  mutation editTag($name: String!, $id: ID!) {
+    editTag(name: $name, id: $id) {
+      name
+      id
+    }
+  }
+`;
+
+// 删除标签
+export const DELETE_TAG = gql`
+  mutation deleteTag($id: ID!) {
+    deleteTag(id: $id) {
+      name
+      id
     }
   }
 `;

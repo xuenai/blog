@@ -48,11 +48,8 @@ async function ownArticles(root, args, { Article, ctx }) {
     const articles = await Article.find({
       userId: user._id
     })
-    const total = await Article.find({ userId: user._id }).countDocuments()
-    return {
-      articles,
-      total
-    }
+    // const total = await Article.find({ userId: user._id }).countDocuments();
+    return articles;
   } else {
     throw new ApolloError(`用户未登录`, 'ownArticles')
   }
@@ -104,12 +101,8 @@ async function ownArticleDetail(root, { id }, { Article, ctx }) {
  * tags 获取标签列表
  */
 async function tags (root, data, {Tag}) {
-  const tagsRes = await Tag.find();
-  const total = await Tag.find().countDocuments();
-  return {
-    tags: tagsRes,
-    total
-  }
+  const tags = await Tag.find();
+  return tags;
 }
 
 export default { users, me, ownArticles, ownArticleDetail, tags }
