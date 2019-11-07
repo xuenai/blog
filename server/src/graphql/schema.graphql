@@ -29,7 +29,7 @@ type Article {
   # 格式化后的时间
   formatDate: String!
   # 标签
-  tags: [LogTag!]!
+  tags: [Tag!]
 }
 
 type LogTag {
@@ -91,7 +91,7 @@ type Mutation {
   # 退出登录
   logout: UserResponse!
   # 新增日志
-  addArticle(title: String!,summary: String!, content: String!, tags: String): Article!
+  addArticle(title: String!,summary: String!, content: String!, tags: [ID!]): Article!
   # 新增标签
   addTag(name: String!): Tag!
   # 编辑标签

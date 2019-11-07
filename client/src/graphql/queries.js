@@ -19,10 +19,8 @@ export const OWN_ARTICLE_LIST = gql`
       formatDate
       updatedAt
       tags {
-        tag {
-          name
-          id
-        }
+        id
+        name
       }
     }
   }
@@ -52,7 +50,10 @@ export const OWN_ARTICLE_DETAIL = gql`
       summary
       content
       formatDate
-      tags
+      tags {
+        id
+        name
+      }
     }
   }
 `;

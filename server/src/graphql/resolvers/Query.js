@@ -47,8 +47,10 @@ async function ownArticles(root, args, { Article, ctx }) {
   if (user) {
     const articles = await Article.find({
       userId: user._id
-    }).sort({ createdAt: -1 })
+    }).populate('tags', 'id name');
+    // .sort({ createdAt: -1 })
     // const total = await Article.find({ userId: user._id }).countDocuments();
+    console.log(articles)
     return articles;
   } else {
     throw new ApolloError(`用户未登录`, 'ownArticles')
@@ -85,7 +87,7 @@ async function ownArticles(root, args, { Article, ctx }) {
 async function ownArticleDetail(root, { id }, { Article, ctx }) {
   const { user } = await getUser(ctx);
   if (user) {
-    let articles = await Article.find({_id: id, userId: user._id});
+    let articles = await Article.find({_id: id, userId: user._id}).populate('tags', 'id name');
     if (articles) {
       let article = articles[0];
       return article;

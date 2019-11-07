@@ -79,7 +79,7 @@ async function createUser(root, args, context) {
 }
 
 // 新增文章
-async function addArticle(root, {title, summary, content, tags}, { Article, LogTag, ctx }) {
+async function addArticle(root, {title, summary, content, tags}, { Article, ctx }) {
   const user = await isLogin(ctx)
   if (!user) {
     throw new ApolloError(`用户不存在`, 'addArticle')
@@ -90,20 +90,20 @@ async function addArticle(root, {title, summary, content, tags}, { Article, LogT
     // if (!oldTags.length) {
     //   Tag.create({name: tags});
     // }
-    const newArticle = Object.assign({ userId: user._id }, {title, summary, content})
+    const newArticle = Object.assign({ userId: user._id }, {title, summary, content, tags})
     
     let response = await Article.create(newArticle)
-    let newTags = JSON.parse(tags);
-    let t = [];
-    newTags.map(tag => {
-      t.push({
-        articleId: response._id,
-        tagId: tag.value
-      })
-    })
-    const logTag = await LogTag.insertMany(t)
+    // let newTags = JSON.parse(tags);
+    // let t = [];
+    // newTags.map(tag => {
+    //   t.push({
+    //     articleId: response._id,
+    //     tagId: tag.value
+    //   })
+    // })
+    // const logTag = await LogTag.insertMany(t)
 
-    response.tags = logTag
+    // response.tags = logTag
 
     // 发送订阅 NEW_ARTICLE
     pubsub.publish(NEW_ARTICLE, { newArticle: response })

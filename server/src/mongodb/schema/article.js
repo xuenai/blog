@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import moment from 'moment'; 
+import moment from 'moment';
 
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
@@ -35,10 +35,11 @@ const ArticleSchema = new Schema({
   // 格式化后的创建日期或者更新日期
   formatDate: {
     type: String
-  }
+  },
+  tags: [{ type: ObjectId, ref: 'Tag' }]
 })
 
-ArticleSchema.pre('save', function() {
+ArticleSchema.pre('save', function () {
   const time = Date.now()
   if (this.isNew) {
     this.createdAt = time;

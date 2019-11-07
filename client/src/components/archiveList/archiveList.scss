@@ -78,4 +78,21 @@
       font-size: $body-font-size;
     }
   }
+
+  &-tag {
+    position: relative;
+    padding: 0 $spacer-3;
+
+    & + .d-article-item-tag {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        border-right: $border;
+      }
+    }
+  }
 }

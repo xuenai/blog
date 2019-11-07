@@ -38,7 +38,7 @@ const NewArticle = ({ history }) => {
     setTimeout(() => Message.success({ content: '新增文章成功', key: 'new_article' }));
   }
 
-  if(!allTags) {
+  if (!allTags) {
     allTags = [];
   }
   return (
@@ -50,7 +50,7 @@ const NewArticle = ({ history }) => {
           Message.error('标题和内容不能为空！');
           return false;
         }
-        addArticle({ variables: { title, summary, content: outputHTML, tags: JSON.stringify(allTags.filter(tag => tags.includes(tag.value)))}})
+        addArticle({ variables: { title, summary, content: outputHTML, tags } })
       }}>
         <h4>标题</h4>
         <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>

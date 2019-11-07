@@ -16,6 +16,12 @@ const ArchiveList = ({ path, list, edit = false }) => {
                 <span className="iconfont icon-edit"></span>
               </Link>
             </h3>
+            <p>
+              <span className="iconfont icon-biaoqian"></span>
+              {
+                item.tags.map(tag => <span className="d-article-item-tag" key={tag.id}>{tag.name}</span>)
+              }
+            </p>
             <div className="d-article-item-date">{moment(item.updatedAt - 0).format('YYYY-MM-DD')}</div>
           </div>
         ))
