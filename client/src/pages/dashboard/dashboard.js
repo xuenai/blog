@@ -4,18 +4,37 @@ import { useQuery } from '@apollo/react-hooks';
 
 import './dashboard.scss';
 
-import { DashboardHeader, LoginedRoute, NotFound } from '@components';
+import { DashboardHeader, LoginedRoute, NotFound, NetError, Loading } from '@components';
 import { DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle, Detail, NewTag } from '@pages';
 import { useStore } from '@config';
-import { ME_QUERY } from '@graphql'
+import { ME_QUERY, OWN_ARTICLE_LIST } from '@graphql'
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
-  const { data } = useQuery(ME_QUERY);
-  const { isLogin, changeLoginStatus } = useStore('user');
-  if (data && data.me && data.me.code === 0 && !isLogin) {
-    changeLoginStatus(data.isAdmin, true);
+  const { data, error } = useQuery(ME_QUERY);
+
+  useQuery(OWN_ARTICLE_LIST);
+
+  const { loginStatus, changeLoginStatus } = useStore('user');
+
+  // 验证登录状态
+  if (data && data.me && loginStatus === 'default') {
+    if (data.me.code === 0) {
+      changeLoginStatus('logined');
+    } else {
+      changeLoginStatus('unlogin');
+    }
   }
+  // 是否有错误
+  if (error) {
+    return <NetError></NetError>
+  }
+
+  // 默认进来不显示页面 先验证登录
+  if (loginStatus === 'default') {
+    return <Loading title="验证登录中..."></Loading>
+  }
+
   return (
     <div className="dashboard">
       <DashboardHeader url={url} />

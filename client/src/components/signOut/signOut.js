@@ -7,13 +7,13 @@ import { useStore } from '@config';
 import styles from './signOut.module.scss';
 
 const SignOutBtn = () => {
-  const { isLogin, changeLoginStatus } = useStore('user');
+  const { loginStatus, changeLoginStatus } = useStore('user');
   const [logout, { data }] = useMutation(LOGOUT_MOTATION);
-  if (isLogin && data && data.logout && data.logout.code === 0) {
-    changeLoginStatus(false, false)
+  if (loginStatus && data && data.logout && data.logout.code === 0) {
+    changeLoginStatus(false)
     Message.success('退出登录成功')
   }
-  return isLogin ? (
+  return loginStatus ? (
     <div className={styles.signout}>
       <button>
         <Link to="/new-art">

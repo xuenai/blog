@@ -17,7 +17,6 @@ const httpLink = createHttpLink({
 });
 const errorLink = onError(({ networkError, response }) => {
   if (networkError) {
-    console.warn(networkError.message);
     Message.error(`网络连接出错`)
   }
   if (response) {

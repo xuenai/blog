@@ -13,7 +13,7 @@
   text-align: center;
   @include btn-solid($gray-900, $gray-000, $gray-100);
   
-  &+.button {
+  &+.h-button {
     margin-left: $spacer-3;
   }
 

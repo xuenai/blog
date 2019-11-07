@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import './notFound.scss';
+import '../notFound/notFound.scss';
 import image from '@assets/images/404-bg.jpg';
 
 
@@ -13,12 +13,12 @@ const imgMoveFunction = (e, ref) => {
   ref.current.style.transform = translate;
 }
 
-const NotFound = () => {
+const NetError = () => {
   const imgRef = useRef(null);
   return (
     <div className='not-found' onClick={e => imgMoveFunction(e, imgRef)} onMouseMove={e => imgMoveFunction(e, imgRef)}>
-      <h1>404</h1>
-      <h2>Page not found</h2>
+      <h1>Network Error</h1>
+      <h2>Failed to fetch</h2>
       <p>I tried to catch some fog, but i mist</p>
       {/* <a>back to home</a> */}
       <img src={image} alt="not found" ref={imgRef} />
@@ -26,4 +26,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound;
+export default NetError;

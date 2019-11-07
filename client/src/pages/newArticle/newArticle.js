@@ -16,7 +16,7 @@ BraftEditor.use(CodeHighlighter())
 
 const NewArticle = ({ history }) => {
 
-  const { data: { tags: allTags } } = useQuery(NEW_ARTICLE_TAGS_QUERY);
+  let { data: { tags: allTags } } = useQuery(NEW_ARTICLE_TAGS_QUERY);
   const [editorState, setEditorState] = useState(BraftEditor.createEditorState(''));
   let [outputHTML, setOutputHTML] = useState('<p></p>');
   let [title, setTitle] = useState('');
@@ -25,7 +25,7 @@ const NewArticle = ({ history }) => {
 
   const [addArticle, { data }] = useMutation(ADD_ARTICLE, {
     update(cache, { data: { addArticle } }) {
-      const { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
+      let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
       cache.writeQuery({
         query: OWN_ARTICLE_LIST,
         data: { ownArticles: ownArticles.concat(addArticle) },
@@ -37,6 +37,11 @@ const NewArticle = ({ history }) => {
     history.go(-1);
     setTimeout(() => Message.success({ content: '新增文章成功', key: 'new_article' }));
   }
+
+  if(!allTags) {
+    allTags = [];
+  }
+
   return (
     <div className="article">
       <form onSubmit={event => {
@@ -52,10 +57,15 @@ const NewArticle = ({ history }) => {
         <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>
         <h4>概要</h4>
         <Input className="article-input" placeholder="请输入概要" onChange={e => setSummary(e)}></Input>
-        <h4>标签</h4>
-        <div className="article-input">
-          <Checkbox.Group options={allTags} onChange={e => setTags(e)}></Checkbox.Group>
-        </div>
+        {
+          allTags.length ?
+            <div>
+              <h4>标签</h4>
+              <div className="article-input">
+                <Checkbox.Group options={allTags} onChange={e => setTags(e)}></Checkbox.Group>
+              </div>
+            </div> : null
+        }
         <h4>正文</h4>
         <div className="editor-wrapper">
           <BraftEditor

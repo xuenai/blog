@@ -13,15 +13,16 @@ const DashboardLogin = () => {
   let from = locaition.state.from.pathname;
   let [username, setUsername] = useState('');
   let [pwd, setPwd] = useState('');
-  let { isLogin, changeLoginStatus } = useStore('user');
+  let { loginStatus, changeLoginStatus } = useStore('user');
   const [login, { data }] = useMutation(LOGIN_MUTATUIION);
 
-  if (data && data.login.code === 0 && !isLogin) {
-    changeLoginStatus(data.login, true);
+  if (data && data.login.code === 0 && loginStatus!== 'logined') {
+    changeLoginStatus('logined');
     setTimeout(() => Message.success('登录成功'));
   }
   return (
-    isLogin ? <Redirect to={from}></Redirect> :
+    loginStatus === 'logined' ?
+      <Redirect to={from}></Redirect> :
       <div className="d-login">
         <div className="d-login-container">
           <h2>Sign in</h2>

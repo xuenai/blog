@@ -9,6 +9,7 @@ import { OWN_ARTICLE_LIST } from '@graphql'
 
 const DashboardArchives = () => {
   const { loading, data } = useQuery(OWN_ARTICLE_LIST);
+
   if (loading) {
     return <Loading title="日志查询中..."></Loading>
   }

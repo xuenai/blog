@@ -3,12 +3,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { useStore } from '@config';
 
 function LoginedRoute({ component: Component, render, ...rest }) {
-  const { isLogin } = useStore('user');
+  const { loginStatus } = useStore('user');
   return (
     <Route
       {...rest}
       render={props =>
-        isLogin ? (
+        loginStatus === 'logined' ? (
           Component ? <Component {...props} /> : render()
         ) : (
             <Redirect

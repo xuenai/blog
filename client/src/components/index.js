@@ -21,6 +21,7 @@ import Popconfirm from './popconfirm';
 import TagList from './tagList';
 import Tag from './tag';
 import Loading from './loading';
+import NetError from './netError';
 
 export {
   Header,
@@ -45,5 +46,6 @@ export {
   Popconfirm,
   TagList,
   Tag,
-  Loading
+  Loading,
+  NetError
 }
