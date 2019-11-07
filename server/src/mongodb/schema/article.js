@@ -35,10 +35,6 @@ const ArticleSchema = new Schema({
   // 格式化后的创建日期或者更新日期
   formatDate: {
     type: String
-  },
-  // 文章标签
-  tags: {
-    type: String,
   }
 })
 

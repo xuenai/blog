@@ -47,7 +47,7 @@ async function ownArticles(root, args, { Article, ctx }) {
   if (user) {
     const articles = await Article.find({
       userId: user._id
-    })
+    }).sort({ createdAt: -1 })
     // const total = await Article.find({ userId: user._id }).countDocuments();
     return articles;
   } else {

@@ -18,7 +18,12 @@ export const OWN_ARTICLE_LIST = gql`
       title
       formatDate
       updatedAt
-      tags
+      tags {
+        tag {
+          name
+          id
+        }
+      }
     }
   }
 `;

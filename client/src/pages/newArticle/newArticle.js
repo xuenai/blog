@@ -41,7 +41,6 @@ const NewArticle = ({ history }) => {
   if(!allTags) {
     allTags = [];
   }
-
   return (
     <div className="article">
       <form onSubmit={event => {
@@ -51,7 +50,7 @@ const NewArticle = ({ history }) => {
           Message.error('标题和内容不能为空！');
           return false;
         }
-        addArticle({ variables: { title, summary, content: outputHTML, tags: tags.join(',') } })
+        addArticle({ variables: { title, summary, content: outputHTML, tags: JSON.stringify(allTags.filter(tag => tags.includes(tag.value)))}})
       }}>
         <h4>标题</h4>
         <Input className="article-input" placeholder="请输入标题" onChange={e => setTitle(e)}></Input>

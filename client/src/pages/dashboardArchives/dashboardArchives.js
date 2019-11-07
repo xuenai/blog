@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import './dashboardArchives.scss';
 
-import { Button, Loading, ArchiveList } from '@components';
+import { Button, Loading, ArchiveList, Empty } from '@components';
 import { OWN_ARTICLE_LIST } from '@graphql'
 
 const DashboardArchives = () => {
@@ -18,8 +18,15 @@ const DashboardArchives = () => {
       <Link to='/dashboard/new' className="new-btn">
         <Button><i className="iconfont icon-maobi"></i>写日志</Button>
       </Link>
-      <p className="totalCount">目前共计{data.ownArticles.length}篇日志</p>
-      <ArchiveList path='/dashboard/detail/' list={data.ownArticles}></ArchiveList>
+      {
+        data.ownArticles.length ?
+          <div>
+            <p className="totalCount">目前共计{data.ownArticles.length}篇日志</p>
+            <ArchiveList path='/dashboard/detail/' list={data.ownArticles}></ArchiveList>
+          </div> :
+          <Empty description="你有看到我的日志么，我的日志不见了..."></Empty>
+      }
+      
       {/* <Page current={data.ownArticles.current} total={data.ownArticles.totalPage} onChange={e => {setCurrent(e); refetch();}}></Page> */}
     </div>
   )

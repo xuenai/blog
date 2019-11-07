@@ -30,13 +30,12 @@ export const LOGOUT_MOTATION = gql`
 
 // 新增文章
 export const ADD_ARTICLE = gql`
-  mutation addArticle($title: String!,$summary: String!, $content: String!, $tags: String!) {
+  mutation addArticle($title: String!,$summary: String!, $content: String!, $tags: String) {
     addArticle(title: $title, summary: $summary, content: $content, tags: $tags) {
       id
       title
       formatDate
       updatedAt
-      tags
     }
   }
 `;

@@ -4,10 +4,9 @@ import { ApolloServer } from 'apollo-server-koa';
 import database from './mongodb'
 import { resolvers, typeDefs } from './graphql'
 import * as mongo from './mongodb/schema'
-import buildDataloader from './config/dataloader'
 
 const context = async ({ ctx }) => {
-  return { ...mongo, ctx, dataloaders: buildDataloader(mongo) }
+  return { ...mongo, ctx }
 }
 const PORT =  4000;
 const app = new Koa();
