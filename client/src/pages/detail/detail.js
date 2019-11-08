@@ -29,8 +29,16 @@ const Detail = () => {
         <span className="iconfont icon-riqi"></span>
         <time>{data.ownArticleDetail.formatDate}</time>
         <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
-        <span className="iconfont icon-biaoqian"></span>
-        <span>Javascript</span>
+        {
+          data.ownArticleDetail.tags.length && <span>
+            <span className="iconfont icon-biaoqian"></span>
+            <span>
+              {
+                data.ownArticleDetail.tags.map(tag => <span className="article-detail-tag" key={tag.id}>{tag.name}</span>)
+              }
+            </span>
+          </span>
+        }
       </div>
       <div dangerouslySetInnerHTML={{ __html: data.ownArticleDetail.content }} className="article-detial-content"></div>
     </div>

@@ -92,7 +92,10 @@ async function addArticle(root, {title, summary, content, tags}, { Article, ctx 
     // }
     const newArticle = Object.assign({ userId: user._id }, {title, summary, content, tags})
     
-    let response = await Article.create(newArticle)
+    let response = await Article.create(newArticle);
+
+    let article = await Article.findOne({_id: response._id}).populate('tags', 'id name');
+
     // let newTags = JSON.parse(tags);
     // let t = [];
     // newTags.map(tag => {
@@ -106,8 +109,8 @@ async function addArticle(root, {title, summary, content, tags}, { Article, ctx 
     // response.tags = logTag
 
     // 发送订阅 NEW_ARTICLE
-    pubsub.publish(NEW_ARTICLE, { newArticle: response })
-    return response
+    pubsub.publish(NEW_ARTICLE, { newArticle: article })
+    return article
   } else {
     throw new ApolloError(`用户不是管理员，无法发表日志`, 'addArticle')
   }
@@ -161,7 +164,7 @@ async function editTag(root, {name, id}, {Tag, ctx}) {
 /**
  * 删除标签
  */
-async function deleteTag (root, {id}, {Tag, ctx}) {
+async function deleteTag (root, {id}, {Tag, Article, ctx}) {
   const user = await isLogin(ctx)
   if (!user) {
     throw new ApolloError(`用户不存在`, 'deleteTag')
@@ -172,6 +175,7 @@ async function deleteTag (root, {id}, {Tag, ctx}) {
     if (oldTag) {
       // 更改标签名字
       await Tag.deleteOne({_id: id});
+      await Article.updateMany({tags: {$elemMatch:{$eq: id}}}, {$pull: {tags: id}})
       return oldTag;
     }
     throw new ApolloError(`标签不存在`, 'deleteTag')

@@ -36,7 +36,10 @@ export const ADD_ARTICLE = gql`
       title
       formatDate
       updatedAt
-      tags
+      tags{
+        name
+        id
+      }
     }
   }
 `;

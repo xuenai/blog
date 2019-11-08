@@ -50,7 +50,6 @@ async function ownArticles(root, args, { Article, ctx }) {
     }).populate('tags', 'id name');
     // .sort({ createdAt: -1 })
     // const total = await Article.find({ userId: user._id }).countDocuments();
-    console.log(articles)
     return articles;
   } else {
     throw new ApolloError(`用户未登录`, 'ownArticles')

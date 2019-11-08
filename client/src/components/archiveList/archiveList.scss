@@ -78,11 +78,18 @@
       font-size: $body-font-size;
     }
   }
-
+  .iconfont{
+    color:$gray-400;
+    font-size:$font-size-small;
+  }
   &-tag {
     position: relative;
     padding: 0 $spacer-3;
-
+    color:$gray-400;
+    font-size:$font-size-small;
+    &:first-child{
+      padding-left: $spacer-2;
+    }
     & + .d-article-item-tag {
       &::after {
         content: '';
