@@ -44,8 +44,8 @@ export const OWN_ARTICLE_LIST = gql`
 
 // 获取自己的文章详情
 export const OWN_ARTICLE_DETAIL = gql`
-  query ownArticleDetail($id: ID) {
-    ownArticleDetail(id: $id) {
+  query articleDetail($id: ID) {
+    articleDetail(id: $id) {
       title
       summary
       content

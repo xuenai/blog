@@ -6,7 +6,7 @@
   background: $bg-white;
   box-sizing: border-box;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
-
+  overflow: hidden;
   &-title {
     margin-bottom: $spacer-1;
     text-align: center;

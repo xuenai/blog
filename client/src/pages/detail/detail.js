@@ -16,31 +16,32 @@ const Detail = () => {
   if (loading) {
     return <Loading title="日志查询中..."></Loading>
   }
-  if (data && data.ownArticleDetail) {
+  if (data && data.articleDetail) {
     setTimeout(() => { Prism.highlightAll() })
   }
   return (
-    data.ownArticleDetail && <div className="article-detail">
-      <h2 className="article-detail-title">{data.ownArticleDetail.title}</h2>
+    data.articleDetail && <div className="article-detail">
+      <h2 className="article-detail-title">{data.articleDetail.title}</h2>
       {
-        data.ownArticleDetail.summary && <p className="article-detail-summary">{data.ownArticleDetail.summary}</p>
+        data.articleDetail.summary && <p className="article-detail-summary">{data.articleDetail.summary}</p>
       }
       <div className="article-detail-meta">
         <span className="iconfont icon-riqi"></span>
-        <time>{data.ownArticleDetail.formatDate}</time>
-        <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
+        <time>{data.articleDetail.formatDate}</time>
         {
-          data.ownArticleDetail.tags.length && <span>
+          data.articleDetail.tags.length ? 
+          <span>
+            <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
             <span className="iconfont icon-biaoqian"></span>
             <span>
               {
-                data.ownArticleDetail.tags.map(tag => <span className="article-detail-tag" key={tag.id}>{tag.name}</span>)
+                data.articleDetail.tags.map(tag => <span className="article-detail-tag" key={tag.id}>{tag.name}</span>)
               }
             </span>
-          </span>
+          </span> : null
         }
       </div>
-      <div dangerouslySetInnerHTML={{ __html: data.ownArticleDetail.content }} className="article-detial-content"></div>
+      <div dangerouslySetInnerHTML={{ __html: data.articleDetail.content }} className="article-detial-content"></div>
     </div>
   )
 }

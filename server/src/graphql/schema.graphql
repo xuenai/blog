@@ -68,10 +68,12 @@ type Query {
   users: [User!]!
   # 检测用户是否登录
   me: UserResponse!
+  # 获取日志列表
+  articles: Articles!
   # 获取自己的日志列表
   ownArticles: [Article!]!
   # 获取自己的日志详情
-  ownArticleDetail(id: ID): Article
+  articleDetail(id: ID): Article
   # 获取标签
   tags: [Tag!]!
 }
@@ -92,6 +94,10 @@ type Mutation {
   logout: UserResponse!
   # 新增日志
   addArticle(title: String!,summary: String!, content: String!, tags: [ID!]): Article!
+  # 编辑日志
+  editArticle(id: ID!, title: String!,summary: String!, content: String!, tags: [ID!]): Article!
+  # 删除日志
+  deleteArticle(id: ID!): Article!
   # 新增标签
   addTag(name: String!): Tag!
   # 编辑标签

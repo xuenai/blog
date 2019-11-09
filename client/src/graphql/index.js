@@ -17,12 +17,12 @@ const httpLink = createHttpLink({
 });
 const errorLink = onError(({ networkError, response }) => {
   if (networkError) {
-    Message.error(`网络连接出错`)
+    Message.error({content: `网络连接出错`, key: 'graphql-error'})
   }
   if (response) {
     let { errors } = response;
     if (errors) {
-      errors.map(error => Message.error(error.message))
+      errors.map((error, index) => Message.error({content: error.message, key: `graphql-error-${index}`}))
     }
   }
 });

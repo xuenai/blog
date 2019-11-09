@@ -40,6 +40,43 @@ async function me(root, args, { ctx }) {
 }
 
 /**
+ * 获取所有日志
+ */
+async function articles (root, { filter, page, pageSize = 10 }, {Article}) {
+  const total = await Article.find().countDocuments();
+  if (page) {
+    const skip = (page - 1) * pageSize
+    const regex = new RegExp(filter, 'i')
+    const articles = await Article.find({
+      $or: [{ title: regex }, { content: regex }, { summary: regex}]
+    })
+      .sort({ createdAt: -1 })
+      .limit(~~pageSize)
+      .skip(~~skip)
+      .populate('tags', 'id name')
+    return {
+      articles,
+      total,
+      current: page,
+      totalPage: Math.ceil(total / pageSize)
+    }
+  } else {
+    const regex = new RegExp(filter, 'i')
+    const articles = await Article.find({
+      $or: [{ title: regex }, { content: regex }, { summary: regex}]
+    })
+      .sort({ createdAt: -1 })
+      .populate('tags', 'id name')
+    return {
+      articles,
+      total,
+      current: 1,
+      totalPage: 1
+    }
+  }
+}
+
+/**
  * 获取个人的日志列表
  */
 async function ownArticles(root, args, { Article, ctx }) {
@@ -47,7 +84,7 @@ async function ownArticles(root, args, { Article, ctx }) {
   if (user) {
     const articles = await Article.find({
       userId: user._id
-    }).populate('tags', 'id name');
+    }).sort({ createdAt: -1 }).populate('tags', 'id name');
     // .sort({ createdAt: -1 })
     // const total = await Article.find({ userId: user._id }).countDocuments();
     return articles;
@@ -81,20 +118,15 @@ async function ownArticles(root, args, { Article, ctx }) {
 // }
 
 /**
- * ownArticleDetail 获取文章详情
+ * articleDetail 获取文章详情
  */
-async function ownArticleDetail(root, { id }, { Article, ctx }) {
-  const { user } = await getUser(ctx);
-  if (user) {
-    let articles = await Article.find({_id: id, userId: user._id}).populate('tags', 'id name');
-    if (articles) {
-      let article = articles[0];
-      return article;
-    } else {
-      throw new ApolloError(`未能查询到该日志`, 'ownArticleDetail');
-    }
+async function articleDetail(root, { id }, { Article, ctx }) {
+  let articles = await Article.find({_id: id }).populate('tags', 'id name');
+  if (articles) {
+    let article = articles[0];
+    return article;
   } else {
-    throw new ApolloError(`用户未登录`, 'ownArticleDetail');
+    throw new ApolloError(`未能查询到该日志`, 'articleDetail');
   }
 }
 
@@ -106,4 +138,4 @@ async function tags (root, data, {Tag}) {
   return tags;
 }
 
-export default { users, me, ownArticles, ownArticleDetail, tags }
+export default { users, me, articles, ownArticles, articleDetail, tags }

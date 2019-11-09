@@ -28,7 +28,7 @@ const NewArticle = ({ history }) => {
       let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
       cache.writeQuery({
         query: OWN_ARTICLE_LIST,
-        data: { ownArticles: ownArticles.concat(addArticle) },
+        data: { ownArticles: [addArticle].concat(ownArticles) },
       });
     }
   });
