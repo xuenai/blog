@@ -44,6 +44,22 @@ export const ADD_ARTICLE = gql`
   }
 `;
 
+// 编辑文章
+export const EDIT_ARTICLE = gql`
+  mutation editArticle($id: ID!, $title: String!, $summary: String!, $content: String!, $tags: [ID!]) {
+    editArticle(id: $id, title: $title, summary: $summary, content: $content, tags: $tags) {
+      id
+      title
+      formatDate
+      updatedAt
+      tags{
+        name
+        id
+      }
+    }
+  }
+`;
+
 export const DELETE_ARTICLE = gql`
   mutation deleteArticle($id: ID!) {
     deleteArticle(id: $id) {

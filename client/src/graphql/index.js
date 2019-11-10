@@ -48,7 +48,17 @@ const link = split(
 
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    cacheRedirects: {
+      Query: {
+        articleDetail: (_, args, { getCacheKey }) =>{
+          console.log(args.id)
+          getCacheKey({ __typename: 'Article', id: args.id })
+          console.log(getCacheKey({ __typename: 'Article', id: args.id }))
+        }
+      },
+    },
+  })
 });
 
 export default client

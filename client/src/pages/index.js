@@ -5,11 +5,13 @@ import Detail from './detail';
 import Tags from './tags';
 import Archive from './archive';
 import NewArticle from './newArticle';
+import ArticleEdit from './articleEdit';
 import DashboardLogin from './dashboardLogin';
 import DashboardArchives from './dashboardArchives';
 import DashboardTags from './dashboardTags';
 import DashboardRegister from './dashboardRegister';
 import NewTag from './newTag';
+
 
 export {
   Home,
@@ -23,5 +25,6 @@ export {
   DashboardLogin,
   DashboardArchives,
   DashboardTags,
-  DashboardRegister
+  DashboardRegister,
+  ArticleEdit
 }

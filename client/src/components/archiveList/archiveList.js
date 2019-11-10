@@ -8,9 +8,9 @@ import './archiveList.scss';
 import { Tooltip, Popconfirm, Message } from '@components';
 import { DELETE_ARTICLE, OWN_ARTICLE_LIST } from '@graphql';
 
-const ArchiveList = ({ path, list, edit = false }) => {
+const ArchiveList = ({ list }) => {
 
-  const [deleteArticle ,{ data }] = useMutation(DELETE_ARTICLE, {
+  const [deleteArticle, { data }] = useMutation(DELETE_ARTICLE, {
     update(cache, { data: { deleteArticle } }) {
       let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
       cache.writeQuery({
@@ -19,7 +19,7 @@ const ArchiveList = ({ path, list, edit = false }) => {
       });
     }
   });
-  
+
   if (data) {
     setTimeout(() => {
       Message.success({ content: `《${data.deleteArticle.title}》已删除！`, key: `delete_article_${data.deleteArticle.id}` })
@@ -32,7 +32,7 @@ const ArchiveList = ({ path, list, edit = false }) => {
         list.map(item => (
           <div className="d-article-item" key={item.id}>
             <h3 className="d-article-item-title">
-              <Link className="d-article-item-link" to={`${path}${item.id}`}>{item.title}</Link>
+              <Link className="d-article-item-link" to={`/dashboard/detail/${item.id}`}>{item.title}</Link>
               {/* 编辑按钮 */}
               <Link rel="stylesheet" to={`/dashboard/edit/${item.id}`} className="d-article-item-edit">
                 <Tooltip placement="top" overlay={<span>点击对《{item.title}》进行编辑</span>}>

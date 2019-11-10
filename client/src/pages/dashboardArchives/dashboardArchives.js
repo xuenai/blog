@@ -22,7 +22,7 @@ const DashboardArchives = () => {
         data.ownArticles.length ?
           <div>
             <p className="totalCount">目前共计{data.ownArticles.length}篇日志</p>
-            <ArchiveList path='/dashboard/detail/' list={data.ownArticles}></ArchiveList>
+            <ArchiveList list={data.ownArticles}></ArchiveList>
           </div> :
           <Empty description="你有看到我的日志么，我的日志不见了..."></Empty>
       }

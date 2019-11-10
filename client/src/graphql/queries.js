@@ -58,6 +58,26 @@ export const OWN_ARTICLE_DETAIL = gql`
   }
 `;
 
+// 获取编辑页面的日志详情和标签列表
+export const GET_DETAIL_TAGS = gql`
+query getArticleAndTags($id: ID) {
+    articleDetail(id: $id) {
+      title
+      summary
+      content
+      formatDate
+      tags {
+        id
+        name
+      }
+    }
+    tags {
+      label: name
+      value: id
+    }
+  }
+`;
+
 export const TAGS_QUERY = gql`
   {
     tags {
