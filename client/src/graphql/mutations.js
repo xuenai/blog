@@ -44,6 +44,15 @@ export const ADD_ARTICLE = gql`
   }
 `;
 
+export const DELETE_ARTICLE = gql`
+  mutation deleteArticle($id: ID!) {
+    deleteArticle(id: $id) {
+      id
+      title
+    }
+  }
+`
+
 // 新增标签
 export const ADD_TAG = gql`
   mutation addTag($name: String!) {
