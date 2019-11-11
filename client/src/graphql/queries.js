@@ -18,10 +18,16 @@ export const OWN_ARTICLE_LIST = gql`
       title
       formatDate
       updatedAt
+      content
+      summary
       tags {
         id
         name
       }
+    }
+    tags{
+      id
+      name
     }
   }
 `;
@@ -46,6 +52,7 @@ export const OWN_ARTICLE_LIST = gql`
 export const OWN_ARTICLE_DETAIL = gql`
   query articleDetail($id: ID) {
     articleDetail(id: $id) {
+      id
       title
       summary
       content
@@ -62,10 +69,10 @@ export const OWN_ARTICLE_DETAIL = gql`
 export const GET_DETAIL_TAGS = gql`
 query getArticleAndTags($id: ID) {
     articleDetail(id: $id) {
+      id
       title
       summary
       content
-      formatDate
       tags {
         id
         name

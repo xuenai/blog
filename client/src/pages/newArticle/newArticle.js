@@ -49,7 +49,7 @@ const NewArticle = ({ history }) => {
       <form onSubmit={event => {
         event.preventDefault();
         event.persist()
-        let {content, title, tags, summary} = articleState; 
+        let { content, title, tags, summary } = articleState;
         if (!title || content === '<p></p>') {
           Message.error('标题和内容不能为空！');
           return false;
@@ -57,15 +57,15 @@ const NewArticle = ({ history }) => {
         addArticle({ variables: { title, summary, content, tags } })
       }}>
         <h4>标题</h4>
-        <Input className="article-input" placeholder="请输入标题" onChange={e => setArticleState({...articleState, title: e})}></Input>
+        <Input className="article-input" placeholder="请输入标题" onChange={e => setArticleState({ ...articleState, title: e })}></Input>
         <h4>概要</h4>
-        <Input className="article-input" placeholder="请输入概要" onChange={e => setArticleState({...articleState, summary: e})}></Input>
+        <Input className="article-input" placeholder="请输入概要" onChange={e => setArticleState({ ...articleState, summary: e })}></Input>
         {
           allTags.length ?
             <div>
               <h4>标签</h4>
               <div className="article-input">
-                <Checkbox.Group options={allTags} onChange={e => setArticleState({...articleState, tags: e})}></Checkbox.Group>
+                <Checkbox.Group options={allTags} onChange={e => setArticleState({ ...articleState, tags: e })}></Checkbox.Group>
               </div>
             </div> : null
         }
@@ -73,7 +73,7 @@ const NewArticle = ({ history }) => {
         <div className="editor-wrapper">
           <BraftEditor
             value={articleState.editorState}
-            onChange={e => setArticleState({...articleState, editorState: e, content: e.toHTML()})}
+            onChange={e => setArticleState({ ...articleState, editorState: e, content: e.toHTML() })}
           />
         </div>
         <Button type="submit">保存</Button>

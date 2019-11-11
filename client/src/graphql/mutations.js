@@ -52,6 +52,7 @@ export const EDIT_ARTICLE = gql`
       title
       formatDate
       updatedAt
+      content
       tags{
         name
         id
@@ -60,6 +61,7 @@ export const EDIT_ARTICLE = gql`
   }
 `;
 
+// 删除文章
 export const DELETE_ARTICLE = gql`
   mutation deleteArticle($id: ID!) {
     deleteArticle(id: $id) {

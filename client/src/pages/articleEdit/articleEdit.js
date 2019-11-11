@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import 'braft-editor/dist/index.css';
 import 'braft-extensions/dist/code-highlighter.css';
 import CodeHighlighter from 'braft-extensions/dist/code-highlighter';
@@ -53,7 +53,7 @@ const ArticleEdit = ({ history }) => {
   }
 
   if (articleDetail && !articleState.pageReady) {
-    let {content, title, tags, summary} = articleDetail; 
+    let { content, title, tags, summary } = articleDetail;
     setArticleState({
       editorState: BraftEditor.createEditorState(content),
       title,
@@ -63,7 +63,7 @@ const ArticleEdit = ({ history }) => {
       pageReady: true
     })
   }
-  let {editorState, title, tags, summary} = articleState; 
+  let { editorState, title, tags, summary } = articleState;
 
 
   return (
@@ -71,23 +71,23 @@ const ArticleEdit = ({ history }) => {
       <form onSubmit={event => {
         event.preventDefault();
         event.persist()
-        let {content, title, tags, summary} = articleState; 
+        let { content, title, tags, summary } = articleState;
         if (!title || content === '<p></p>') {
           Message.error('标题和内容不能为空！');
           return false;
         }
-        editArticle({ variables: {id, title, summary, content, tags } })
+        editArticle({ variables: { id, title, summary, content, tags } })
       }}>
         <h4>标题</h4>
-        <Input className="article-input" defaultValue={title} placeholder="请输入标题" onChange={e => setArticleState({...articleState, title: e})}></Input>
+        <Input className="article-input" defaultValue={title} placeholder="请输入标题" onChange={e => setArticleState({ ...articleState, title: e })}></Input>
         <h4>概要</h4>
-        <Input className="article-input" defaultValue={summary} placeholder="请输入概要" onChange={e => setArticleState({...articleState, summary: e})}></Input>
+        <Input className="article-input" defaultValue={summary} placeholder="请输入概要" onChange={e => setArticleState({ ...articleState, summary: e })}></Input>
         {
           allTags.length ?
             <div>
               <h4>标签</h4>
               <div className="article-input">
-                <Checkbox.Group value={tags} options={allTags} onChange={e => setArticleState({...articleState, tags: e})}></Checkbox.Group>
+                <Checkbox.Group value={tags} options={allTags} onChange={e => setArticleState({ ...articleState, tags: e })}></Checkbox.Group>
               </div>
             </div> : null
         }
@@ -95,7 +95,7 @@ const ArticleEdit = ({ history }) => {
         <div className="editor-wrapper">
           <BraftEditor
             value={editorState}
-            onChange={e => setArticleState({...articleState, editorState: e, content: e.toHTML()})}
+            onChange={e => setArticleState({ ...articleState, editorState: e, content: e.toHTML() })}
           />
         </div>
         <Button type="submit">保存</Button>
