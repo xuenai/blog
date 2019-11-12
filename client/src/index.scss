@@ -108,10 +108,9 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-
+  padding-bottom: 76px;
   &-content {
     @include maxWidth;
-    padding-bottom: 200px;
   }
 
   hr {
