@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
+
 import '../notFound/notFound.scss';
 import image from '@assets/images/404-bg.jpg';
-
 
 const imgMoveFunction = (e, ref) => {
   e.persist();
@@ -13,17 +14,25 @@ const imgMoveFunction = (e, ref) => {
   ref.current.style.transform = translate;
 }
 
-const NetError = () => {
+const NetError = ({ description }) => {
   const imgRef = useRef(null);
   return (
     <div className='not-found' onClick={e => imgMoveFunction(e, imgRef)} onMouseMove={e => imgMoveFunction(e, imgRef)}>
-      <h1>Network Error</h1>
-      <h2>Failed to fetch</h2>
-      <p>I tried to catch some fog, but i mist</p>
+      <h1>Failed to fetch</h1>
+      <h2>{description}</h2>
+      <p>I tried it, but I failed...</p>
       {/* <a>back to home</a> */}
       <img src={image} alt="not found" ref={imgRef} />
     </div>
   )
+}
+
+NetError.defaultProps = {
+  description: 'Network Error',
+}
+
+NetError.propTypes = {
+  description: PropTypes.any,
 }
 
 export default NetError;

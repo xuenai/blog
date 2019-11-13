@@ -9,27 +9,27 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import '../newArticle/newArticle.scss';
 
 import { Input, Button, Message, Checkbox, Loading } from '@components';
-import { EDIT_ARTICLE, GET_DETAIL_TAGS, OWN_ARTICLE_LIST } from '@graphql';
+import { EDIT_ARTICLE, GET_DETAIL_TAGS, ARTICLES_AND_TAGS } from '@graphql';
 
 // 设置代码高亮
 BraftEditor.use(CodeHighlighter())
 
 const ArticleEdit = ({ history }) => {
   let { id } = useParams();
-  let { loading, data: { tags: allTags, articleDetail } } = useQuery(GET_DETAIL_TAGS, {
+  let { loading, data: { tags: allTags, article } } = useQuery(GET_DETAIL_TAGS, {
     variables: { id }
   });
 
   const [editArticle, { data }] = useMutation(EDIT_ARTICLE, {
     update(cache, { data: { editArticle } }) {
-      let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
-      let index = ownArticles.findIndex(a => a.id === editArticle.id);
+      let { articles } = cache.readQuery({ query: ARTICLES_AND_TAGS });
+      let index = articles.findIndex(a => a.id === editArticle.id);
       if (index > -1) {
-        ownArticles[index] = editArticle;
+        articles[index] = editArticle;
       }
       cache.writeQuery({
-        query: OWN_ARTICLE_LIST,
-        data: { ownArticles: ownArticles },
+        query: ARTICLES_AND_TAGS,
+        data: { articles },
       });
     }
   });
@@ -52,8 +52,8 @@ const ArticleEdit = ({ history }) => {
     setTimeout(() => Message.success({ content: '编辑日志成功', key: 'edit_article' }));
   }
 
-  if (articleDetail && !articleState.pageReady) {
-    let { content, title, tags, summary } = articleDetail;
+  if (article && !articleState.pageReady) {
+    let { content, title, tags, summary } = article;
     setArticleState({
       editorState: BraftEditor.createEditorState(content),
       title,

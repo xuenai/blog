@@ -7,16 +7,12 @@ import './dashboard.scss';
 import { DashboardHeader, LoginedRoute, NotFound, NetError, Loading } from '@components';
 import { DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle, Detail, NewTag, ArticleEdit } from '@pages';
 import { useStore } from '@config';
-import { ME_QUERY, OWN_ARTICLE_LIST } from '@graphql'
+import { ME_QUERY } from '@graphql'
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
   const { data, error } = useQuery(ME_QUERY);
-
-  useQuery(OWN_ARTICLE_LIST);
-
   const { loginStatus, changeLoginStatus } = useStore('user');
-
   // 验证登录状态
   if (data && data.me && loginStatus === 'default') {
     if (data.me.code === 0) {
@@ -27,7 +23,7 @@ const Dashboard = () => {
   }
   // 是否有错误
   if (error) {
-    return <NetError></NetError>
+    return <NetError description={error.message}></NetError>
   }
 
   // 默认进来不显示页面 先验证登录

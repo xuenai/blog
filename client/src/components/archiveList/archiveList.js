@@ -6,16 +6,16 @@ import { useMutation } from '@apollo/react-hooks';
 import './archiveList.scss';
 
 import { Tooltip, Popconfirm, Message } from '@components';
-import { DELETE_ARTICLE, OWN_ARTICLE_LIST } from '@graphql';
+import { DELETE_ARTICLE, ARTICLES_AND_TAGS } from '@graphql';
 
 const ArchiveList = ({ list }) => {
 
   const [deleteArticle, { data }] = useMutation(DELETE_ARTICLE, {
     update(cache, { data: { deleteArticle } }) {
-      let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
+      let { articles } = cache.readQuery({ query: ARTICLES_AND_TAGS });
       cache.writeQuery({
-        query: OWN_ARTICLE_LIST,
-        data: { ownArticles: ownArticles.filter(article => article.id !== deleteArticle.id) },
+        query: ARTICLES_AND_TAGS,
+        data: { articles: articles.filter(article => article.id !== deleteArticle.id) },
       });
     }
   });

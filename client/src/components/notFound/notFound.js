@@ -19,7 +19,7 @@ const NotFound = () => {
     <div className='not-found' onClick={e => imgMoveFunction(e, imgRef)} onMouseMove={e => imgMoveFunction(e, imgRef)}>
       <h1>404</h1>
       <h2>Page not found</h2>
-      <p>I tried to catch some fog, but i mist</p>
+      <p>I tried it, but I failed...</p>
       {/* <a>back to home</a> */}
       <img src={image} alt="not found" ref={imgRef} />
     </div>

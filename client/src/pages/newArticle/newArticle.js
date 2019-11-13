@@ -8,7 +8,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import './newArticle.scss';
 
 import { Input, Button, Message, Checkbox } from '@components';
-import { ADD_ARTICLE, NEW_ARTICLE_TAGS_QUERY, OWN_ARTICLE_LIST } from '@graphql';
+import { ADD_ARTICLE, NEW_ARTICLE_TAGS_QUERY, ARTICLES_AND_TAGS } from '@graphql';
 import { setTimeout } from 'optimism';
 
 // 设置代码高亮
@@ -27,10 +27,10 @@ const NewArticle = ({ history }) => {
 
   const [addArticle, { data }] = useMutation(ADD_ARTICLE, {
     update(cache, { data: { addArticle } }) {
-      let { ownArticles } = cache.readQuery({ query: OWN_ARTICLE_LIST });
+      let { articles } = cache.readQuery({ query: ARTICLES_AND_TAGS });
       cache.writeQuery({
-        query: OWN_ARTICLE_LIST,
-        data: { ownArticles: [addArticle].concat(ownArticles) },
+        query: ARTICLES_AND_TAGS,
+        data: { articles: [addArticle].concat(articles) },
       });
     }
   });

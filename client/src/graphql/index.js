@@ -53,7 +53,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache({
     cacheRedirects: {
       Query: {
-        articleDetail: (_, args, { getCacheKey }) => getCacheKey({ __typename: 'Article', id: args.id }),
+        article: (_, args, { getCacheKey }) => getCacheKey({ __typename: 'Article', id: args.id }),
       },
     },
   })

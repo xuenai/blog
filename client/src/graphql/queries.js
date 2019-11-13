@@ -11,9 +11,9 @@ export const ME_QUERY = gql`
 `;
 
 // 获取后台自己的文章列表
-export const OWN_ARTICLE_LIST = gql`
+export const ARTICLES_AND_TAGS = gql`
   {
-    ownArticles {
+    articles {
       id
       title
       formatDate
@@ -31,7 +31,7 @@ export const OWN_ARTICLE_LIST = gql`
     }
   }
 `;
-// export const OWN_ARTICLE_LIST = gql`
+// export const ARTICLES_AND_TAGS = gql`
 //   query ownArticles($page: Int, $pageSize: Int, $filter: String) {
 //     ownArticles(page: $page, pageSize: $pageSize, filter: $filter) {
 //       articles {
@@ -50,8 +50,8 @@ export const OWN_ARTICLE_LIST = gql`
 
 // 获取自己的文章详情
 export const OWN_ARTICLE_DETAIL = gql`
-  query articleDetail($id: ID) {
-    articleDetail(id: $id) {
+  query article($id: ID!) {
+    article(id: $id) {
       id
       title
       summary
@@ -68,7 +68,7 @@ export const OWN_ARTICLE_DETAIL = gql`
 // 获取编辑页面的日志详情和标签列表
 export const GET_DETAIL_TAGS = gql`
 query getArticleAndTags($id: ID) {
-    articleDetail(id: $id) {
+  article(id: $id) {
       id
       title
       summary

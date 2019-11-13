@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { refreshTokens } from './auth'
 import { User } from '../mongodb/schema'
-// import { ValidationError } from './formatError'
+import { ApolloError } from 'apollo-server-koa';
 
 // token 密码
 const APP_SECRET = 'Koa-Apollo-GraphQL-Server'
@@ -19,7 +19,6 @@ async function getUser(ctx) {
   const token = ctx.cookies.get('x-token')
   const refreshToken = ctx.cookies.get('x-refresh-token')
   let user
-  let errors
   if (token) {
     try {
       const {
@@ -27,23 +26,15 @@ async function getUser(ctx) {
       } = jwt.verify(token, APP_SECRET)
       user = await User.findById(_id)
     } catch (error) {
-      errors = {
-        key: 'token',
-        message: `验证 token 错误, 原因: ${error.message}`
-      }
+      throw new ApolloError(`验证 token 错误, 原因: ${error.message}`, 'login');
     }
   } else if (refreshToken) {
     const newTokens = await refreshTokens(refreshToken, APP_SECRET)
     if (newTokens.error === undefined) {
       setCookie(ctx, newTokens.token, newTokens.refreshToken)
       user = newTokens.user
-    } else {
-      errors = newTokens.error
     }
-  } else {
-    errors = { key: 'login', message: '请先进行登录操作' }
   }
-  // return { errors, user }
   return {user}
 }
 
@@ -53,10 +44,7 @@ async function getUser(ctx) {
  * @returns {Object} 如果已经登录返回用户信息，否则就抛出一个错误
  */
 async function isLogin(ctx) {
-  const { errors, user } = await getUser(ctx)
-  if (errors !== undefined) {
-    // throw new ValidationError(errors)
-  }
+  const { user } = await getUser(ctx)
   return user
 }
 

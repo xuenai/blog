@@ -85,29 +85,11 @@ async function addArticle(root, { title, summary, content, tags }, { Article, ct
     throw new ApolloError(`用户不存在`, 'addArticle')
   }
   if (user.isAdmin) {
-    // 查找标签 看是否存在相同的标签
-    // const oldTags = await Tag.find({name: tags});
-    // if (!oldTags.length) {
-    //   Tag.create({name: tags});
-    // }
     const newArticle = Object.assign({ userId: user._id }, { title, summary, content, tags })
 
     let response = await Article.create(newArticle);
 
     let article = await Article.findOne({ _id: response._id }).populate('tags', 'id name');
-
-    // let newTags = JSON.parse(tags);
-    // let t = [];
-    // newTags.map(tag => {
-    //   t.push({
-    //     articleId: response._id,
-    //     tagId: tag.value
-    //   })
-    // })
-    // const logTag = await LogTag.insertMany(t)
-
-    // response.tags = logTag
-
     // 发送订阅 NEW_ARTICLE
     pubsub.publish(NEW_ARTICLE, { newArticle: article })
     return article

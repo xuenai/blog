@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import _ from 'lodash'
 import { User } from '../mongodb/schema'
-
+import { ApolloError } from 'apollo-server-koa';
 /**
  * 创建 token 和 refreshToken
  * @param {Object} user 用户信息集合
@@ -37,40 +37,23 @@ export const refreshTokens = async (refreshToken, SECRET) => {
     } = jwt.decode(refreshToken)
     userId = _id
   } catch (error) {
-    return {
-      error: { key: 'refreshToken', message: '错误的 refreshToken, 无法解析' }
-    }
+    throw new ApolloError(`错误的 refreshToken, 无法解析`, 'refreshToken');
   }
 
   if (!userId) {
-    return {
-      error: {
-        key: 'refreshToken',
-        message: '错误的 refreshToken, 获取 userId 失败'
-      }
-    }
+    throw new ApolloError(`错误的 refreshToken, 获取 userId 失败`, 'refreshToken');
   }
 
   const user = await User.findById(userId)
 
   if (!user) {
-    return {
-      error: {
-        key: 'refreshToken',
-        message: '错误的 refreshToken, 获取用户失败'
-      }
-    }
+    throw new ApolloError(`错误的 refreshToken, 获取用户失败`, 'refreshToken');
   }
 
   try {
     jwt.verify(refreshToken, user.refreshSecret)
   } catch (error) {
-    return {
-      error: {
-        key: 'refreshToken',
-        message: '错误的 refreshToken, 无法对应用户的加密密码'
-      }
-    }
+    throw new ApolloError(`错误的 refreshToken, 无法对应用户的加密密码`, 'refreshToken');
   }
 
   const [newToken, newRefreshToken] = await createTokens(

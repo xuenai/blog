@@ -16,33 +16,35 @@ const Detail = () => {
   if (loading) {
     return <Loading title="日志查询中..."></Loading>
   }
-  if (data && data.articleDetail) {
+  if (data && data.article) {
     setTimeout(() => { Prism.highlightAll() })
   }
+  let {title, summary, formatDate, tags, content} = data.article;
   return (
-    data.articleDetail && <div className="article-detail">
-      <h2 className="article-detail-title">{data.articleDetail.title}</h2>
-      {
-        data.articleDetail.summary && <p className="article-detail-summary">{data.articleDetail.summary}</p>
-      }
-      <div className="article-detail-meta">
-        <span className="iconfont icon-riqi"></span>
-        <time>{data.articleDetail.formatDate}</time>
+    data.article ? 
+      <div className="article-detail">
+        <h2 className="article-detail-title">{title}</h2>
         {
-          data.articleDetail.tags.length ? 
-          <span>
-            <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
-            <span className="iconfont icon-biaoqian"></span>
-            <span>
-              {
-                data.articleDetail.tags.map(tag => <span className="article-detail-tag" key={tag.id}>{tag.name}</span>)
-              }
-            </span>
-          </span> : null
+          summary ? <p className="article-detail-summary">{summary}</p> : null
         }
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: data.articleDetail.content }} className="article-detial-content"></div>
-    </div>
+        <div className="article-detail-meta">
+          <span className="iconfont icon-riqi"></span>
+          <time>{formatDate}</time>
+          {
+            tags.length ? 
+            <span>
+              <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
+              <span className="iconfont icon-biaoqian"></span>
+              <span>
+                {
+                  tags.map(tag => <span className="article-detail-tag" key={tag.id}>{tag.name}</span>)
+                }
+              </span>
+            </span> : null
+          }
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: content }} className="article-detial-content"></div>
+      </div> : null
   )
 }
 

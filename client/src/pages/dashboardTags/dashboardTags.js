@@ -5,10 +5,10 @@ import './dashboardTags.scss';
 
 import { TagList, Loading } from '@components';
 import AddTagButton from './addTagButton';
-import { OWN_ARTICLE_LIST } from '@graphql'
+import { ARTICLES_AND_TAGS } from '@graphql'
 
 const DashboardTags = () => {
-  const { loading, data: { tags } } = useQuery(OWN_ARTICLE_LIST);
+  const { loading, data: { tags } } = useQuery(ARTICLES_AND_TAGS);
 
   if (loading) {
     return <Loading title="标签查询中..."></Loading>

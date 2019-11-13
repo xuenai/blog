@@ -9,13 +9,10 @@ import { getUser, isLogin } from '../../config/utils'
  */
 async function users(root, args, { ctx, User }) {
   const user = await isLogin(ctx)
-  // const isAdmin = user.isAdmin
-  // if (!isAdmin) {
-  //   throw new ValidationError({
-  //     key: 'createUser',
-  //     message: '你不是管理员,无法创建新用户,请使用注册通道'
-  //   })
-  // }
+  const { isAdmin } = user
+  if (!isAdmin) {
+    throw new ApolloError(`你不是管理员,不能查询用户信息`, 'users');
+  }
 
   return User.find()
 }
@@ -42,56 +39,30 @@ async function me(root, args, { ctx }) {
 /**
  * 获取所有日志
  */
-async function articles (root, { filter, page, pageSize = 10 }, {Article}) {
-  const total = await Article.find().countDocuments();
-  if (page) {
-    const skip = (page - 1) * pageSize
-    const regex = new RegExp(filter, 'i')
-    const articles = await Article.find({
-      $or: [{ title: regex }, { content: regex }, { summary: regex}]
-    })
-      .sort({ createdAt: -1 })
-      .limit(~~pageSize)
-      .skip(~~skip)
-      .populate('tags', 'id name')
-    return {
-      articles,
-      total,
-      current: page,
-      totalPage: Math.ceil(total / pageSize)
-    }
-  } else {
-    const regex = new RegExp(filter, 'i')
-    const articles = await Article.find({
-      $or: [{ title: regex }, { content: regex }, { summary: regex}]
-    })
-      .sort({ createdAt: -1 })
-      .populate('tags', 'id name')
-    return {
-      articles,
-      total,
-      current: 1,
-      totalPage: 1
-    }
+async function articles(root, { filter, tag }, { Article }) {
+  const regex = new RegExp(filter, 'i');
+  let params = {};
+  if (filter) {
+    params.$or = [{ title: regex }, { content: regex }]
   }
+  if (tag) {
+    params.tags = { $elemMatch: { $eq: tag } }
+  }
+  const articles = await Article.find(params)
+    .sort({ createdAt: -1 })
+    .populate('tags', 'id name')
+  return articles;
+
 }
 
 /**
  * 获取个人的日志列表
  */
-async function ownArticles(root, args, { Article, ctx }) {
-  const { user } = await getUser(ctx);
-  if (user) {
-    const articles = await Article.find({
-      userId: user._id
-    }).sort({ createdAt: -1 }).populate('tags', 'id name');
-    // .sort({ createdAt: -1 })
-    // const total = await Article.find({ userId: user._id }).countDocuments();
-    return articles;
-  } else {
-    throw new ApolloError(`用户未登录`, 'ownArticles')
-  }
-}
+// async function ownArticles(root, args, { Article }) {
+//   const articles = await Article.find().sort({ createdAt: -1 }).populate('tags', 'id name');
+//   // await Article.fetch();
+//   return articles;
+// }
 // async function ownArticles(root, { filter, page, pageSize = 10 }, { Article, ctx }) {
 //   const { user } = await getUser(ctx);
 //   if (user) {
@@ -118,24 +89,24 @@ async function ownArticles(root, args, { Article, ctx }) {
 // }
 
 /**
- * articleDetail 获取文章详情
+ * article 获取文章详情
  */
-async function articleDetail(root, { id }, { Article, ctx }) {
-  let articles = await Article.find({_id: id }).populate('tags', 'id name');
+async function article(root, { id }, { Article, ctx }) {
+  let articles = await Article.find({ _id: id }).populate('tags', 'id name');
   if (articles) {
     let article = articles[0];
     return article;
   } else {
-    throw new ApolloError(`未能查询到该日志`, 'articleDetail');
+    throw new ApolloError(`未能查询到该日志`, 'article');
   }
 }
 
 /**
  * tags 获取标签列表
  */
-async function tags (root, data, {Tag}) {
+async function tags(root, data, { Tag }) {
   const tags = await Tag.find();
   return tags;
 }
 
-export default { users, me, articles, ownArticles, articleDetail, tags }
+export default { users, me, articles, article, tags }
