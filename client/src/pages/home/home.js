@@ -10,7 +10,6 @@ const Home = () => {
   return (
     <div className="main-content">
       <List list={[]}></List>
-      {/* <Page current={data.ownArticles.current} total={data.ownArticles.totalPage} onChange={e => {setCurrent(e); refetch();}}></Page> */}
     </div>
   )
 }
