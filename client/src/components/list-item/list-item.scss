@@ -53,6 +53,9 @@
       margin: 0 $spacer-2;
     }
   }
+  &-tag + .list-item-tag{
+    margin-left:$spacer-2;
+  }
 
   &-summary {
     line-height: 2;
@@ -61,7 +64,7 @@
   &::after {
     content: "";
     display: block;
-    margin: 80px auto 60px;
+    margin: 40px auto 50px;
     width: 8%;
     height: 1px;
     background: $border-color;

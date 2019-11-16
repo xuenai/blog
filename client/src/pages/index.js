@@ -1,7 +1,7 @@
 import Dashboard from './dashboard';
 import Blog from './blog';
 import Home from './home';
-import Detail from './detail';
+import ArticleDetail from './detail';
 import Tags from './tags';
 import Archive from './archive';
 import NewArticle from './newArticle';
@@ -15,7 +15,7 @@ import NewTag from './newTag';
 
 export {
   Home,
-  Detail,
+  ArticleDetail,
   Tags,
   Archive,
   NewArticle,

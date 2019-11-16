@@ -9,11 +9,4 @@ const resolvers = {
   Subscription
 }
 
-// const schema = fs.readFileSync(
-//   path.join(__dirname, './schema.graphql'),
-//   'utf8'
-// )
-
-// const typeDefs = gql(schema);
-
 export { resolvers, typeDefs }

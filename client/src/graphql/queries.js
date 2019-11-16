@@ -10,7 +10,7 @@ export const ME_QUERY = gql`
   }
 `;
 
-// 获取后台自己的文章列表
+// 获取文章列表和标签列表
 export const ARTICLES_AND_TAGS = gql`
   {
     articles {
@@ -31,25 +31,27 @@ export const ARTICLES_AND_TAGS = gql`
     }
   }
 `;
-// export const ARTICLES_AND_TAGS = gql`
-//   query ownArticles($page: Int, $pageSize: Int, $filter: String) {
-//     ownArticles(page: $page, pageSize: $pageSize, filter: $filter) {
-//       articles {
-//         id
-//         title
-//         content
-//         formatDate
-//         tags
-//       }
-//       total
-//       current
-//       totalPage
-//     }
-//   }
-// `;
+
+// 获取后台自己的文章列表
+export const ARTICLES = gql`
+  {
+    articles {
+      id
+      title
+      formatDate
+      updatedAt
+      content
+      summary
+      tags {
+        id
+        name
+      }
+    }
+  }
+`;
 
 // 获取自己的文章详情
-export const OWN_ARTICLE_DETAIL = gql`
+export const ARTICLE_DETAIL = gql`
   query article($id: ID!) {
     article(id: $id) {
       id

@@ -14,13 +14,14 @@ const ListItem = ({ path, data }) => {
         <span className="iconfont icon-riqi"></span>
         <time>{formatDate}</time>
         {
-          tags && (
+          tags.length ?
             <span>
               <span className="list-item-meta-line">&nbsp;|&nbsp;</span>
               <span className="iconfont icon-biaoqian"></span>
-              <span>{tags}</span>
-            </span>
-          )
+              {
+                tags.map(tag => <span key={tag.id} className="list-item-tag">{tag.name}</span>)
+              }
+            </span> : null
         }
       </div>
       {

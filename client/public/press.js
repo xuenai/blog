@@ -168,11 +168,10 @@
     },
     // 进度条开始
     start: function () {
-      console.log('start')
       if (!this.status) {
         this.set(0)
-      }
-      let self = this;
+      };
+      var self = this;
       var work = function () {
         setTimeout(function () {
           if (!self.status) return;

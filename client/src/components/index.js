@@ -22,6 +22,7 @@ import TagList from './tagList';
 import Tag from './tag';
 import Loading from './loading';
 import NetError from './netError';
+import Detail from './detail';
 
 export {
   Header,
@@ -47,5 +48,6 @@ export {
   TagList,
   Tag,
   Loading,
-  NetError
+  NetError,
+  Detail
 }
