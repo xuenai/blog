@@ -29,21 +29,8 @@
     }
   }
   &-tag{
-    position: relative;
-    &:first-child{
-      padding-left: $spacer-2;
-    }
-    padding:0 $spacer-3;
-    & + .article-detail-tag {
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 0;
-        height: 100%;
-        border-right: $border;
-      }
+    & + .detail-tag {
+      margin-left: $spacer-2;
     }
   }
   img {

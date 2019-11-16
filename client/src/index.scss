@@ -106,7 +106,7 @@
 .fade-enter,
 .fade-appear {
   opacity: 0.01;
-  transform: translateY(-20px);
+  transform: translateY(-30px);
 }
 
 .fade-enter-active,
@@ -119,14 +119,14 @@
 .article-enter,
 .article-appear {
   opacity: 0.01;
-  transform: translateY(60px);
+  transform: translateY(-40px);
 }
 
 .article-enter-active,
 .article-appear-active {
   opacity: 1;
   transform: translateY(0);
-  transition: all 400ms ease-out;
+  transition: all 300ms ease-out;
 }
 
 code[class*="language-"],

@@ -5,15 +5,18 @@ import { useQuery } from '@apollo/react-hooks';
 
 import './detail.scss';
 import { ARTICLE_DETAIL } from '@graphql';
-import { Loading, Detail } from '@components';
+import { Loading, Detail, NetError } from '@components';
 
 const ArticleDetail = ({blog}) => {
   let { id } = useParams();
-  const { loading, data } = useQuery(ARTICLE_DETAIL, {
+  const { loading, data, error } = useQuery(ARTICLE_DETAIL, {
     variables: { id }
   });
   if (loading) {
     return <Loading title="日志查询中..."></Loading>
+  }
+  if (error) {
+    return <NetError description={error.message}></NetError>
   }
   let clsString = blog ? 'blog-detail' : 'article-detail';
   return (
