@@ -12,9 +12,6 @@ const Detail = ({ article }) => {
     <CSSTransition classNames="article" timeout={400} in={true} appear>
       <div className="detail">
       <h2 className="detail-title">{title}</h2>
-      {
-        summary ? <p className="detail-summary">{summary}</p> : null
-      }
       <div className="detail-meta">
         <span className="iconfont icon-riqi"></span>
         <time>{formatDate}</time>
@@ -31,6 +28,9 @@ const Detail = ({ article }) => {
             </span> : null
         }
       </div>
+      {
+        summary ? <div className="detial-content" dangerouslySetInnerHTML={{ __html: summary }}></div> : null
+      }
       <div dangerouslySetInnerHTML={{ __html: content }} className="detial-content"></div>
     </div>
     </CSSTransition>

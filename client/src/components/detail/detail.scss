@@ -5,10 +5,10 @@
     font-weight: $font-weight-normal;
   }
 
-  &-summary {
-    padding-top: $spacer-4;
-    color: $text-gray-light;
-    text-align: center;
+  &-content{
+    p {
+      margin-bottom: $spacer-3;
+    }
   }
 
   &-meta {

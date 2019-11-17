@@ -4,7 +4,9 @@
   &-title {
     margin-bottom: $spacer-1;
   }
-
+  &-summary {
+    text-align: left;
+  }
   &-link {
     position: relative;
     display: inline-block;
@@ -38,7 +40,7 @@
   }
 
   &-meta {
-    margin-bottom: $spacer-4;
+    margin-bottom: $spacer-6;
     font-size: $font-size-small;
     color: $text-gray-light;
     height: 24px;
@@ -57,15 +59,11 @@
     margin-left:$spacer-2;
   }
 
-  &-summary {
-    line-height: 2;
-  }
-
   &::after {
     content: "";
     display: block;
     margin: 40px auto 50px;
-    width: 8%;
+    width: 16%;
     height: 1px;
     background: $border-color;
     text-align: center;

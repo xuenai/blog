@@ -10,7 +10,6 @@ import DashboardLogin from './dashboardLogin';
 import DashboardArchives from './dashboardArchives';
 import DashboardTags from './dashboardTags';
 import DashboardRegister from './dashboardRegister';
-import NewTag from './newTag';
 
 
 export {
@@ -19,7 +18,6 @@ export {
   Tags,
   Archive,
   NewArticle,
-  NewTag,
   Dashboard,
   Blog,
   DashboardLogin,

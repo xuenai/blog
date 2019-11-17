@@ -33,7 +33,7 @@ type Article {
   "格式化后的时间"
   formatDate: String!
   "标签"
-  tags: [Tag!]
+  tags: [Tag!]!
 }
 
 "用户信息的response"
@@ -52,12 +52,20 @@ type Tag {
   name: String!
 }
 
+"日志归档"
+type YearArticles {
+  year: String!
+  articles: [Article!]!
+}
+
 "所有的查询接口"
 type Query {
   "查询所有用户"
   users: [User!]!
   "检测用户是否登录"
   me: UserResponse!
+  "按年查询日志"
+  yearArticles: [YearArticles!]!
   "获取日志列表"
   articles(
     "关键词 会检索 标题、摘要、内容"

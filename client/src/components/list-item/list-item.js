@@ -25,7 +25,7 @@ const ListItem = ({ path, data }) => {
         }
       </div>
       {
-        summary && <p className="list-item-summary">{summary}</p>
+        summary && <div className="list-item-summary" dangerouslySetInnerHTML={{ __html: summary }}></div>
       }
     </div>
   )

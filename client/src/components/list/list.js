@@ -1,4 +1,5 @@
 import React from 'react';
+import Prism from 'prismjs';
 import {
   CSSTransition,
   TransitionGroup,
@@ -10,6 +11,9 @@ import ListItem from '../list-item';
 import Empty from '../empty'
 
 const List = ({ list }) => {
+  if (list) {
+    setTimeout(() => { Prism.highlightAll() })
+  }
   return (
     <>
     {

@@ -17,8 +17,10 @@ BraftEditor.use(CodeHighlighter())
 const NewArticle = ({ history }) => {
 
   let { data: { tags: allTags } } = useQuery(NEW_ARTICLE_TAGS_QUERY);
+
   let [articleState, setArticleState] = useState({
-    editorState: BraftEditor.createEditorState(''),
+    contentEditorState: BraftEditor.createEditorState(''),
+    summaryEditorState: BraftEditor.createEditorState(''),
     content: '<p></p>',
     title: '',
     summary: '',
@@ -59,7 +61,12 @@ const NewArticle = ({ history }) => {
         <h4>标题</h4>
         <Input className="article-input" placeholder="请输入标题" onChange={e => setArticleState({ ...articleState, title: e })}></Input>
         <h4>概要</h4>
-        <Input className="article-input" placeholder="请输入概要" onChange={e => setArticleState({ ...articleState, summary: e })}></Input>
+        <div className="editor-wrapper">
+          <BraftEditor
+            value={articleState.summaryEditorState}
+            onChange={e => setArticleState({ ...articleState, summaryEditorState: e, summary: e.toHTML() })}
+          />
+        </div>
         {
           allTags.length ?
             <div>
@@ -72,8 +79,8 @@ const NewArticle = ({ history }) => {
         <h4>正文</h4>
         <div className="editor-wrapper">
           <BraftEditor
-            value={articleState.editorState}
-            onChange={e => setArticleState({ ...articleState, editorState: e, content: e.toHTML() })}
+            value={articleState.contentEditorState}
+            onChange={e => setArticleState({ ...articleState, contentEditorState: e, content: e.toHTML() })}
           />
         </div>
         <Button type="submit">保存</Button>

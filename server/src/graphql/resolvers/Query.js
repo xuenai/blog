@@ -36,6 +36,43 @@ async function me(root, args, { ctx }) {
   }
 }
 
+async function yearArticles(root, args, { Article }) {
+  const articles = await Article.aggregate([
+    {
+      $lookup: {
+        from: "tags",
+        localField: "tags",
+        foreignField: "_id",
+        as: "tags"
+      },
+    },
+    {
+      $group: {
+        _id: {$year: '$createdAt' },
+        articles: {
+          $push: {
+            id: '$_id',
+            title: '$title'
+          }
+        }
+      }
+    },
+    {
+      $sort: {
+        _id: -1
+      }
+    }
+  ])
+
+  console.log(articles)
+  return [
+    {
+      year: '2019',
+      articles: []
+    }
+  ]
+}
+
 /**
  * 获取所有日志
  */
@@ -51,6 +88,8 @@ async function articles(root, { filter, tag }, { Article }) {
   const articles = await Article.find(params)
     .sort({ createdAt: -1 })
     .populate('tags', 'id name')
+
+  console.log(articles)
   return articles;
 
 }
@@ -109,4 +148,4 @@ async function tags(root, data, { Tag }) {
   return tags;
 }
 
-export default { users, me, articles, article, tags }
+export default { users, me, yearArticles, articles, article, tags }
