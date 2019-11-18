@@ -53,9 +53,31 @@ type Tag {
 }
 
 "日志归档"
-type YearArticles {
-  year: String!
-  articles: [Article!]!
+type Archive {
+  "年份"
+  _id: String!,
+  "日志列表"
+  articles: [ArchiveArticle!]!
+}
+"日志归档下的日志"
+type ArchiveArticle {
+  "日志id"
+  id: ID!
+  "日志标题"
+  title: String!
+  "日志下的标签"
+  tags: [ArchiveArticleTag!]!
+  "日志更新时间"
+  updatedAt: String!
+  "简介"
+  summary: String!
+}
+"日志归档下的日志的标签"
+type ArchiveArticleTag {
+  "标签id"
+  _id: ID!
+  "标签名字"
+  name: String!
 }
 
 "所有的查询接口"
@@ -65,7 +87,7 @@ type Query {
   "检测用户是否登录"
   me: UserResponse!
   "按年查询日志"
-  yearArticles: [YearArticles!]!
+  archives: [Archive!]!
   "获取日志列表"
   articles(
     "关键词 会检索 标题、摘要、内容"

@@ -36,8 +36,8 @@ async function me(root, args, { ctx }) {
   }
 }
 
-async function yearArticles(root, args, { Article }) {
-  const articles = await Article.aggregate([
+async function archives(root, args, { Article }) {
+  const res = await Article.aggregate([
     {
       $lookup: {
         from: "tags",
@@ -48,11 +48,14 @@ async function yearArticles(root, args, { Article }) {
     },
     {
       $group: {
-        _id: {$year: '$createdAt' },
+        _id: {$year: '$updatedAt' },
         articles: {
           $push: {
             id: '$_id',
-            title: '$title'
+            title: '$title',
+            summary: '$summary',
+            updatedAt: '$updatedAt',
+            tags: '$tags'
           }
         }
       }
@@ -64,13 +67,7 @@ async function yearArticles(root, args, { Article }) {
     }
   ])
 
-  console.log(articles)
-  return [
-    {
-      year: '2019',
-      articles: []
-    }
-  ]
+  return res
 }
 
 /**
@@ -88,8 +85,6 @@ async function articles(root, { filter, tag }, { Article }) {
   const articles = await Article.find(params)
     .sort({ createdAt: -1 })
     .populate('tags', 'id name')
-
-  console.log(articles)
   return articles;
 
 }
@@ -148,4 +143,4 @@ async function tags(root, data, { Tag }) {
   return tags;
 }
 
-export default { users, me, yearArticles, articles, article, tags }
+export default { users, me, archives, articles, article, tags }
