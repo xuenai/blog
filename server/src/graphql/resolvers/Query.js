@@ -142,5 +142,12 @@ async function tags(root, data, { Tag }) {
   const tags = await Tag.find();
   return tags;
 }
+/**
+ * tag 获取标签详情
+ */
+async function tag(root, {id}, {Tag}) {
+  const tag = await Tag.findOne({_id: id});
+  return tag;
+}
 
-export default { users, me, archives, articles, article, tags }
+export default { users, me, archives, articles, article, tags, tag }

@@ -29,7 +29,7 @@ const Tags = () => {
             <p>目前总共{tags.length}个标签</p>
             <div className="tags">
               {
-                tags.map(tag => <Link className='tag-link' to='/' key={tag.id}>{tag.name}</Link>)
+                tags.map(tag => <Link className='tag-link' to={`/blog/tag/${tag.id}`} key={tag.id}>{tag.name}</Link>)
               }
             </div>
           </div> :

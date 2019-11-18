@@ -23,6 +23,7 @@ import Tag from './tag';
 import Loading from './loading';
 import NetError from './netError';
 import Detail from './detail';
+import Timeline from './timeline';
 
 export {
   Header,
@@ -49,5 +50,6 @@ export {
   Tag,
   Loading,
   NetError,
-  Detail
+  Detail,
+  Timeline
 }

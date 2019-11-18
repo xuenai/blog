@@ -1,0 +1,66 @@
+.h-timeline {
+  box-sizing: border-box;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  margin: 0;
+  padding: $spacer-5 0 0 0;
+  text-align: left;
+
+  &-item {
+    position: relative;
+    margin: 0;
+    padding: 0 0 $spacer-5;
+    &:hover{
+      .h-timeline-item-head {
+        background-color:$text-gray;
+      }
+      .h-timeline-item-content{
+        border-color: $text-gray;
+      }
+    }
+  }
+  &-item-title{
+    position: relative;
+    margin: 0;
+    padding:0 0 $spacer-3;
+    list-style: none;
+    .h-timeline-item-head {
+      width:10px;
+      height:10px;
+    }
+    .h-timeline-item-content {
+      top: -20px;
+      border-bottom: none;
+      color:$text-gray;
+      @include h2;
+    }
+  }
+  &-item-tail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-left: 4px solid rgba($gray-300, .35);
+    transform: translateX(-50%);
+  }
+  &-item-head {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    transform: translateX(-50%);
+    background-color: $black-fade-30;
+    border-radius: 100px;
+    transition: all .3s ease-in;
+  }
+  &-item-content {
+    position: relative;
+    top: -10px;
+    padding: 0 0 0 $spacer-6;
+    word-break: break-word;
+    border-bottom: 1px dashed $border-color;
+    line-height:2;
+    transition: all .3s ease-in;
+  }
+}

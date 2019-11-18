@@ -32,6 +32,21 @@ export const ARTICLES_AND_TAGS = gql`
   }
 `;
 
+// 获取日志归档（按年划分的）
+export const ARCHIVES = gql`
+{
+  archives{
+    year: _id
+    articles{
+      id
+      title
+      updatedAt
+      summary
+    }
+  }
+}
+`;
+
 // 获取后台自己的文章列表
 export const ARTICLES = gql`
   {
@@ -93,6 +108,25 @@ export const TAGS_QUERY = gql`
       name
       id
     }
+  }
+`;
+
+export const TAG_ARTICLES = gql`
+  query getTagArticles($id: ID) {
+    articles(tag: $id) {
+        id
+        title
+        summary
+        updatedAt
+        tags {
+          id
+          name
+        }
+      }
+      tag(id: $id) {
+        id
+        name
+      }
   }
 `;
 

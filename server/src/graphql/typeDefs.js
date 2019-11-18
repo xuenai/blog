@@ -102,6 +102,11 @@ type Query {
     ): Article
   "获取所有标签"
   tags: [Tag!]!
+  "获取具体标签详情"
+  tag(
+    "标签id"
+    id: ID
+  ): Tag!
 }
 
 # 所有的涉及到增删改的接口
