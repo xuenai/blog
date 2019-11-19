@@ -4,7 +4,7 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import './blog.scss';
 
 import { Header, Footer, NotFound } from '@components';
-import { Home, ArticleDetail, Tags, Archive, TagArticles } from '@pages';
+import { Home, ArticleDetail, Tags, Archive, TagArticles, SearchArticles } from '@pages';
 
 const Blog = () => {
   let { path, url } = useRouteMatch();
@@ -18,6 +18,7 @@ const Blog = () => {
         </Route>
         <Route path={`${path}/tags`} component={Tags}></Route>
         <Route path={`${path}/tag/:id`} component={TagArticles}></Route>
+        <Route path={`${path}/search/:filter`} component={SearchArticles}></Route>
         <Route path={`${path}/archive`} component={Archive}></Route>
         <Route component={NotFound} />
       </Switch>

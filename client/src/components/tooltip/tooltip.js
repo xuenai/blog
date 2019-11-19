@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 
 import './tooltip.scss';
 
-
 const Tooltip = forwardRef((props, ref) => {
   let { title, children, trigger, onVisibleChange, ...rest } = props;
-
   /**
    * 弹窗显隐状态变更
    * @param {boolean} e 弹窗显隐状态

@@ -7,7 +7,7 @@ import './detail.scss';
 import { ARTICLE_DETAIL } from '@graphql';
 import { Loading, Detail, NetError } from '@components';
 
-const ArticleDetail = ({blog}) => {
+const ArticleDetail = ({ blog }) => {
   let { id } = useParams();
   const { loading, data, error } = useQuery(ARTICLE_DETAIL, {
     variables: { id }

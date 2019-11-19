@@ -5,11 +5,8 @@ import PropTypes from 'prop-types';
 import './checkbox.scss';
 
 const Checkbox = ({ className, children, disabled, checked, onChange }) => {
-
   let [isChecked, setIsChecked] = useState(checked);
-
   let wrapperCls = clsx({ 'h-checkbox-wrapper': true }, className)
-
   let checkboxCls = clsx({
     'h-checkbox': true,
     'h-checkbox-checked': isChecked,

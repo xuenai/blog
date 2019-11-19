@@ -8,6 +8,6 @@
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
   overflow: hidden;
 }
-.blog-detail{
+.blog-detail {
   @include maxWidth;
 }

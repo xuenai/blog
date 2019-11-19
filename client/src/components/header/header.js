@@ -1,18 +1,21 @@
-import React, { useState } from "react";
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import clsx from 'clsx';
 
 import './header.scss';
 
 import Poetry from '../poetry';
 import Input from '../input';
 import Button from '../button';
-
+import { useStore } from '@config';
 
 const Header = ({ url }) => {
   let [poetryStatus, setPoetryStatus] = useState(false);
   let [searchStatus, setSearchStatus] = useState(false);
+  let input = useRef();
+  let history = useHistory();
+
+  const { changeFirstLoad, changeHeaderReady } = useStore('menu');
 
   return (
     <div className="header">
@@ -21,15 +24,17 @@ const Header = ({ url }) => {
         <div className="site-name">
           <Link to={`${url}`}>
             <div className="site-name-inner">
-              <CSSTransition in={true} timeout={300} classNames="fade" appear>
+              <CSSTransition in={true} timeout={300} classNames="fade" appear onEntered={() => changeFirstLoad()}>
                 <div className="site-name-text">H。</div>
               </CSSTransition>
             </div>
           </Link>
         </div>
-        <Poetry onEntered={() => setPoetryStatus(true)}></Poetry>
+        <Poetry onEntered={() => {
+          setPoetryStatus(true);
+        }}></Poetry>
         <div className="nav-links-wrapper">
-          <CSSTransition in={poetryStatus} timeout={300} classNames="fade" unmountOnExit>
+          <CSSTransition in={poetryStatus} timeout={300} classNames="fade" unmountOnExit onEntered={() => changeHeaderReady()}>
             <div className="nav-links">
               <NavLink to={`${url}/archive`} className="nav-link" activeClassName="active">
                 <div className="iconfont icon-archive"></div>
@@ -57,17 +62,18 @@ const Header = ({ url }) => {
             <div className="search-box">
               <form className="search-form" onSubmit={event => {
                 event.preventDefault();
-                event.persist()
-                console.log('submit')
-                setSearchStatus(false)
+                event.persist();
+                setSearchStatus(false);
+                let value = input.current.value;
+                history.push(`/blog/search/${value}`)
               }}>
-                <Input placeholder="请输入关键字，按回车键搜索" type="search"></Input>
+                <Input ref={input} placeholder="请输入关键字，按回车键搜索" type="search"></Input>
                 <Button type="submit" className="search-btn">Search</Button>
               </form>
+              <span className="iconfont icon-close search-close" onClick={e => setSearchStatus(false)}></span>
             </div> : <div></div>
         }
       </CSSTransition>
-
     </div>
   )
 }

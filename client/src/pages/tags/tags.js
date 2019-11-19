@@ -7,10 +7,11 @@ import './tags.scss';
 
 import { TAGS_QUERY } from '@graphql';
 import { Loading, NetError, Empty } from '@components';
+import { useStore } from '@config';
 
 const Tags = () => {
   const { loading, data, error } = useQuery(TAGS_QUERY);
-
+  const { firstLoad, headerReady } = useStore('menu');
   if (loading) {
     return <Loading title="标签查询中..."></Loading>
   }
@@ -22,9 +23,9 @@ const Tags = () => {
     tags = data.tags;
   }
   return (
-    <CSSTransition classNames="article" timeout={400} in={true} appear>
+    <CSSTransition classNames="article" timeout={400} in={headerReady && !firstLoad} appear mountOnEnter unmountOnExit>
       {
-        tags.length ? 
+        tags.length ?
           <div className="tags-wrapper">
             <p>目前总共{tags.length}个标签</p>
             <div className="tags">

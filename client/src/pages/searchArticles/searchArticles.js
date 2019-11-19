@@ -5,17 +5,17 @@ import { CSSTransition } from 'react-transition-group';
 import Prism from 'prismjs';
 import moment from 'moment';
 
-import './tagArticles.scss';
+import '../tagArticles/tagArticles.scss';
 
-import { TAG_ARTICLES } from '@graphql';
+import { SEARCH_ARTICLES } from '@graphql';
 import { Loading, NetError, Empty, Timeline } from '@components';
 import { useStore } from '@config';
 
-const TagArticles = () => {
-  let { id } = useParams();
+const SearchArticles = () => {
+  let { filter } = useParams();
   const { firstLoad, headerReady } = useStore('menu');
-  const { loading, data, error } = useQuery(TAG_ARTICLES, {
-    variables: { id }
+  const { loading, data, error } = useQuery(SEARCH_ARTICLES, {
+    variables: { filter }
   });
 
   if (loading) {
@@ -35,9 +35,9 @@ const TagArticles = () => {
         articles.length ?
           <Timeline className="tag-articles">
             <Timeline.Title>
-              <span className="iconfont icon-biaoqian"></span>
-              <span>{data.tag.name}</span>
-              <span className="tag-articles-meta">标签</span>
+              <span className="iconfont icon-search"></span>
+              <span>{filter}</span>
+              <span className="tag-articles-meta">关键词</span>
             </Timeline.Title>
             {
               articles.map(article =>
@@ -51,10 +51,10 @@ const TagArticles = () => {
               )
             }
           </Timeline> :
-          <Empty description="你有看到我的日志么，我的日志不见了"></Empty>
+          <Empty description={`找不到包含 '${filter}' 的日志...`}></Empty>
       }
     </CSSTransition>
   )
 }
 
-export default TagArticles;
+export default SearchArticles;

@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
-
 const Input = forwardRef(({ type, className, disabled, placeholder, onChange, onEnter, ...rest }, ref) => {
   return (
     <div className={`input-wrapper ${className}`}>
-      <input ref={ref} className="input" type={type} disabled={disabled} placeholder={placeholder} onChange={ onChange && (e => onChange(e.currentTarget.value))} onKeyUp={
+      <input ref={ref} className="input" type={type} disabled={disabled} placeholder={placeholder} onChange={onChange && (e => onChange(e.currentTarget.value))} onKeyUp={
         e => {
           if (e.nativeEvent.keyCode === 13) {
             onEnter && onEnter();

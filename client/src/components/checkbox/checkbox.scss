@@ -31,7 +31,7 @@
   outline: none;
   cursor: pointer;
 
-  &+span {
+  & + span {
     padding-left: $spacer-2;
     padding-right: $spacer-2;
   }
@@ -44,7 +44,7 @@
       &::after {
         transform: rotate(45deg) scale(1) translate(-50%, -50%);
         opacity: 1;
-        transition: all .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
+        transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
       }
     }
   }
@@ -57,7 +57,7 @@
     cursor: not-allowed;
   }
 
-  &+span {
+  & + span {
     color: $gray-300;
     cursor: not-allowed;
   }
@@ -103,7 +103,7 @@
     border-left: 0;
     transform: rotate(45deg) scale(0) translate(-50%, -50%);
     opacity: 0;
-    transition: all .1s cubic-bezier(.71, -0.46, .88, .6), opacity .1s;
-    content: ' ';
+    transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+    content: " ";
   }
 }

@@ -1,10 +1,10 @@
-.blog-main{
+.blog-main {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
   padding-bottom: 90px;
 
-  .main-content{
+  .main-content {
     @include maxWidth;
   }
 }

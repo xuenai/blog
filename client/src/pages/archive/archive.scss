@@ -1,18 +1,18 @@
 .archive {
   @include maxWidth;
   text-align: center;
-  &-link{
+  &-link {
     display: inline-block;
     margin-bottom: $spacer-2;
   }
-  &-date{
-    margin-right:$spacer-3;
-    color:$gray-500;
+  &-date {
+    margin-right: $spacer-3;
+    color: $gray-500;
   }
-  &-title{
-    font-size:$h4-size;
+  &-title {
+    font-size: $h4-size;
   }
-  &-summary{
-    color:$gray-500;
+  &-summary {
+    color: $gray-500;
   }
 }

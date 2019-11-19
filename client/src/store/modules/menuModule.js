@@ -2,26 +2,28 @@ export default {
   name: 'menu',
   model: {
     state: {
-      isAinimate: false,
-      isOpen: false,
-      morphOpen: 'M300-10c0,0,295,164,295,410c0,232-295,410-295,410',
-      morphClose: 'M300-10C300-10,5,154,5,400c0,232,295,410,295,410'
+      // 是否是第一次加载
+      firstLoad: true,
+      // 头部动画是否完成了
+      headerReady: false,
     },
     actions: ({ model, setState }) => ({
       /**
-       * 转换开启关闭状态
+       * 切换第一次加载状态
        */
-      toggle() {
-        const { isAinimate, isOpen } = model();
+      changeFirstLoad() {
         setState({
-          isAinimate: !isAinimate
+          firstLoad: false
         })
-        setTimeout(() => {
-          setState({
-            isOpen: !isOpen
-          })
-        }, 250)
       },
+      /**
+       * 切换动画完成情况
+       */
+      changeHeaderReady() {
+        setState({
+          headerReady: true
+        })
+      }
     })
   }
 };

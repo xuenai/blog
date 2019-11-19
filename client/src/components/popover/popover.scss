@@ -12,7 +12,7 @@
   &::after {
     position: absolute;
     background: rgba(255, 255, 255, 0.01);
-    content: '';
+    content: "";
   }
 
   &-hidden {
@@ -65,7 +65,7 @@
   &-inner-content {
     padding: 12px $spacer-3;
     color: $popover-color;
-    &-content{
+    &-content {
       padding-bottom: $spacer-3;
     }
   }
@@ -109,34 +109,33 @@
     transform: rotate(45deg);
   }
 
-  &-placement-top>&-content>&-arrow,
-  &-placement-topLeft>&-content>&-arrow,
-  &-placement-topRight>&-content>&-arrow {
+  &-placement-top > &-content > &-arrow,
+  &-placement-topLeft > &-content > &-arrow,
+  &-placement-topRight > &-content > &-arrow {
     bottom: $popover-distance - $popover-arrow-width + 2.2px;
     border-top-color: transparent;
     border-right-color: $popover-bg;
     border-bottom-color: $popover-bg;
     border-left-color: transparent;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
-    ;
   }
 
-  &-placement-top>&-content>&-arrow {
+  &-placement-top > &-content > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
 
-  &-placement-topLeft>&-content>&-arrow {
+  &-placement-topLeft > &-content > &-arrow {
     left: 16px;
   }
 
-  &-placement-topRight>&-content>&-arrow {
+  &-placement-topRight > &-content > &-arrow {
     right: 16px;
   }
 
-  &-placement-right>&-content>&-arrow,
-  &-placement-rightTop>&-content>&-arrow,
-  &-placement-rightBottom>&-content>&-arrow {
+  &-placement-right > &-content > &-arrow,
+  &-placement-rightTop > &-content > &-arrow,
+  &-placement-rightBottom > &-content > &-arrow {
     left: $popover-distance - $popover-arrow-width + 2px;
     border-top-color: transparent;
     border-right-color: transparent;
@@ -145,22 +144,22 @@
     box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
   }
 
-  &-placement-right>&-content>&-arrow {
+  &-placement-right > &-content > &-arrow {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
 
-  &-placement-rightTop>&-content>&-arrow {
+  &-placement-rightTop > &-content > &-arrow {
     top: 12px;
   }
 
-  &-placement-rightBottom>&-content>&-arrow {
+  &-placement-rightBottom > &-content > &-arrow {
     bottom: 12px;
   }
 
-  &-placement-bottom>&-content>&-arrow,
-  &-placement-bottomLeft>&-content>&-arrow,
-  &-placement-bottomRight>&-content>&-arrow {
+  &-placement-bottom > &-content > &-arrow,
+  &-placement-bottomLeft > &-content > &-arrow,
+  &-placement-bottomRight > &-content > &-arrow {
     top: $popover-distance - $popover-arrow-width + 2px;
     border-top-color: $popover-bg;
     border-right-color: transparent;
@@ -169,55 +168,54 @@
     box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
   }
 
-  &-placement-bottom>&-content>&-arrow {
+  &-placement-bottom > &-content > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
 
-  &-placement-bottomLeft>&-content>&-arrow {
+  &-placement-bottomLeft > &-content > &-arrow {
     left: 16px;
   }
 
-  &-placement-bottomRight>&-content>&-arrow {
+  &-placement-bottomRight > &-content > &-arrow {
     right: 16px;
   }
 
-  &-placement-left>&-content>&-arrow,
-  &-placement-leftTop>&-content>&-arrow,
-  &-placement-leftBottom>&-content>&-arrow {
+  &-placement-left > &-content > &-arrow,
+  &-placement-leftTop > &-content > &-arrow,
+  &-placement-leftBottom > &-content > &-arrow {
     right: $popover-distance - $popover-arrow-width + 2px;
     border-top-color: $popover-bg;
     border-right-color: $popover-bg;
     border-bottom-color: transparent;
     border-left-color: transparent;
     box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
-    ;
   }
 
-  &-placement-left>&-content>&-arrow {
+  &-placement-left > &-content > &-arrow {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
 
-  &-placement-leftTop>&-content>&-arrow {
+  &-placement-leftTop > &-content > &-arrow {
     top: 12px;
   }
 
-  &-placement-leftBottom>&-content>&-arrow {
+  &-placement-leftBottom > &-content > &-arrow {
     bottom: 12px;
   }
 }
 
 .zoom-big-enter,
 .zoom-big-appear {
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-fill-mode: both;
 
   animation-play-state: paused;
 }
 
 .zoom-big-leave {
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-fill-mode: both;
 
   animation-play-state: paused;

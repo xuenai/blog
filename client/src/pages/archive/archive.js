@@ -7,11 +7,12 @@ import { CSSTransition } from 'react-transition-group';
 
 import './archive.scss';
 import { ARCHIVES } from '@graphql';
-
 import { Empty, Loading, NetError, Timeline } from '@components';
+import { useStore } from '@config';
 
 const Archive = () => {
   let { data, loading, error } = useQuery(ARCHIVES);
+  const { firstLoad, headerReady } = useStore('menu');
   if (loading) {
     return <Loading title="日志寻找中..."></Loading>
   }
@@ -24,7 +25,7 @@ const Archive = () => {
     setTimeout(() => { Prism.highlightAll() })
   }
   return (
-    <CSSTransition timeout={400} classNames="article" in={true} appear>
+    <CSSTransition timeout={400} classNames="article" in={headerReady && !firstLoad} appear mountOnEnter unmountOnExit>
       <div className="archive">
         {
           archives.length ?

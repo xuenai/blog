@@ -1,23 +1,28 @@
-.tag-articles{
+.tag-articles {
   @include maxWidth;
-  padding-top:$spacer-6;
-  .iconfont{
+  padding-top: $spacer-6;
+  .iconfont {
     margin-right: $spacer-2;
-    font-size:12px;
-    color:$gray-400;
+    font-size: 12px;
+    color: $gray-400;
   }
-  &-link{
+  &-meta {
+    color: $gray-300;
+    font-size: 12px;
+    margin-left: $spacer-2;
+  }
+  &-link {
     display: inline-block;
-    margin-bottom:$spacer-2;
+    margin-bottom: $spacer-2;
   }
-  &-date{
-    color:$gray-400;
-    margin-right:$spacer-3;
+  &-date {
+    color: $gray-400;
+    margin-right: $spacer-3;
   }
-  &-title{
-    font-size:16px;
+  &-title {
+    font-size: 16px;
   }
-  &-summary{
-    color:$gray-500;
+  &-summary {
+    color: $gray-500;
   }
 }

@@ -130,6 +130,21 @@ export const TAG_ARTICLES = gql`
   }
 `;
 
+export const SEARCH_ARTICLES = gql`
+  query getSearchArticles($filter: String) {
+    articles(filter: $filter) {
+        id
+        title
+        summary
+        updatedAt
+        tags {
+          id
+          name
+        }
+      }
+  }
+`;
+
 export const NEW_ARTICLE_TAGS_QUERY = gql`
   {
     tags {

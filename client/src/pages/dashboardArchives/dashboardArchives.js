@@ -26,7 +26,6 @@ const DashboardArchives = () => {
           </div> :
           <Empty description="你有看到我的日志么，我的日志不见了..."></Empty>
       }
-      
       {/* <Page current={data.ownArticles.current} total={data.ownArticles.totalPage} onChange={e => {setCurrent(e); refetch();}}></Page> */}
     </div>
   )

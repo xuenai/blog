@@ -21,7 +21,6 @@ const getOptions = (options) => {
   })
 }
 
-
 const Group = ({ className, value, options, disabled, onChange, children }) => {
   let [groupValue, setGroupValue] = useState(value || []);
   let newOption = getOptions(options);

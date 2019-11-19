@@ -5,7 +5,6 @@ import './popover.scss';
 
 import Tooltip from '../tooltip';
 
-
 const Popover = forwardRef(({ title, prefixCls, content, ...rest }, ref) => {
   return (
     <Tooltip

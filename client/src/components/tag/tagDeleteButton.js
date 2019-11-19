@@ -18,7 +18,7 @@ const DeleteBtn = ({ name, id, onChange }) => {
       });
     }
   });
-  
+
   if (data) {
     setTimeout(() => {
       Message.success({ content: `${name} 已删除！`, key: 'delete_tag' })

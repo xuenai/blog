@@ -68,7 +68,7 @@
       height: $tooltip-arrow-width;
       margin: auto;
       background-color: $tooltip-background-color;
-      content: '';
+      content: "";
       pointer-events: auto;
     }
   }
@@ -79,7 +79,8 @@
     bottom: $tooltip-distance - $tooltip-arrow-rotate-width;
 
     &::before {
-      box-shadow: $tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
+      box-shadow: $tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px
+        rgba(0, 0, 0, 0.07);
       transform: translateY(-$tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -103,7 +104,8 @@
     left: $tooltip-distance - $tooltip-arrow-rotate-width;
 
     &::before {
-      box-shadow: -$tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px rgba(0, 0, 0, 0.07);
+      box-shadow: -$tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px
+        rgba(0, 0, 0, 0.07);
       transform: translateX($tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
@@ -170,17 +172,16 @@
   }
 }
 
-
 .zoom-big-fast-enter,
 .zoom-big-fast-appear {
-  animation-duration: .1s;
+  animation-duration: 0.1s;
   animation-fill-mode: both;
 
   animation-play-state: paused;
 }
 
 .zoom-big-fast-leave {
-  animation-duration: .1s;
+  animation-duration: 0.1s;
   animation-fill-mode: both;
 
   animation-play-state: paused;

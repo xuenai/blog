@@ -4,6 +4,7 @@ import Home from './home';
 import ArticleDetail from './detail';
 import Tags from './tags';
 import TagArticles from './tagArticles';
+import SearchArticles from './searchArticles';
 import Archive from './archive';
 import NewArticle from './newArticle';
 import ArticleEdit from './articleEdit';
@@ -18,6 +19,7 @@ export {
   ArticleDetail,
   Tags,
   TagArticles,
+  SearchArticles,
   Archive,
   NewArticle,
   Dashboard,

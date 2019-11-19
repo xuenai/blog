@@ -16,7 +16,7 @@ const DashboardLogin = () => {
   let { loginStatus, changeLoginStatus } = useStore('user');
   const [login, { data }] = useMutation(LOGIN_MUTATUIION);
 
-  if (data && data.login.code === 0 && loginStatus!== 'logined') {
+  if (data && data.login.code === 0 && loginStatus !== 'logined') {
     changeLoginStatus('logined');
     setTimeout(() => Message.success('登录成功'));
   }

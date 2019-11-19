@@ -1,7 +1,6 @@
 import Header from './header'
 import Spin from './spin';
 import NotFound from './notFound';
-import SignOutBtn from './signOut/signOut'
 import LoginedRoute from './loginedRoute';
 import Poetry from './poetry';
 import Footer from './footer';
@@ -29,7 +28,6 @@ export {
   Header,
   Spin,
   NotFound,
-  SignOutBtn,
   LoginedRoute,
   Poetry,
   Footer,

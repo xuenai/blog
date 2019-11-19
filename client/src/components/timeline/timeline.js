@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import './timeline.scss';
 
-const Item = ({className, ...rest}) => {
+const Item = ({ className, ...rest }) => {
   let classString = clsx('h-timeline-item', className);
   return (
     <div className={classString}>
@@ -14,7 +14,7 @@ const Item = ({className, ...rest}) => {
   )
 }
 
-const Title = ({className, ...rest}) => {
+const Title = ({ className, ...rest }) => {
   let classString = clsx('h-timeline-item-title', className)
   return (
     <div className={classString}>
@@ -25,7 +25,7 @@ const Title = ({className, ...rest}) => {
   )
 }
 
-const Timeline = ({className, ...rest}) => {
+const Timeline = ({ className, ...rest }) => {
   let classString = clsx('h-timeline', className)
   return (
     <div className={classString} {...rest}>

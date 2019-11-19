@@ -12,8 +12,8 @@
   outline: none;
   text-align: center;
   @include btn-solid($gray-900, $gray-000, $gray-100);
-  
-  &+.h-button {
+
+  & + .h-button {
     margin-left: $spacer-3;
   }
 
@@ -26,7 +26,7 @@
     padding: 0 $spacer-2;
   }
 
-  &-loading{
+  &-loading {
     margin-right: $spacer-2;
   }
 }

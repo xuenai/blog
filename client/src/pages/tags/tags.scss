@@ -4,13 +4,13 @@
   .tags {
     padding-top: $spacer-3;
   }
-  .tag-link{
+  .tag-link {
     display: inline-block;
-    margin:0 $spacer-3;
-    font-size:16px;
+    margin: 0 $spacer-3;
+    font-size: 16px;
     border-bottom: $border;
-    &:hover{
-      border-color:$text-gray;
+    &:hover {
+      border-color: $text-gray;
     }
   }
 }
