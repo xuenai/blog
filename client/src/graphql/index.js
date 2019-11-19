@@ -13,14 +13,16 @@ export * from './queries';
 export * from './mutations';
 export * from './subscription';
 
+let uri = process.env.NODE_ENV === 'production' ? 'api.justpeth.com' : 'localhost:4000/graphql'
+
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: `http://${uri}`,
   credentials: 'include',
 });
 
 // 订阅设置
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:4000/graphql',
+  uri: `ws://${uri}`,
   options: {
     reconnect: true,
     connectionParams: {}
