@@ -47,6 +47,11 @@ async function archives(root, args, { Article }) {
       },
     },
     {
+      $sort: {
+        createdAt: -1
+      }
+    },
+    {
       $group: {
         _id: {$year: '$updatedAt' },
         articles: {

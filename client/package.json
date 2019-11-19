@@ -171,7 +171,9 @@
       ],
       ["prismjs", {
         "languages": ["javascript", "css", "markup", "html"],
-        "plugins": ["line-numbers"]
+        "plugins": ["line-numbers"],
+        "theme": "tomorrow",
+        "css": true
     }]
     ]
   }
