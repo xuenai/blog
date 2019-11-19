@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import { CSSTransition } from 'react-transition-group';
 
 import './dashboardArchives.scss';
 
@@ -22,7 +23,9 @@ const DashboardArchives = () => {
         data.articles.length ?
           <div>
             <p className="totalCount">目前共计{data.articles.length}篇日志</p>
-            <ArchiveList list={data.articles}></ArchiveList>
+            <CSSTransition classNames="article" timeout={400} in={true} appear mountOnEnter unmountOnExit>
+              <ArchiveList list={data.articles}></ArchiveList>
+            </CSSTransition>
           </div> :
           <Empty description="你有看到我的日志么，我的日志不见了..."></Empty>
       }

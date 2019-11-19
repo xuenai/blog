@@ -1,7 +1,7 @@
 .article-detail {
   @include maxWidth;
   padding-top: 80px;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 64px);
   color: $text-gray;
   background: $bg-white;
   box-sizing: border-box;

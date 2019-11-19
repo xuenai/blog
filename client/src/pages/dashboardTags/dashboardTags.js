@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { CSSTransition } from 'react-transition-group';
 
 import './dashboardTags.scss';
 
@@ -22,7 +23,9 @@ const DashboardTags = () => {
       {
         tags.length > 0 && <p className="totalCount">目前共计{tags.length}个标签</p>
       }
-      <TagList data={tags}></TagList>
+      <CSSTransition classNames="article" timeout={400} in={true} appear mountOnEnter unmountOnExit>
+        <TagList data={tags}></TagList>
+      </CSSTransition>
     </div>
   )
 };

@@ -22,7 +22,7 @@ const ArticleDetail = ({ blog }) => {
   return (
     data.article ?
       <div className={clsString}>
-        <Detail article={data.article}></Detail>
+        <Detail article={data.article} animate={!blog}></Detail>
       </div> : null
   )
 }

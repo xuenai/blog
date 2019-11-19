@@ -10,14 +10,14 @@ function App() {
   useQuery(ARTICLES_AND_TAGS);
   return (
     <Router>
-      <>
+      <div className="line-numbers">
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/blog" />} />
           <Route path="/blog" component={Blog} />
           <Route path="/dashboard" component={Dashboard} />
           <Route component={NotFound} />
         </Switch>
-      </>
+      </div>
     </Router>
   );
 }

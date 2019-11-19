@@ -1,6 +1,6 @@
 .d-tags {
   @include maxWidth();
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 64px);
   padding-top: $spacer-3;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
   overflow: hidden;
