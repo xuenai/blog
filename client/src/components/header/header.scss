@@ -64,7 +64,7 @@
     width: 100%;
     height: 100%;
     background: $bg-white;
-    padding: 150px $spacer-6;
+    padding: 150px $spacer-4;
     box-shadow: $btn-input-focus-shadow;
   }
   .search-form {
@@ -75,8 +75,8 @@
   }
   .search-close {
     position: fixed;
-    top: $spacer-6;
-    right: $spacer-6;
+    top: $spacer-4;
+    right: $spacer-4;
     color: $gray-400;
     font-size: 18px;
     transition: all 0.2s ease-in;

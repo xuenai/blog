@@ -2,11 +2,12 @@
   padding: $spacer-1 $spacer-2;
   font-size: $body-font-size;
   border: $border;
-  border-radius: $border-radius;
+  border-radius: $border-radius !important;
   transition: border 0.2s ease-in-out, background 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
   color: $text-gray;
-
+  font-size:$body-font-size;
+  -webkit-appearance:none !important;
   &:focus {
     outline: 0;
     box-shadow: $btn-input-focus-shadow;
