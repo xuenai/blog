@@ -18,7 +18,6 @@ export const ARTICLES_AND_TAGS = gql`
       title
       formatDate
       updatedAt
-      content
       summary
       tags {
         id
@@ -55,7 +54,6 @@ export const ARTICLES = gql`
       title
       formatDate
       updatedAt
-      content
       summary
       tags {
         id
