@@ -51,7 +51,7 @@ const TagArticles = () => {
               )
             }
           </Timeline> :
-          <Empty description="你有看到我的日志么，我的日志不见了"></Empty>
+          <Empty description={`没有找到标签是'${data.tag.name}'的日志...`}></Empty>
       }
     </CSSTransition>
   )
