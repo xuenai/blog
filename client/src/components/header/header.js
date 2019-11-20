@@ -65,6 +65,9 @@ const Header = ({ url }) => {
                 event.persist();
                 setSearchStatus(false);
                 let value = input.current.value;
+                if(!value) {
+                  return false;
+                }
                 history.push(`/blog/search/${value}`)
               }}>
                 <Input ref={input} placeholder="请输入关键字，按回车键搜索" type="search"></Input>

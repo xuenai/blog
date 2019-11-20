@@ -79,24 +79,6 @@ async function archives(root, args, { Article }) {
 /**
  * 获取所有日志 使用find和populate
  */
-// async function articles(root, { filter, tag }, { Article }) {
-//   const regex = new RegExp(filter, 'i');
-//   let params = {};
-//   if (filter) {
-//     params.$or = [{ title: regex }, { content: regex }]
-//   }
-//   if (tag) {
-//     params.tags = { $elemMatch: { $eq: tag } }
-//   }
-//   const articles = await Article.find(params)
-//     .sort({ createdAt: -1 })
-//     .populate('tags', 'id name')
-//   return articles;
-// }
-
-/**
- * 获取所有日志 使用aggregate方法
- */
 async function articles(root, { filter, tag }, { Article }) {
   const regex = new RegExp(filter, 'i');
   let params = {};
@@ -104,45 +86,62 @@ async function articles(root, { filter, tag }, { Article }) {
     params.$or = [{ title: regex }, { content: regex }]
   }
   if (tag) {
-    params.tags = { $elemMatch: { $eq: new mongoose.Types.ObjectId(tag) } }
+    params.tags = { $elemMatch: { $eq: tag } }
   }
-  let articles = Article.aggregate([
-    {
-      $match: params
-    },
-    {
-      $lookup: {
-        from: "tags",
-        localField: "tags",
-        foreignField: "_id",
-        as: "tags"
-      },
-    },
-    {
-      $project: {
-        id: "$_id",
-        title: 1,
-        summary: 1,
-        content: 1,
-        createdAt: 1,
-        updatedAt: 1,
-        userId: 1,
-        formatDate: 1,
-        tags: {
-          id: "$_id",
-          name: 1,
-        },
-      }
-    },
-    {
-      $sort: {
-        createdAt: -1
-      }
-    },
-  ]);
+  const articles = await Article.find(params)
+    .sort({ createdAt: -1 })
+    .populate('tags', 'id name')
   return articles;
-
 }
+
+/**
+ * 获取所有日志 使用aggregate方法
+ */
+// async function articles(root, { filter, tag }, { Article }) {
+//   const regex = new RegExp(filter, 'i');
+//   let params = {};
+//   if (filter) {
+//     params.$or = [{ title: regex }, { content: regex }]
+//   }
+//   if (tag) {
+//     params.tags = { $elemMatch: { $eq: new mongoose.Types.ObjectId(tag) } }
+//   }
+//   let articles = Article.aggregate([
+//     {
+//       $match: params
+//     },
+//     {
+//       $lookup: {
+//         from: "tags",
+//         localField: "tags",
+//         foreignField: "_id",
+//         as: "tags"
+//       },
+//     },
+//     {
+//       $project: {
+//         id: "$_id",
+//         title: 1,
+//         summary: 1,
+//         content: 1,
+//         createdAt: 1,
+//         updatedAt: 1,
+//         userId: 1,
+//         formatDate: 1,
+//         tags: {
+//           id: "$_id",
+//           name: 1,
+//         },
+//       }
+//     },
+//     {
+//       $sort: {
+//         createdAt: -1
+//       }
+//     },
+//   ]);
+//   return articles;
+// }
 
 /**
  * 获取个人的日志列表
