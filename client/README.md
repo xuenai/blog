@@ -1,24 +1,88 @@
 #博客客户端
 
-项目采用[Create React App](https://github.com/facebook/create-react-app), 本来想用jss的，发现写起来不太顺手，就改成了使用module scss
+[项目预览](http://justpeth.com "烟雨不尽夜流离")
 
-**使用crlf格式，tab为2格空格**
+项目采用[Create React App](https://github.com/facebook/create-react-app), 本来想用jss的，发现写起来不太顺手，就改成了使用scss
 
-## 关于z-index
+未做单元测试，自己手动测试了下
+
+数据交互使用的是apollo-client;部分第三方接口使用的原生fetch
+
+项目98%都是使用的Function Component实现（~~除了使用第三方接口的以外~~）
+
+路由模式采用的history模式(~~不会说是因为看起来好看才用这个的~~)
+
+## 博客实现的功能
+
+**前台使用路由blog开头**
+
+目前只实现了以下最简单的功能
+
+1. 日志列表（按创建/更新时间降序）（*没有分页查询，Pagination组件都封装好了，但是最后在写前台的时候，还是放弃了，用graphQL一次性查出数据挺爽，详情快滴很*）
+2. 日志归档（按年分组 按年降序）
+3. 标签列表
+4. 日志搜索（在日志标题、简介、内容中模糊匹配）
+5. 按标签查询日志
+6. 日志详情
+
+**中台使用路由dashboard开头**
+
+中台功能相对来说更简单一些，而且页面样式对比前台更加粗糙（~~我自己用的，我有说什么了么~~）
+
+1. 日志的增删改查
+2. 标签的增删改查
+3. 登录页面
+
+**项目中封装的组件**
+
+1. Button
+2. Input
+3. Checkbox Checkbox.Group
+4. Empty
+5. Icon
+6. Loading
+7. Message
+8. Popcomfirm
+9. Popover
+10. Spin
+11. Timeline
+12. Tooltip
+13. Page(~~完全没用到~~)
+
+## 项目中请求用的是[apollo-clien](https://www.apollographql.com/docs/react/)
+
+具体使用参展官网
+
+## 项目中封装了一个简单的进度条插件
+
+代码查看项目中 *src/config/Hpress.js*
+
+使用方式
+
+```js
+// 进度条开始
+Hpress.start();
+
+// 设置进度条位置 number为0 到 1的数值
+Hpress.set(number);
+
+// 随机增加进度条长度
+Hpress.trickle();
+
+// 进度条完成
+Hpress.done();
 
 ```
---zspin           : 8;
---zaffix          : 10;
---zbackTop        : 10;
---zselect         : 900;
---zmodal          : 1000;
---zdrawer         : 1000;
---zmessage        : 1010;
---znotification   : 1010;
---ztooltip        : 1060;
---zloadingbar     : 2000;
---zfullscreen     : 2010;
+
+因为服务器比较渣，资源加载比较慢，我用一点骚操作，进度条js放在head中的，然后在body中调用
+```js
+Hpress.start();
 ```
+然后在body标签后调用进度条结束功能
+```js
+Hpress.done()
+```
+这样做有啥好处呢，我不用自己去管资源加载状况，我们进度条随机增长进度，在页面上资源没加载完成前不会执行完成方法，而且页面在加载资源过程中会有动画存在，而不是一片白屏。
 
 ## 关于状态管理
 
