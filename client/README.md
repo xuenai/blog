@@ -49,7 +49,7 @@
 12. Tooltip
 13. Page(~~完全没用到~~)
 
-## 项目中请求用的是[apollo-clien](https://www.apollographql.com/docs/react/)
+## 项目中请求用的是[apollo-client](https://www.apollographql.com/docs/react/)
 
 具体使用参展官网
 
