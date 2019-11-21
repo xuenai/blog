@@ -82,7 +82,7 @@ export const ARTICLE_DETAIL = gql`
 
 // 获取编辑页面的日志详情和标签列表
 export const GET_DETAIL_TAGS = gql`
-query getArticleAndTags($id: ID) {
+query getArticleAndTags($id: ID!) {
   article(id: $id) {
       id
       title

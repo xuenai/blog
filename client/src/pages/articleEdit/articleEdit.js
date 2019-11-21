@@ -6,13 +6,36 @@ import CodeHighlighter from 'braft-extensions/dist/code-highlighter';
 import BraftEditor from 'braft-editor';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
+import 'prismjs/components/prism-scss';
+
 import '../newArticle/newArticle.scss';
 
 import { Input, Button, Message, Checkbox, Loading } from '@components';
 import { EDIT_ARTICLE, GET_DETAIL_TAGS, ARTICLES_AND_TAGS } from '@graphql';
 
+const options = {
+  syntaxs: [
+    {
+      name: 'JavaScript',
+      syntax: 'javascript'
+    },
+    {
+      name: 'HTML',
+      syntax: 'html'
+    },
+    {
+      name: 'CSS',
+      syntax: 'css'
+    },
+    {
+      name: 'SCSS',
+      syntax: 'scss'
+    }
+  ]
+}
+
 // 设置代码高亮
-BraftEditor.use(CodeHighlighter())
+BraftEditor.use(CodeHighlighter(options))
 
 const ArticleEdit = ({ history }) => {
   let { id } = useParams();

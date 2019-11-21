@@ -4,7 +4,6 @@ import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
 import './poetry.scss';
-import { setTimeout } from 'optimism';
 class Poetry extends Component {
   constructor(props) {
     super(props);

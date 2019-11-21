@@ -170,7 +170,7 @@
         }
       ],
       ["prismjs", {
-        "languages": ["javascript", "css", "markup", "html"],
+        "languages": ["javascript", "css", "markup", "html", "scss"],
         "plugins": ["line-numbers"],
         "theme": "tomorrow",
         "css": true
