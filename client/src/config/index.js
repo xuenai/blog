@@ -4,3 +4,5 @@ export {
   useStore,
   initStore
 }
+
+export * from './util';

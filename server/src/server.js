@@ -11,7 +11,6 @@ const context = async ({ ctx }) => {
 const PORT =  4000;
 const app = new Koa();
 app.use(cors({
-  // origin: () => 'http://localhost:3000',
   credentials: true,
 }))
 let hpptServer = app.listen(PORT, () => {

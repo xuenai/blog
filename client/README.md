@@ -8,7 +8,7 @@
 
 数据交互使用的是apollo-client;部分第三方接口使用的原生fetch
 
-项目98%都是使用的Function Component实现（~~除了使用第三方接口的以外~~）
+项目都是使用的Function Component实现（~~除了使用第三方接口的以外~~）
 
 路由模式采用的history模式(~~不会说是因为看起来好看才用这个的~~)
 

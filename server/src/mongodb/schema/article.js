@@ -48,19 +48,4 @@ ArticleSchema.pre('save', function () {
   this.formatDate = moment().format('MMM Do YYYY');
 })
 
-// ArticleSchema.statics = {
-//   async filter(filter) {
-//     const regex = new RegExp(filter, 'i')
-//     const articles = await Article.find({
-//       $or: [{ title: regex }, { content: regex }],
-//       tags: { $elemMatch: { $eq: tag.id } }
-//     })
-//       .sort({ createdAt: -1 })
-//       .limit(~~pageSize)
-//       .skip(~~skip)
-//       .populate('tags', 'id name')
-//     return articles;
-//   }
-// }
-
 export default mongoose.model('Article', ArticleSchema)
