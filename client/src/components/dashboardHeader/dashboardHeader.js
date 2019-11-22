@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 import './dashboardHeader.scss';
 
+import { areEqual } from '@config'
+
 const DashboardHeader = ({ url }) => {
   return (
     <div className="d-header">
@@ -14,4 +16,4 @@ const DashboardHeader = ({ url }) => {
   )
 };
 
-export default DashboardHeader;
+export default React.memo(DashboardHeader, areEqual);

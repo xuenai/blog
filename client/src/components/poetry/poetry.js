@@ -34,6 +34,7 @@ const Poetry = (props) => {
         }
       });
     },
+    // eslint-disable-next-line
     []
   );
   let { content, title, inProp } = state;

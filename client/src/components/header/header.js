@@ -7,7 +7,7 @@ import './header.scss';
 import Poetry from '../poetry';
 import Input from '../input';
 import Button from '../button';
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 
 const Header = ({ url }) => {
   let [poetryStatus, setPoetryStatus] = useState(false);
@@ -81,4 +81,4 @@ const Header = ({ url }) => {
   )
 }
 
-export default Header;
+export default React.memo(Header, areEqual);

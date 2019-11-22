@@ -7,6 +7,7 @@ import './archiveList.scss';
 
 import { Tooltip, Popconfirm, Message } from '@components';
 import { DELETE_ARTICLE, ARTICLES_AND_TAGS } from '@graphql';
+import { areEqual } from '@config'
 
 const ArchiveList = ({ list }) => {
 
@@ -68,4 +69,4 @@ const ArchiveList = ({ list }) => {
   )
 };
 
-export default ArchiveList;
+export default React.memo(ArchiveList, areEqual);

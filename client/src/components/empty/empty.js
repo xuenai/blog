@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './empty.scss';
-
 import Image from './image';
+
+import { areEqual } from '@config'
 
 const Empty = ({ description, children }) => {
   return (
@@ -24,4 +25,4 @@ Empty.defaultProps = {
 Empty.propTypes = {
   description: PropTypes.any,
 }
-export default Empty;
+export default React.memo(Empty, areEqual);

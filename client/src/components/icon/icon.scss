@@ -25,7 +25,7 @@
     height: 100%;
 
     &-inner {
-      animation: rotator 1.4s linear infinite;
+      animation: rotator 1.2s linear infinite;
     }
 
     &-circle {
@@ -33,7 +33,7 @@
       stroke-dasharray: 187;
       stroke-dashoffset: 0;
       transform-origin: center;
-      animation: dash 1.4s ease-in-out infinite;
+      animation: dash 1.2s ease-in-out infinite;
     }
   }
 }

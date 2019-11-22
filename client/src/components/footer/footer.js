@@ -2,6 +2,8 @@ import React from 'react';
 
 import './footer.scss';
 
+import { areEqual } from '@config'
+
 const Footer = () => {
   return (
     <div className="footer">
@@ -13,4 +15,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;
+export default React.memo(Footer, areEqual);
