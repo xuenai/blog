@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import './tooltip.scss';
 
+import { areEqual } from '@config'
+
 const Tooltip = forwardRef((props, ref) => {
   let { title, children, trigger, onVisibleChange, ...rest } = props;
   /**
@@ -60,4 +62,4 @@ Tooltip.propTypes = {
   transitionName: PropTypes.string,
 }
 
-export default Tooltip;
+export default React.memo(Tooltip, areEqual);

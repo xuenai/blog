@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import './page.scss';
 
+import { areEqual } from '@config'
+
 // 上一页 1 ... 三个按扭展示
 const getPagesPre = ({ current, disabled, space, onChange }) => {
   let halfSpace = parseInt(space / 2);
@@ -142,7 +144,7 @@ Page.propTypes = {
   onChange: PropTypes.func, // 页码改变的回调，参数是改变后的页码
 }
 
-export default Page;
+export default React.memo(Page, areEqual);
 
 // 分页器用法
 // <Page current={current} total={10} onChange={e => setCurrent(e)}></Page>

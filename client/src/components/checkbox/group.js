@@ -5,6 +5,8 @@ import Checkbox from './checkbox';
 
 import './group.scss';
 
+import {areEqual} from '@config';
+
 /**
  * getOptions
  * @param {string | Array<string>} options Group的渲染项
@@ -97,4 +99,4 @@ Group.propTypes = {
   className: PropTypes.string,
 }
 
-export default Group;
+export default React.memo(Group, areEqual);

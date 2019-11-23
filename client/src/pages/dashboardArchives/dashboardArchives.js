@@ -6,7 +6,8 @@ import { CSSTransition } from 'react-transition-group';
 import './dashboardArchives.scss';
 
 import { Button, Loading, ArchiveList, Empty } from '@components';
-import { ARTICLES_AND_TAGS } from '@graphql'
+import { ARTICLES_AND_TAGS } from '@graphql';
+import { areEqual } from '@config';
 
 const DashboardArchives = () => {
   const { loading, data } = useQuery(ARTICLES_AND_TAGS);
@@ -34,4 +35,4 @@ const DashboardArchives = () => {
   )
 };
 
-export default DashboardArchives;
+export default React.memo(DashboardArchives, areEqual);

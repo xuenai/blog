@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
+import { areEqual } from '@config'
+
 const Input = forwardRef(({ type, className, disabled, placeholder, onChange, onEnter, ...rest }, ref) => {
   return (
     <div className={`input-wrapper ${className}`}>
@@ -33,4 +35,4 @@ Input.propTypes = {
   onEnter: PropTypes.func
 }
 
-export default Input;
+export default React.memo(Input, areEqual);

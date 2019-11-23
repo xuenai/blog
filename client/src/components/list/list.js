@@ -6,7 +6,7 @@ import './list.scss';
 
 import ListItem from '../list-item';
 import Empty from '../empty'
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 
 const List = ({ list }) => {
   const { firstLoad, headerReady } = useStore('menu');
@@ -27,4 +27,4 @@ const List = ({ list }) => {
   )
 };
 
-export default List;
+export default React.memo(List, areEqual);

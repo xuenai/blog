@@ -6,7 +6,7 @@ import './dashboardLogin.scss';
 import { Input, Button } from '@components';
 import { LOGIN_MUTATUIION } from '@graphql';
 import { Message } from '@components';
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 
 const DashboardLogin = () => {
   let locaition = useLocation();
@@ -44,4 +44,4 @@ const DashboardLogin = () => {
   )
 };
 
-export default DashboardLogin;
+export default React.memo(DashboardLogin, areEqual);

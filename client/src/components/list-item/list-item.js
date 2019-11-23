@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './list-item.scss';
 
+import {areEqual} from '@config'
+
 const ListItem = ({ path, data }) => {
   let { title, formatDate, summary, tags } = data;
   return (
@@ -31,4 +33,4 @@ const ListItem = ({ path, data }) => {
   )
 };
 
-export default ListItem;
+export default React.memo(ListItem, areEqual);

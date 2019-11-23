@@ -3,6 +3,8 @@ import clsx from 'clsx';
 
 import './timeline.scss';
 
+import { areEqual } from '@config';
+
 const Item = ({ className, ...rest }) => {
   let classString = clsx('h-timeline-item', className);
   return (
@@ -36,4 +38,4 @@ const Timeline = ({ className, ...rest }) => {
 Timeline.Item = Item;
 Timeline.Title = Title;
 
-export default Timeline;
+export default React.memo(Timeline, areEqual);

@@ -6,7 +6,7 @@ import './dashboard.scss';
 
 import { DashboardHeader, LoginedRoute, NotFound, NetError, Loading } from '@components';
 import { DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle, ArticleDetail, ArticleEdit } from '@pages';
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 import { ME_QUERY } from '@graphql'
 
 const Dashboard = () => {
@@ -53,4 +53,4 @@ const Dashboard = () => {
   )
 };
 
-export default Dashboard;
+export default React.memo(Dashboard, areEqual);

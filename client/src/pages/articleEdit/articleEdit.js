@@ -12,6 +12,7 @@ import '../newArticle/newArticle.scss';
 
 import { Input, Button, Message, Checkbox, Loading } from '@components';
 import { EDIT_ARTICLE, GET_DETAIL_TAGS, ARTICLES_AND_TAGS } from '@graphql';
+import { areEqual } from '@config';
 
 const options = {
   syntaxs: [
@@ -135,4 +136,4 @@ const ArticleEdit = ({ history }) => {
   )
 }
 
-export default ArticleEdit
+export default React.memo(ArticleEdit, areEqual)

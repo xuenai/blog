@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import './icon.scss';
 
+import { areEqual } from "@config"
+
 const Icon = ({ type, className, size }) => {
   let classString = clsx({
     'h-icon': 1,
@@ -43,4 +45,4 @@ Icon.propTypes = {
   className: PropTypes.string,
 }
 
-export default Icon;
+export default React.memo(Icon, areEqual);

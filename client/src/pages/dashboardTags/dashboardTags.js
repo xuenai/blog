@@ -7,6 +7,7 @@ import './dashboardTags.scss';
 import { TagList, Loading } from '@components';
 import AddTagButton from './addTagButton';
 import { ARTICLES_AND_TAGS } from '@graphql'
+import { areEqual } from '@config';
 
 const DashboardTags = () => {
   const { loading, data: { tags } } = useQuery(ARTICLES_AND_TAGS);
@@ -30,4 +31,4 @@ const DashboardTags = () => {
   )
 };
 
-export default DashboardTags;
+export default React.memo(DashboardTags, areEqual);

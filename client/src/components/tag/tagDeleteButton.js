@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { Popconfirm, Message } from '@components';
 import { DELETE_TAG, ARTICLES_AND_TAGS } from '@graphql';
+import { areEqual } from '@config';
 
 const DeleteBtn = ({ name, id, onChange }) => {
   const [deleteTag, { data }] = useMutation(DELETE_TAG, {
@@ -35,4 +36,4 @@ const DeleteBtn = ({ name, id, onChange }) => {
   )
 }
 
-export default DeleteBtn;
+export default React.memo(DeleteBtn, areEqual);

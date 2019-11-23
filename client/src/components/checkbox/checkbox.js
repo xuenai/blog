@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import './checkbox.scss';
 
+import { areEqual } from '@config';
+
 const Checkbox = ({ className, children, disabled, checked, onChange }) => {
   let [isChecked, setIsChecked] = useState(checked);
   let wrapperCls = clsx({ 'h-checkbox-wrapper': true }, className)
@@ -64,4 +66,4 @@ Checkbox.propTypes = {
   onChange: PropTypes.func
 }
 
-export default Checkbox;
+export default React.memo(Checkbox, areEqual);

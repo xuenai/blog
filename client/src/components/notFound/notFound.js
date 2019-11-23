@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './notFound.scss';
 import image from '@assets/images/404-bg.jpg';
-
+import { areEqual } from '@config';
 
 const imgMoveFunction = (e, ref) => {
   e.persist();
@@ -26,4 +26,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound;
+export default React.memo(NotFound, areEqual);

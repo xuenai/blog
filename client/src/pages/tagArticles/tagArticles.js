@@ -9,7 +9,7 @@ import './tagArticles.scss';
 
 import { TAG_ARTICLES } from '@graphql';
 import { Loading, NetError, Empty, Timeline } from '@components';
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 
 const TagArticles = () => {
   let { id } = useParams();
@@ -57,7 +57,7 @@ const TagArticles = () => {
   )
 }
 
-export default TagArticles;
+export default React.memo(TagArticles, areEqual);
 
 
 

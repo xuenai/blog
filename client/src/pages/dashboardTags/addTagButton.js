@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { Popconfirm, Input, Message } from '@components';
 import { ADD_TAG, TAGS_QUERY } from '@graphql';
-
+import {areEqual} from '@config';
 
 const AddTagButton = ({ onChange }) => {
   let ref = useRef()
@@ -37,4 +37,4 @@ const AddTagButton = ({ onChange }) => {
 };
 
 
-export default AddTagButton;
+export default React.memo(AddTagButton, areEqual);

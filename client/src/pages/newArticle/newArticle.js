@@ -10,6 +10,7 @@ import './newArticle.scss';
 
 import { Input, Button, Message, Checkbox } from '@components';
 import { ADD_ARTICLE, NEW_ARTICLE_TAGS_QUERY, ARTICLES_AND_TAGS } from '@graphql';
+import { areEqual } from '@config';
 
 const options = {
   syntaxs: [
@@ -111,4 +112,4 @@ const NewArticle = ({ history }) => {
   )
 }
 
-export default NewArticle
+export default React.memo(NewArticle, areEqual);

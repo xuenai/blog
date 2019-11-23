@@ -5,6 +5,7 @@ import './blog.scss';
 
 import { Header, Footer, NotFound } from '@components';
 import { Home, ArticleDetail, Tags, Archive, TagArticles, SearchArticles } from '@pages';
+import { areEqual } from '@config';
 
 const Blog = () => {
   let { path, url } = useRouteMatch();
@@ -27,4 +28,4 @@ const Blog = () => {
   )
 };
 
-export default Blog;
+export default React.memo(Blog, areEqual);

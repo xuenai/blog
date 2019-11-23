@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { List, NetError, Loading } from '@components';
 import { ARTICLES } from '@graphql';
+import { areEqual } from '@config';
 
 const Home = () => {
   let { data, loading, error } = useQuery(ARTICLES);
@@ -23,4 +24,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default React.memo(Home, areEqual);

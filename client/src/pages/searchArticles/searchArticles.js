@@ -9,7 +9,7 @@ import '../tagArticles/tagArticles.scss';
 
 import { SEARCH_ARTICLES } from '@graphql';
 import { Loading, NetError, Empty, Timeline } from '@components';
-import { useStore } from '@config';
+import { useStore, areEqual } from '@config';
 
 const SearchArticles = () => {
   let { filter } = useParams();
@@ -57,4 +57,4 @@ const SearchArticles = () => {
   )
 }
 
-export default SearchArticles;
+export default React.memo(SearchArticles, areEqual);
