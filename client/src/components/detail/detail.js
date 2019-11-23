@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import './detail.scss';
 
-import { useStore, areEqual } from '@config';
+import { useStore } from '@config';
 
 const Detail = ({ article, animate }) => {
   const { firstLoad, headerReady } = useStore('menu');
@@ -48,4 +48,4 @@ Detail.propTypes = {
   animate: PropTypes.bool,
 }
 
-export default React.memo(Detail, areEqual);
+export default Detail;

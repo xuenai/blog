@@ -3,11 +3,10 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { Popconfirm, Input, Message } from '@components';
 import { EDIT_TAG, TAGS_QUERY } from '@graphql';
- 
 
 const EditBtn = ({ name, id, onChange }) => {
   let ref = useRef();
-
+  // eslint-disable-next-line
   const [editTag, { data }] = useMutation(EDIT_TAG, {
     update(cache, { data: { editTag } }) {
       const { tags } = cache.readQuery({ query: TAGS_QUERY });
@@ -19,15 +18,10 @@ const EditBtn = ({ name, id, onChange }) => {
         query: TAGS_QUERY,
         data: { tags },
       });
+      Message.success({ content: '标签编辑成功！', key: `edit_tag_${id}` });
+      onChange && onChange();
     }
   });
-  if (data && ref) {
-    setTimeout(() => {
-      Message.success({ content: '标签编辑成功！', key: 'edit_tag' });
-      onChange && onChange();
-    });
-  }
-
   return (
     <Popconfirm destroyTooltipOnHide title="编辑标签" content={<Input defaultValue={name} ref={ref} autoFocus placeholeder="enter tag new name"></Input>} placement="top" onConfirm={() => {
       if (!ref.current.value.length) {
@@ -41,4 +35,4 @@ const EditBtn = ({ name, id, onChange }) => {
   )
 }
 
-export default React.memo(EditBtn  );
+export default EditBtn;

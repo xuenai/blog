@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import '../notFound/notFound.scss';
 import image from '@assets/images/404-bg.jpg';
-import { areEqual } from '@config';
 
 const imgMoveFunction = (e, ref) => {
   e.persist();
@@ -36,4 +35,4 @@ NetError.propTypes = {
   description: PropTypes.any,
 }
 
-export default React.memo(NetError, areEqual);
+export default NetError;

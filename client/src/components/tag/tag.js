@@ -6,8 +6,6 @@ import './tag.scss';
 import EditBtn from './tagEditButton';
 import DeleteBtn from './tagDeleteButton';
 
-import { areEqual } from '@config';
-
 const Tag = ({ children, editable, deletable, onClick, id, name, onChange }) => {
   return (
     <span className='h-tag' onClick={onClick}>
@@ -44,4 +42,4 @@ Tag.propTypes = {
   onChange: PropTypes.func,
 }
 
-export default React.memo(Tag, areEqual);
+export default Tag;

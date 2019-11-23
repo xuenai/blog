@@ -5,8 +5,6 @@ import clsx from 'clsx';
 import './loading.scss';
 import Spin from '../spin';
 
-import { areEqual } from '@config';
-
 const Loading = ({ title, className }) => {
 
   let classString = clsx('h-loading', className)
@@ -29,4 +27,4 @@ Loading.propTypes = {
   className: PropTypes.string,
 }
 
-export default React.memo(Loading, areEqual);
+export default Loading;

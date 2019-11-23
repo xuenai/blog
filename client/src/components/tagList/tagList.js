@@ -5,8 +5,6 @@ import './tagList.scss';
 import Tag from '../tag';
 import Empty from '../empty';
 
-import { areEqual } from '@config';
-
 const TagList = ({ data, onChange }) => {
   return (
     <div className="tag-list">
@@ -29,4 +27,4 @@ TagList.propTypes = {
   onChange: PropTypes.func
 }
 
-export default React.memo(TagList, areEqual);
+export default TagList;

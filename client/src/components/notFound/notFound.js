@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import './notFound.scss';
 import image from '@assets/images/404-bg.jpg';
 
-import { areEqual } from '@config';
-
 const imgMoveFunction = (e, ref) => {
   e.persist();
   let lMouseX = Math.max(-100, Math.min(100, document.documentElement.clientWidth / 2 - e.clientX));
@@ -27,4 +25,4 @@ const NotFound = () => {
   )
 }
 
-export default React.memo(NotFound, areEqual);
+export default NotFound;
