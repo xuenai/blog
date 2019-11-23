@@ -55,6 +55,7 @@ async function archives(root, args, { Article }) {
     {
       $group: {
         _id: { $year: '$updatedAt' },
+        count: {$sum: 1},
         articles: {
           $push: {
             id: '$_id',

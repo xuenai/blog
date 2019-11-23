@@ -33,7 +33,7 @@ const Archive = () => {
               {
                 archives.map(archive =>
                   <div key={archive.year}>
-                    <Timeline.Title key={archive.year}>{archive.year}</Timeline.Title>
+                    <Timeline.Title key={archive.year}>{archive.year}<span class="archive-count">年共{archive.count}篇日志</span> </Timeline.Title>
                     {
                       archive.articles.map(article => <Timeline.Item key={article.id}>
                         <Link to={`/blog/detail/${article.id}`} className="archive-link">

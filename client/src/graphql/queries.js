@@ -36,6 +36,7 @@ export const ARCHIVES = gql`
 {
   archives{
     year: _id
+    count
     articles{
       id
       title

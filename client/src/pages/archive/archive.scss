@@ -15,4 +15,9 @@
   &-summary {
     color: $gray-500;
   }
+  &-count{
+    margin-left:$spacer-2;
+    color:$gray-400;
+    font-size:$font-size-small;
+  }
 }

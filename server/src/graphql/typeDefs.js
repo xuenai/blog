@@ -55,7 +55,9 @@ type Tag {
 "日志归档"
 type Archive {
   "年份"
-  _id: String!,
+  _id: String!
+  "当年的总数"
+  count: Int!
   "日志列表"
   articles: [ArchiveArticle!]!
 }
