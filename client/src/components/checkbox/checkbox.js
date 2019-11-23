@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import './checkbox.scss';
-import { areEqual } from '@config';
 
 const Checkbox = ({ className, children, disabled, checked, onChange }) => {
   let [isChecked, setIsChecked] = useState(checked);
@@ -65,4 +64,4 @@ Checkbox.propTypes = {
   onChange: PropTypes.func
 }
 
-export default React.memo(Checkbox, areEqual);
+export default Checkbox;

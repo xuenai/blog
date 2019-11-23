@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import './button.scss';
 
 import Icon from '../icon';
-import { areEqual } from '@config';
 
 const prefixCls = 'h-button'
 
@@ -42,4 +41,4 @@ Button.propTypes = {
   loading: PropTypes.bool,
 }
 
-export default React.memo(Button, areEqual);
+export default Button;

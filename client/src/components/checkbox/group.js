@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import Checkbox from './checkbox';
 
 import './group.scss';
-import { areEqual } from '@config';
 
 /**
  * getOptions
@@ -98,4 +97,4 @@ Group.propTypes = {
   className: PropTypes.string,
 }
 
-export default React.memo(Group, areEqual);
+export default Group;

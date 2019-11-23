@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from 'react-router-dom';
-import { useStore, areEqual } from '@config';
+import { useStore } from '@config';
 
 function LoginedRoute({ component: Component, render, ...rest }) {
   const { loginStatus } = useStore('user');
@@ -23,4 +23,4 @@ function LoginedRoute({ component: Component, render, ...rest }) {
   );
 }
 
-export default React.memo(LoginedRoute, areEqual);
+export default LoginedRoute;
