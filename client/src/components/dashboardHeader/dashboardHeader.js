@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './dashboardHeader.scss';
-
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const DashboardHeader = ({ url }) => {
   return (

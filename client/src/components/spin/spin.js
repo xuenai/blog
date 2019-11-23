@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import './spin.scss';
 import Icon from '../icon';
 
-import { areEqual } from '@config'
+import {areEqual} from '@config';
 
 const Spin = ({ size, className }) => {
   let classString = clsx('spin', className)

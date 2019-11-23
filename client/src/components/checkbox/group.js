@@ -4,8 +4,7 @@ import clsx from 'clsx';
 import Checkbox from './checkbox';
 
 import './group.scss';
-
-import {areEqual} from '@config';
+import { areEqual } from '@config';
 
 /**
  * getOptions

@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import './loading.scss';
 import Spin from '../spin';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const Loading = ({ title, className }) => {
 

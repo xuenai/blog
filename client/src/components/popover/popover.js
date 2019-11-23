@@ -5,8 +5,6 @@ import './popover.scss';
 
 import Tooltip from '../tooltip';
 
-import {areEqual} from '@config'
-
 const Popover = forwardRef(({ title, prefixCls, content, ...rest }, ref) => {
   return (
     <Tooltip
@@ -44,4 +42,4 @@ Popover.propTypes = {
   content: PropTypes.any,
 }
 
-export default React.memo(Popover, areEqual);
+export default Popover;

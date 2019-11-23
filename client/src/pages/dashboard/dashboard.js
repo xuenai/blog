@@ -5,9 +5,17 @@ import { useQuery } from '@apollo/react-hooks';
 import './dashboard.scss';
 
 import { DashboardHeader, LoginedRoute, NotFound, NetError, Loading } from '@components';
-import { DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle, ArticleDetail, ArticleEdit } from '@pages';
-import { useStore, areEqual } from '@config';
-import { ME_QUERY } from '@graphql'
+// import { DashboardLogin, DashboardArchives, DashboardTags, DashboardRegister, NewArticle, ArticleDetail, ArticleEdit } from '@pages';
+import { useStore, loadable } from '@config';
+import { ME_QUERY } from '@graphql';
+
+const DashboardLogin = loadable(() => import('@pages/dashboardLogin'));
+const DashboardArchives = loadable(() => import('@pages/dashboardArchives'));
+const DashboardTags = loadable(() => import('@pages/dashboardTags'));
+const DashboardRegister = loadable(() => import('@pages/dashboardRegister'));
+const NewArticle = loadable(() => import('@pages/newArticle'));
+const ArticleDetail = loadable(() => import('@pages/detail'));
+const ArticleEdit = loadable(() => import('@pages/articleEdit'));
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -53,4 +61,4 @@ const Dashboard = () => {
   )
 };
 
-export default React.memo(Dashboard, areEqual);
+export default Dashboard;

@@ -7,8 +7,6 @@ import Tooltip from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 
-import {areEqual} from '@config'
-
 const transitionName = 'zoom-big';
 const prefixCls = 'h-popover';
 
@@ -117,4 +115,4 @@ Popconfirm.propTypes = {
   onVisibleChange: PropTypes.func,
 }
 
-export default React.memo(Popconfirm, areEqual);
+export default Popconfirm;

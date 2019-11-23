@@ -7,7 +7,7 @@ import './archiveList.scss';
 
 import { Tooltip, Popconfirm, Message } from '@components';
 import { DELETE_ARTICLE, ARTICLES_AND_TAGS } from '@graphql';
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const ArchiveList = ({ list }) => {
 
@@ -26,7 +26,6 @@ const ArchiveList = ({ list }) => {
       Message.success({ content: `《${data.deleteArticle.title}》已删除！`, key: `delete_article_${data.deleteArticle.id}` })
     });
   }
-
   return (
     <div className="d-article-list">
       {

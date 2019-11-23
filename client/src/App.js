@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import { NotFound } from '@components';
-import { Blog, Dashboard } from '@pages';
+import {loadable} from '@config';
+
+const Blog = loadable(() => import('@pages/blog'));
+const Dashboard = loadable(() => import('@pages/dashboard'));
 
 function App() {
   return (

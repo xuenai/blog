@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import './icon.scss';
 
-import { areEqual } from "@config"
+import { areEqual } from '@config';
 
 const Icon = ({ type, className, size }) => {
   let classString = clsx({

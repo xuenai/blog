@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { Popconfirm, Input, Message } from '@components';
 import { EDIT_TAG, TAGS_QUERY } from '@graphql';
-import { areEqual } from '@config';
+ 
 
 const EditBtn = ({ name, id, onChange }) => {
   let ref = useRef();
@@ -41,4 +41,4 @@ const EditBtn = ({ name, id, onChange }) => {
   )
 }
 
-export default React.memo(EditBtn, areEqual);
+export default React.memo(EditBtn  );

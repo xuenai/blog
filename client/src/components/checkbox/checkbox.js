@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import './checkbox.scss';
-
 import { areEqual } from '@config';
 
 const Checkbox = ({ className, children, disabled, checked, onChange }) => {

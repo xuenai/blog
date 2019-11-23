@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import './page.scss';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 // 上一页 1 ... 三个按扭展示
 const getPagesPre = ({ current, disabled, space, onChange }) => {

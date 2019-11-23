@@ -4,8 +4,14 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import './blog.scss';
 
 import { Header, Footer, NotFound } from '@components';
-import { Home, ArticleDetail, Tags, Archive, TagArticles, SearchArticles } from '@pages';
-import { areEqual } from '@config';
+import {loadable} from '@config';
+
+const Home = loadable(() => import('@pages/home'));
+const ArticleDetail = loadable(() => import('@pages/detail'));
+const Tags = loadable(() => import('@pages/tags'));
+const Archive = loadable(() => import('@pages/archive'));
+const TagArticles = loadable(() => import('@pages/tagArticles'));
+const SearchArticles = loadable(() => import('@pages/searchArticles'));
 
 const Blog = () => {
   let { path, url } = useRouteMatch();
@@ -28,4 +34,4 @@ const Blog = () => {
   )
 };
 
-export default React.memo(Blog, areEqual);
+export default Blog;

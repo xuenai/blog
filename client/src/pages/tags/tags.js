@@ -7,7 +7,7 @@ import './tags.scss';
 
 import { TAGS_QUERY } from '@graphql';
 import { Loading, NetError, Empty } from '@components';
-import { useStore, areEqual } from '@config';
+import { useStore   } from '@config';
 
 const Tags = () => {
   const { loading, data, error } = useQuery(TAGS_QUERY);
@@ -41,4 +41,4 @@ const Tags = () => {
   )
 }
 
-export default React.memo(Tags, areEqual);
+export default Tags;

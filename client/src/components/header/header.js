@@ -65,7 +65,7 @@ const Header = ({ url }) => {
                 event.persist();
                 setSearchStatus(false);
                 let value = input.current.value;
-                if(!value) {
+                if (!value) {
                   return false;
                 }
                 history.push(`/blog/search/${value}`)

@@ -1,8 +1,10 @@
-import { setStore, useStore, initStore } from './model'
+import { setStore, useStore, initStore } from './model';
+import loadable from './loadable';
 export {
   setStore,
   useStore,
-  initStore
+  initStore,
+  loadable
 }
 
 export * from './util';

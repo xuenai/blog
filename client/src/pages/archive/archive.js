@@ -8,7 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 import './archive.scss';
 import { ARCHIVES } from '@graphql';
 import { Empty, Loading, NetError, Timeline } from '@components';
-import { useStore, areEqual } from '@config';
+import { useStore } from '@config';
 
 const Archive = () => {
   let { data, loading, error } = useQuery(ARCHIVES);
@@ -54,4 +54,4 @@ const Archive = () => {
   )
 }
 
-export default React.memo(Archive, areEqual);
+export default Archive;

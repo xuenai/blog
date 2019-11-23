@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/react-hooks';
 import './detail.scss';
 import { ARTICLE_DETAIL } from '@graphql';
 import { Loading, Detail, NetError } from '@components';
-import { areEqual } from '@config';
+ 
 
 const ArticleDetail = ({ blog }) => {
   let { id } = useParams();
@@ -37,4 +37,4 @@ ArticleDetail.propTypes = {
   blog: PropTypes.bool,
 }
 
-export default React.memo(ArticleDetail, areEqual);
+export default ArticleDetail;

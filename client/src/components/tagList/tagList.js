@@ -5,7 +5,7 @@ import './tagList.scss';
 import Tag from '../tag';
 import Empty from '../empty';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const TagList = ({ data, onChange }) => {
   return (

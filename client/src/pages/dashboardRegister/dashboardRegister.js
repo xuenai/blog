@@ -6,7 +6,6 @@ import '../dashboardLogin/dashboardLogin.scss';
 
 import { Input, Button, Message } from '@components';
 import { REGISTER_MUTATUIION } from '@graphql';
-import {areEqual} from '@config';
 
 let handleLoading;
 const DashboardRegister = () => {
@@ -52,4 +51,4 @@ const DashboardRegister = () => {
   )
 };
 
-export default React.memo(DashboardRegister, areEqual);
+export default DashboardRegister;

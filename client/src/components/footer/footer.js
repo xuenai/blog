@@ -2,7 +2,7 @@ import React from 'react';
 
 import './footer.scss';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const Footer = () => {
   return (

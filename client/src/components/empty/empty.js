@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './empty.scss';
 import Image from './image';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const Empty = ({ description, children }) => {
   return (

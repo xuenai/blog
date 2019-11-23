@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
-import { areEqual } from '@config'
+import { areEqual } from '@config';
 
 const Input = forwardRef(({ type, className, disabled, placeholder, onChange, onEnter, ...rest }, ref) => {
   return (

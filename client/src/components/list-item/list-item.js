@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './list-item.scss';
 
-import {areEqual} from '@config'
+import { areEqual } from '@config'
 
 const ListItem = ({ path, data }) => {
   let { title, formatDate, summary, tags } = data;
